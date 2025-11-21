@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns - orca</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: #0a0e1a;
+            color: white;
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.4rem; font-weight: 700; }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: white; }
+        .nav-links a.active { color: #f97316; }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .hero {
+            padding: 12rem 2rem 6rem;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 100%);
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #f97316 50%, #2c4a8c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 8rem 2rem;
+        }
+        
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(44, 74, 140, 0.05) 0%, transparent 100%);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+        
+        /* Mission/Vision */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .mission-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+        
+        .mission-box h3 {
+            font-size: 2rem;
+            color: #f97316;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Story */
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-content p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .highlight-box {
+            background: rgba(249, 115, 22, 0.1);
+            border-left: 4px solid #f97316;
+            padding: 2rem 2rem 2rem 3rem;
+            margin: 3rem 0;
+            border-radius: 0 16px 16px 0;
+        }
+        
+        .highlight-box p {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin: 0;
+        }
+        
+        /* Expertise */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+        
+        .expertise-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            transition: all 0.3s;
+        }
+        
+        .expertise-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .expertise-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .expertise-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #f97316;
+        }
+        
+        .expertise-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .value-card {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+        
+        .value-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #10b981;
+        }
+        
+        .value-card p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+        
+        .tech-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+        
+        .tech-item h4 {
+            font-size: 1.8rem;
+            color: #f97316;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-item p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* CTA */
+        .cta-box {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            transition: all 0.3s;
+            margin-top: 2rem;
+        }
+        
+        .btn:hover { transform: translateY(-3px); }
+        
+        /* Footer */
+        .footer {
+            background: #050811;
+            padding: 5rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        @media (max-width: 1024px) {
+            .mission-grid, .tech-grid { grid-template-columns: 1fr; }
+            .expertise-grid, .values-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo-container">
+                <img src="data:image/png;base64," alt="orca" class="orca-logo">
+                <span class="logo-text">orca. organizing company assets.</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="prozesse-marketing.html">Prozesse</a>
+                <a href="erfolgsgeschichten.html">Erfolgsgeschichten</a>
+                <a href="ueber-uns.html" class="active">Über uns</a>
+                <button class="nav-btn">Demo buchen</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Wir machen Werkzeugmanagement<br>zum <span class="gradient">Branchenstandard</span></h1>
+        <p class="hero-subtitle">
+            Von Experten für Experten – gemeinsam für eine transparente Automobilindustrie
+        </p>
+    </div>
+
+    <!-- Mission & Vision -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Mission & Vision</h2>
+            <div class="mission-grid">
+                <div class="mission-box">
+                    <h3>Unsere Mission</h3>
+                    <p>
+                        Wir digitalisieren und automatisieren das Werkzeugmanagement in globalen Wertschöpfungsketten. Mit MyTools schaffen wir Transparenz, Compliance und Effizienz – über Unternehmensgrenzen hinweg, vom OEM bis zum n-tier Lieferanten.
+                    </p>
+                </div>
+                <div class="mission-box">
+                    <h3>Unsere Vision</h3>
+                    <p>
+                        MyTools wird der Branchenstandard für Werkzeugmanagement in der Automobilindustrie. Nicht proprietär, sondern kollaborativ. Nicht komplex, sondern intuitiv. Nicht teuer, sondern fair für alle Beteiligten der Supply Chain.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Die orca Story</h2>
+            <div class="story-content">
+                <p>
+                    2021 in Rennertshofen gegründet, entstand orca aus einer konkreten Herausforderung der Automobilindustrie: Wie managed man hunderttausende Lieferantenwerkzeuge über Dutzende Länder und Tausende Unternehmen hinweg?
+                </p>
+                <p>
+                    Die Antwort: Eine cloud-basierte Plattform, entwickelt von Branchenexperten mit über 25 Jahren kombinierter Erfahrung im Werkzeugmanagement, in Planung und Auftragsabwicklung bei OEMs und Lieferanten.
+                </p>
+                <div class="highlight-box">
+                    <p>
+                        "Nicht theoretisches Wissen, sondern gelebte Praxis aus der Automobilindustrie."
+                    </p>
+                </div>
+                <p>
+                    Heute nutzen BMW und über 3.000 Unternehmen MyTools für über 200.000 Werkzeuge in 70 Ländern. Tendenz stark steigend.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Circle of Experts</h2>
+            <p class="section-subtitle">
+                Unsere Expertise entsteht aus der perfekten Kombination von Branchen-Know-how, Prozess-Verständnis und modernster Technologie
+            </p>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">🏭</div>
+                    <h3>Automotive-Profis</h3>
+                    <p>25+ Jahre kombinierte Erfahrung im Werkzeugmanagement bei OEMs und Tier-1 Lieferanten</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">⚙️</div>
+                    <h3>Prozess-Expertise</h3>
+                    <p>Tiefes Verständnis für ABL, Inventur, Verlagerung und Verschrottung aus der Praxis</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">💻</div>
+                    <h3>Tech-Innovation</h3>
+                    <p>Moderne Cloud-Architektur, KI-gestützte Automatisierung, GraphDB-Technologie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Unsere Werte</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>Kollaborativ</h4>
+                    <p>Nicht proprietär, sondern Branchenstandard. n-tier ohne Zusatzkosten.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Transparent</h4>
+                    <p>Volle Sichtbarkeit über die gesamte Supply Chain für alle Beteiligten.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Fair</h4>
+                    <p>Faire Preismodelle für OEMs und Lieferanten. Keine versteckten Kosten.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Innovativ</h4>
+                    <p>KI, Automatisierung, GraphDB – Technologie die wirklich hilft.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Zuverlässig</h4>
+                    <p>99.83% Erfolgsquote. Bewährt bei BMW und tausenden Lieferanten.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Pragmatisch</h4>
+                    <p>Aus der Praxis für die Praxis. Keine Theorien, sondern Lösungen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Technologie & Partner</h2>
+            <p class="section-subtitle">
+                Modernste Technologie, bewährte Partner – für eine zukunftssichere Lösung
+            </p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Cloud-Native Architektur</h4>
+                    <p>
+                        Skalierbar, sicher, verfügbar. Aufbau, Betrieb und Weiterentwicklung einer cloud-basierten Plattform für die Organisation physischer Wirtschaftsgüter in globalen Wertschöpfungsketten.
+                    </p>
+                </div>
+                <div class="tech-item">
+                    <h4>Fischer Sherlock GraphDB</h4>
+                    <p>
+                        Die Datenmanagementplattform Sherlock bildet die technologische Basis. GraphDB-Technologie für Millionen Objekte und komplexe Verknüpfungen über die Supply Chain.
+                    </p>
+                </div>
+                <div class="tech-item">
+                    <h4>KI-gestützte Automatisierung</h4>
+                    <p>
+                        Automatische Foto-Validierung, OCR-Erkennung, intelligente Dublettenprüfung. 80% Effizienzsteigerung durch KI.
+                    </p>
+                </div>
+                <div class="tech-item">
+                    <h4>API-First Approach</h4>
+                    <p>
+                        REST-API für nahtlose Integration in ERP, PLM und weitere Systeme. Webhooks, Real-time Sync, Custom Connectors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-box">
+                <h2 class="section-title">Lassen Sie uns gemeinsam die Zukunft gestalten</h2>
+                <p class="section-subtitle">
+                    Werden Sie Teil des orca Ökosystems und profitieren Sie von der führenden Werkzeugmanagement-Plattform
+                </p>
+                <a href="#" class="btn">Jetzt Demo buchen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="data:image/png;base64," alt="orca" class="orca-logo">
+                <h3>orca. organizing company assets.</h3>
+                <p>Die führende Plattform für Werkzeugmanagement in der Automobilindustrie.</p>
+                <p style="margin-top: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.8);">Trusted by BMW Group</p>
+            </div>
+            <div class="footer-section">
+                <h4>Plattform</h4>
+                <a href="prozesse-marketing.html">Prozesse</a>
+                <a href="erfolgsgeschichten.html">Erfolgsgeschichten</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="prozesse-support.html">Anleitungen</a>
+                <a href="#">Kontakt</a>
+            </div>
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <a href="ueber-uns.html">Über uns</a>
+                <a href="#">Karriere</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 orca. organizing company assets GmbH</p>
+            <p>Antonibergstraße 17 | 86643 Rennertshofen | Deutschland</p>
+        </div>
+    </footer>
+</body>
+</html>
