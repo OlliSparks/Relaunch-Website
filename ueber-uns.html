@@ -342,9 +342,35 @@
             .mission-grid, .tech-grid { grid-template-columns: 1fr; }
             .expertise-grid, .values-grid { grid-template-columns: 1fr; }
         }
+    
+    /* Layout Switcher Bar */
+    .layout-switcher-bar { background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%); padding: 0.5rem 2rem; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 1001; border-bottom: 2px solid #f97316; }
+    .layout-switcher-bar .label { color: rgba(255,255,255,0.7); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .layout-switcher-bar .label::before { content: "⚡ "; }
+    .layout-dropdown-wrapper { display: flex; align-items: center; gap: 1rem; }
+    .layout-dropdown-wrapper > label { color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 500; }
+    .layout-dropdown { background: rgba(255,255,255,0.1); border: 1px solid rgba(249,115,22,0.5); color: white; padding: 0.5rem 2rem 0.5rem 1rem; font-family: Oswald, sans-serif; font-size: 0.9rem; border-radius: 6px; cursor: pointer; min-width: 200px; }
+    .layout-dropdown option { background: #1a1a2e; color: white; }
+    .dev-badge { background: #f97316; color: white; font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 3px; text-transform: uppercase; font-weight: 600; }
+    .nav { top: 42px !important; }
+    
     </style>
 </head>
 <body>
+    <!-- Layout Switcher Bar -->
+    <div class="layout-switcher-bar">
+        <div class="label">Design Preview Mode</div>
+        <div class="layout-dropdown-wrapper">
+            <span class="dev-badge">DEV</span>
+            <label>Layout:</label>
+            <select class="layout-dropdown" onchange="if(this.value) window.location.href=this.value">
+                <option value="ueber-uns.html" selected>1 - Dark Mode</option>
+                <option value="light-mode-ueber-uns.html" >2 - Light Mode</option>
+                <option value="" disabled>3 - Actual CI Mode (kommt)</option>
+            </select>
+        </div>
+    </div>
+
     <nav class="nav">
         <div class="nav-content">
             <a href="index.html" class="logo-container">
