@@ -36,6 +36,52 @@
         .mode-btn.light { background: #ffffff; border: 1px solid #ddd; }
         .mode-btn.ci { background: linear-gradient(135deg, #1C2553 50%, #5A2408 50%); }
 
+        /* ===== VIDEO SECTION ===== */
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+        }
+        .video-modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+        .video-modal-close:hover {
+            transform: scale(1.2);
+        }
+        .video-modal video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
         /* ===== NAVIGATION ===== */
         .nav {
             position: fixed;
@@ -285,6 +331,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            cursor: pointer;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s;
@@ -1050,6 +1097,68 @@
             </div>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="closeVideo">✕</button>
+            <video id="orca-video" controls playsinline>
+                <source src="https://video.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/4a7d7a6e-440e-448c-b2fd-e8302b221e47/playlist.m3u8" type="application/x-mpegURL">
+            </video>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('orca-video');
+            var videoSrc = 'https://video.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/4a7d7a6e-440e-448c-b2fd-e8302b221e47/playlist.m3u8';
+            var modal = document.getElementById('videoModal');
+            var playBtn = document.querySelector('.video-placeholder');
+            var closeBtn = document.getElementById('closeVideo');
+            
+            // HLS Setup
+            var hls;
+            if (Hls.isSupported()) {
+                hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+            }
+            
+            // Open Modal
+            playBtn.addEventListener('click', function() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                video.play();
+            });
+            
+            // Close Modal
+            closeBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                video.pause();
+            });
+            
+            // Close on background click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    video.pause();
+                }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    video.pause();
+                }
+            });
+        });
+    </script>
 
     <!-- Prozesse Section -->
     <section class="processes">
