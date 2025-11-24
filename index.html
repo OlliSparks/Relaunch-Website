@@ -27,6 +27,15 @@
             line-height: 1.6;
         }
 
+        /* ===== MODE SWITCHER ===== */
+        .mode-switcher { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; gap: 0.5rem; background: rgba(0,0,0,0.8); padding: 0.5rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+        .mode-btn { width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; text-decoration: none; }
+        .mode-btn:hover { transform: scale(1.1); }
+        .mode-btn.active { border-color: #f97316; }
+        .mode-btn.dark { background: #0a0e1a; }
+        .mode-btn.light { background: #ffffff; border: 1px solid #ddd; }
+        .mode-btn.ci { background: linear-gradient(135deg, #1C2553 50%, #5A2408 50%); }
+
         /* ===== NAVIGATION ===== */
         .nav {
             position: fixed;
@@ -977,6 +986,13 @@
     </style>
 </head>
 <body>
+
+    <!-- Mode Switcher -->
+    <div class="mode-switcher">
+        <a href="index.html" class="mode-btn dark active" title="Dark Mode">🌙</a>
+        <a href="light-mode-index.html" class="mode-btn light" title="Light Mode">☀️</a>
+        <a href="ci-mode-index.html" class="mode-btn ci" title="CI Mode">🎨</a>
+    </div>
 
     <!-- Navigation -->
     <nav class="nav">
