@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>orca. | Layout 3 - Actual CI Mode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c4a8c;
+            --primary-dark: #1e3a6d;
+            --secondary: #f97316;
+            --secondary-dark: #ea580c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0f172a 100%);
+            color: white;
+        }
+
+        /* Layout Switcher Bar */
+        .layout-switcher-bar {
+            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+        }
+
+        .layout-switcher-bar .label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .layout-switcher-bar .label::before {
+            content: '⚡';
+        }
+
+        .layout-dropdown-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .layout-dropdown-wrapper label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .layout-dropdown {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+            color: white;
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23f97316' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .layout-dropdown:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .layout-dropdown:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+        }
+
+        .layout-dropdown option {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .dev-badge {
+            background: var(--secondary);
+            color: white;
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* Placeholder Content */
+        .placeholder-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+            animation: pulse-bg 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .placeholder-icon {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 25px 60px rgba(249, 115, 22, 0.4);
+            animation: float 4s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .placeholder-title {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .placeholder-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .placeholder-badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .placeholder-description {
+            max-width: 550px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            margin-top: 2.5rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .layout-features {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-tag {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-tag:hover {
+            background: rgba(249, 115, 22, 0.2);
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .layout-switcher-bar {
+                padding: 0.5rem 1rem;
+            }
+            .layout-switcher-bar .label {
+                display: none;
+            }
+            .placeholder-title {
+                font-size: 2.5rem;
+            }
+            .placeholder-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Layout Switcher Bar -->
+    <div class="layout-switcher-bar">
+        <div class="label">Design Preview Mode</div>
+        <div class="layout-dropdown-wrapper">
+            <span class="dev-badge">DEV</span>
+            <label for="layoutSelector">Layout wählen:</label>
+            <select id="layoutSelector" class="layout-dropdown" onchange="switchLayout(this.value)">
+                <option value="index.html">1 – Dark Mode</option>
+                <option value="layout2.html">2 – Light Mode</option>
+                <option value="layout3.html" selected>3 – Actual CI Mode</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Placeholder Content -->
+    <div class="placeholder-container">
+        <div class="placeholder-icon">🚀</div>
+        <h1 class="placeholder-title">Layout 3</h1>
+        <p class="placeholder-subtitle">Actual CI Mode</p>
+        <span class="placeholder-badge">In Entwicklung</span>
+        <p class="placeholder-description">
+            Strikt nach dem orca CI-Guide gestaltet. Exakte Umsetzung der 
+            Corporate Identity mit allen definierten Farben, Schriften und Gestaltungsregeln.
+        </p>
+        <div class="layout-features">
+            <span class="feature-tag">CI-konform</span>
+            <span class="feature-tag">#2c4a8c Blau</span>
+            <span class="feature-tag">#f97316 Orange</span>
+            <span class="feature-tag">Oswald Font</span>
+        </div>
+    </div>
+
+    <script>
+        function switchLayout(layoutFile) {
+            if (layoutFile && !layoutFile.includes('(in Arbeit)')) {
+                window.location.href = layoutFile;
+            }
+        }
+    </script>
+</body>
+</html>

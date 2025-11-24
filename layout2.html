@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>orca. | Die Plattform für Lieferantenwerkzeuge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1C2553;
+            --primary-light: #2a3670;
+            --primary-dark: #141b3d;
+            --secondary: #f97316;
+            --secondary-dark: #ea580c;
+            --success: #10b981;
+            --text-dark: #1C2553;
+            --text-medium: #3d4a7a;
+            --text-light: #6b7280;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fc;
+            --bg-section: #f0f2f7;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Oswald', sans-serif; color: var(--text-dark); background: var(--bg-white); line-height: 1.6; }
+
+        .layout-switcher-bar {
+            background: var(--primary);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1001;
+            border-bottom: 2px solid var(--secondary);
+        }
+        .layout-switcher-bar .label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .layout-switcher-bar .label::before { content: '⚡'; }
+        .layout-dropdown-wrapper { display: flex; align-items: center; gap: 1rem; }
+        .layout-dropdown-wrapper label { color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 500; }
+        .layout-dropdown {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(249,115,22,0.5);
+            color: white;
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23f97316' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            min-width: 200px;
+        }
+        .layout-dropdown:hover { background-color: rgba(255,255,255,0.15); border-color: var(--secondary); }
+        .layout-dropdown:focus { outline: none; border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(249,115,22,0.2); }
+        .layout-dropdown option { background: var(--primary); color: white; }
+        .dev-badge { background: var(--secondary); color: white; font-size: 0.65rem; padding: 0.2rem 0.5rem; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+
+        .header {
+            background: var(--bg-white);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 40px; left: 0; right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .header.scrolled { padding: 0.5rem 2rem; box-shadow: 0 4px 20px rgba(28,37,83,0.1); }
+        .header-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .header-brand { display: flex; align-items: center; gap: 1rem; }
+        .header-brand a { text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+        .orca-logo { height: 50px; width: auto; transition: transform 0.3s ease; }
+        .header.scrolled .orca-logo { height: 40px; }
+        .header-brand a:hover .orca-logo { transform: scale(1.05); }
+        .header-logo-text { color: var(--primary); font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
+        .header-tagline { color: var(--text-medium); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-top: 0.2rem; }
+        .header-nav { display: flex; gap: 2rem; align-items: center; }
+        .header-nav a { color: var(--primary); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; position: relative; }
+        .header-nav a:not(.btn-login):hover { color: var(--secondary); }
+        .header-nav a:not(.btn-login)::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s ease; }
+        .header-nav a:not(.btn-login):hover::after { width: 100%; }
+        .btn-login { background: var(--secondary); padding: 0.6rem 1.5rem; border-radius: 6px; color: white !important; font-weight: 600; }
+        .btn-login:hover { background: var(--secondary-dark); transform: translateY(-2px); }
+
+        .hero {
+            background: var(--bg-white);
+            padding: 12rem 2rem 6rem;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231C2553' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .hero-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+        .hero-text { color: var(--text-dark); }
+        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-section); border: 1px solid #e5e7eb; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-medium); }
+        .hero-badge::before { content: '✓'; color: var(--success); font-weight: bold; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: var(--primary); }
+        .hero h1 .highlight { color: var(--secondary); }
+        .hero-subtitle { font-size: 1.5rem; font-weight: 300; margin-bottom: 1rem; color: var(--text-medium); }
+        .hero p { font-size: 1.1rem; color: var(--text-medium); max-width: 540px; margin-bottom: 2rem; }
+        .hero-cta { display: flex; gap: 1rem; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; border-radius: 8px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn-secondary { background: var(--secondary); color: white; }
+        .btn-secondary:hover { background: var(--secondary-dark); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(249,115,22,0.3); }
+        .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: white; }
+        .btn-large { padding: 1.2rem 2.5rem; font-size: 1.1rem; }
+
+        .hero-visual { position: relative; }
+        .hero-card { background: var(--primary); border-radius: 16px; padding: 2rem; box-shadow: 0 25px 50px rgba(28,37,83,0.25); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(0); } 50% { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(-20px); } }
+        .hero-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2); }
+        .hero-card-icon { width: 50px; height: 50px; background: var(--secondary); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; }
+        .hero-card-title { font-weight: 600; color: white; }
+        .hero-card-subtitle { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+        .hero-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .hero-stat { text-align: center; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; }
+        .hero-stat-number { font-size: 1.8rem; font-weight: 700; color: white; }
+        .hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .stats-bar { background: var(--primary); border-radius: 16px; padding: 2rem 3rem; margin-top: -3rem; position: relative; z-index: 10; box-shadow: 0 10px 40px rgba(28,37,83,0.2); }
+        .stats-content { display: flex; justify-content: space-around; align-items: center; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: white; line-height: 1; }
+        .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem; }
+        .stat-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.2); }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .section { padding: 5rem 2rem; }
+        .section-light { background: var(--bg-section); }
+        .section-title { font-size: 2.5rem; font-weight: 700; text-align: center; margin-bottom: 1rem; color: var(--primary); }
+        .section-subtitle { text-align: center; color: var(--text-medium); font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem; }
+
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+        .process-card { background: var(--bg-white); border-radius: 12px; padding: 2rem; text-align: center; box-shadow: 0 4px 15px rgba(28,37,83,0.08); transition: all 0.3s ease; border: 1px solid transparent; }
+        .process-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(28,37,83,0.15); border-color: var(--secondary); }
+        .process-icon { width: 70px; height: 70px; background: var(--gradient-primary); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; }
+        .process-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: var(--primary); }
+        .process-card p { font-size: 0.95rem; color: var(--text-medium); line-height: 1.6; }
+
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .benefit-card { background: var(--bg-white); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(28,37,83,0.08); transition: all 0.3s ease; border: 1px solid #e5e7eb; }
+        .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(28,37,83,0.12); border-color: var(--secondary); }
+        .benefit-icon { width: 50px; height: 50px; background: rgba(28,37,83,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem; }
+        .benefit-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary); }
+        .benefit-card p { font-size: 0.95rem; color: var(--text-medium); }
+
+        .trust-section { background: var(--gradient-primary); padding: 4rem 2rem; text-align: center; color: white; }
+        .trust-content { max-width: 800px; margin: 0 auto; }
+        .trust-logo { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; opacity: 0.9; }
+        .trust-quote { font-size: 1.3rem; font-style: italic; opacity: 0.9; margin-bottom: 1.5rem; }
+        .trust-author { font-size: 0.95rem; opacity: 0.7; }
+
+        .cta-section { background: var(--bg-section); padding: 5rem 2rem; text-align: center; }
+        .cta-content { max-width: 600px; margin: 0 auto; }
+        .cta-content h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary); }
+        .cta-content p { font-size: 1.1rem; color: var(--text-medium); margin-bottom: 2rem; }
+
+        .footer { background: var(--primary); color: white; padding: 4rem 2rem 2rem; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+        .footer-brand h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .footer-brand p { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.95rem; }
+        .footer-section h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .footer-section a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.75rem; transition: all 0.3s ease; }
+        .footer-section a:hover { color: white; padding-left: 0.5rem; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+        @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; }
+            .hero-visual { display: none; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-content { flex-wrap: wrap; gap: 2rem; }
+            .stat-divider { display: none; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .layout-switcher-bar { padding: 0.5rem 1rem; }
+            .layout-switcher-bar .label { display: none; }
+            .header { padding: 0.75rem 1rem; }
+            .header-nav { display: none; }
+            .hero { padding: 10rem 1rem 4rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .process-grid { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout-switcher-bar">
+        <div class="label">Design Preview Mode</div>
+        <div class="layout-dropdown-wrapper">
+            <span class="dev-badge">DEV</span>
+            <label for="layoutSelector">Layout wählen:</label>
+            <select id="layoutSelector" class="layout-dropdown" onchange="switchLayout(this.value)">
+                <option value="index.html">1 – Dark Mode</option>
+                <option value="layout2.html" selected>2 – Light Mode</option>
+                <option value="layout3.html">3 – Actual CI Mode</option>
+            </select>
+        </div>
+    </div>
+
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="header-brand">
+                <a href="#home">
+                    <svg class="orca-logo" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="25" cy="15" r="12" fill="#1C2553"/>
+                        <ellipse cx="25" cy="35" rx="18" ry="12" fill="#1C2553"/>
+                        <circle cx="21" cy="14" r="2" fill="white"/>
+                        <circle cx="29" cy="14" r="2" fill="white"/>
+                    </svg>
+                    <div>
+                        <div class="header-logo-text">orca.</div>
+                        <div class="header-tagline">organizing company assets</div>
+                    </div>
+                </a>
+            </div>
+            <nav class="header-nav">
+                <a href="#unternehmen">Unternehmen</a>
+                <a href="#prozesse">Prozesse</a>
+                <a href="#vorteile">Vorteile</a>
+                <a href="#referenzen">Referenzen</a>
+                <a href="#kontakt">Kontakt</a>
+                <a href="#" class="btn-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">Trusted by leading automotive companies</div>
+                <h1>Die Plattform für <span class="highlight">Lieferantenwerkzeuge</span> in der Automobilindustrie</h1>
+                <p class="hero-subtitle">Transparenz. Effizienz. Compliance.</p>
+                <p>orca verbindet Prozesspartner unternehmensübergreifend und digitalisiert das gesamte Lifecycle-Management von Fertigungsmitteln.</p>
+                <div class="hero-cta">
+                    <a href="#kontakt" class="btn btn-secondary btn-large">Jetzt Demo buchen</a>
+                    <a href="#prozesse" class="btn btn-outline btn-large">Mehr erfahren</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-card-icon">📊</div>
+                        <div>
+                            <div class="hero-card-title">MyTools Dashboard</div>
+                            <div class="hero-card-subtitle">Echtzeit-Übersicht aller Werkzeuge</div>
+                        </div>
+                    </div>
+                    <div class="hero-stat-grid">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">200K+</div>
+                            <div class="hero-stat-label">Werkzeuge</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">70</div>
+                            <div class="hero-stat-label">Länder</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">99.8%</div>
+                            <div class="hero-stat-label">Inventur-Erfolg</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">7.5K</div>
+                            <div class="hero-stat-label">Aktive Nutzer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stats-content">
+                <div class="stat-item">
+                    <div class="stat-number">200.000+</div>
+                    <div class="stat-label">Verwaltete Werkzeuge</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">70</div>
+                    <div class="stat-label">Länder weltweit</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">99.83%</div>
+                    <div class="stat-label">Inventur-Erfolgsquote</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">7.500</div>
+                    <div class="stat-label">Aktive Nutzer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="prozesse" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Unsere Prozesse</h2>
+            <p class="section-subtitle">Vier standardisierte Kernprozesse für das vollständige Lifecycle-Management Ihrer Fertigungsmittel.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon">📋</div>
+                    <h3>ABL – Abnahme</h3>
+                    <p>Die Abnahme von Betriebsmitteln und Werkzeugen (ABL) ist der standardisierte Prozess zur Überprüfung und Freigabe neuer oder modifizierter Fertigungsmittel. Unser System führt Sie Schritt für Schritt durch alle notwendigen Prüfungen und Dokumentationen.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🔍</div>
+                    <h3>Inventur</h3>
+                    <p>Die regelmäßige Inventur aller Betriebsmittel gewährleistet eine lückenlose Dokumentation und Bewertung. Mit orca können Sie Ihre Inventurprozesse effizient planen, durchführen und auswerten – mit einer Erfolgsquote von 99,83%.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🚚</div>
+                    <h3>Verlagerung</h3>
+                    <p>Der Verlagerungsprozess ermöglicht die kontrollierte Übertragung von Betriebsmitteln zwischen Standorten oder Lieferanten. Alle Bewegungen werden dokumentiert und nachvollziehbar archiviert, um die Compliance-Anforderungen zu erfüllen.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">♻️</div>
+                    <h3>Verschrottung</h3>
+                    <p>Die ordnungsgemäße Verschrottung von Betriebsmitteln erfordert klare Genehmigungsworkflows und vollständige Dokumentation. orca stellt sicher, dass alle Schritte nachvollziehbar und revisionssicher abgewickelt werden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vorteile" class="section">
+        <div class="container">
+            <h2 class="section-title">Ihre Vorteile mit orca</h2>
+            <p class="section-subtitle">Maximale Transparenz und Effizienz für Ihr Werkzeugmanagement.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔗</div>
+                    <h3>Unternehmensübergreifend</h3>
+                    <p>Verbinden Sie alle Prozesspartner auf einer gemeinsamen Plattform.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Echtzeit-Transparenz</h3>
+                    <p>Vollständige Übersicht über alle Werkzeuge, jederzeit und überall.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3>Compliance-sicher</h3>
+                    <p>Alle Prozesse erfüllen die strengsten Automotive-Standards.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Automatisierung</h3>
+                    <p>Reduzieren Sie manuelle Aufwände durch intelligente Workflows.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Global verfügbar</h3>
+                    <p>Einsatz in 70 Ländern mit mehrsprachiger Unterstützung.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Bewährte Erfolge</h3>
+                    <p>99,83% Inventur-Erfolgsquote bei über 200.000 Werkzeugen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="referenzen" class="trust-section">
+        <div class="trust-content">
+            <div class="trust-logo">BMW Group</div>
+            <p class="trust-quote">"orca hat unsere Prozesse für das Management von Lieferantenwerkzeugen revolutioniert. Die Plattform bietet uns beispiellose Transparenz und Effizienz."</p>
+            <p class="trust-author">– Referenzkunde aus der Automobilindustrie</p>
+        </div>
+    </section>
+
+    <section id="kontakt" class="cta-section">
+        <div class="cta-content">
+            <h2>Bereit für die Zukunft?</h2>
+            <p>Vereinbaren Sie noch heute eine Demo und erfahren Sie, wie orca Ihr Werkzeugmanagement transformieren kann.</p>
+            <a href="mailto:info@orca.de" class="btn btn-secondary btn-large">Demo buchen</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>orca.</h3>
+                <p>organizing company assets GmbH<br>Antonibergstraße 17<br>86643 Rennertshofen<br>Deutschland</p>
+            </div>
+            <div class="footer-section">
+                <h4>Plattform</h4>
+                <a href="#prozesse">Prozesse</a>
+                <a href="#vorteile">Vorteile</a>
+                <a href="#">Features</a>
+                <a href="#">Preise</a>
+            </div>
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <a href="#">Über uns</a>
+                <a href="#">Karriere</a>
+                <a href="#">Partner</a>
+                <a href="#">News</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Anleitungen</a>
+                <a href="#">Kontakt</a>
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2024 orca. organizing company assets GmbH. Alle Rechte vorbehalten.</div>
+    </footer>
+
+    <script>
+        function switchLayout(layoutFile) {
+            if (layoutFile && !layoutFile.includes('(in Arbeit)')) {
+                window.location.href = layoutFile;
+            }
+        }
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+    </script>
+</body>
+</html>
