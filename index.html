@@ -3,1069 +3,665 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>orca. | Die Plattform für Lieferantenwerkzeuge</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>orca - Werkzeugmanagement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2c4a8c;
-            --primary-dark: #1e3a6d;
-            --secondary: #f97316;
-            --secondary-dark: #ea580c;
-            --success: #10b981;
-            --text-dark: #2c3e50;
-            --text-medium: #4a5568;
-            --text-light: #6b7280;
-            --bg-light: #f5f7fa;
-            --bg-white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Oswald', sans-serif;
-            color: var(--text-dark);
-            background: var(--bg-white);
-            line-height: 1.6;
+            background: #0a0e1a;
+            color: white;
+            overflow-x: hidden;
         }
-
-        /* Layout Switcher Bar */
-        .layout-switcher-bar {
-            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        
+        .nav {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1001;
-            border-bottom: 1px solid rgba(249, 115, 22, 0.3);
-        }
-
-        .layout-switcher-bar .label {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .layout-switcher-bar .label::before {
-            content: '⚡';
-        }
-
-        .layout-dropdown-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .layout-dropdown-wrapper label {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .layout-dropdown {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(249, 115, 22, 0.5);
-            color: white;
-            padding: 0.5rem 2rem 0.5rem 1rem;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            border-radius: 6px;
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23f97316' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.75rem center;
-            min-width: 200px;
-            transition: all 0.3s ease;
-        }
-
-        .layout-dropdown:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-color: var(--secondary);
-        }
-
-        .layout-dropdown:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
-        }
-
-        .layout-dropdown option {
-            background: #1a1a2e;
-            color: white;
-            padding: 0.5rem;
-        }
-
-        .dev-badge {
-            background: var(--secondary);
-            color: white;
-            font-size: 0.65rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-        }
-
-        /* Main Header - mit Offset für Switcher Bar */
-        .header {
-            background: var(--gradient-primary);
-            padding: 1rem 2rem;
-            position: fixed;
-            top: 40px;
             left: 0;
             right: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .header.scrolled {
-            padding: 0.5rem 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .header-content {
-            max-width: 1400px;
+        
+        .nav-content {
+            max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .header-brand {
+        
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
-
-        .header-brand a {
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .orca-logo {
-            height: 50px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .header.scrolled .orca-logo {
-            height: 40px;
-        }
-
-        .header-brand a:hover .orca-logo {
-            transform: scale(1.05);
-        }
-
-        .header-logo-text {
             color: white;
-            font-size: 1.8rem;
+        }
+        
+        .orca-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 1.4rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
         }
-
-        .header-tagline {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-top: 0.2rem;
-        }
-
-        .header-nav {
+        
+        .nav-links {
             display: flex;
             gap: 2rem;
             align-items: center;
         }
-
-        .header-nav a {
-            color: rgba(255, 255, 255, 0.9);
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: color 0.3s;
         }
-
-        .header-nav a:not(.btn-login):hover {
+        
+        .nav-links a:hover { color: white; }
+        .nav-links a.active { color: #f97316; }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: white; }
+        .nav-links a.active { color: #f97316; }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
             color: white;
-        }
-
-        .header-nav a:not(.btn-login)::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: width 0.3s ease;
-        }
-
-        .header-nav a:not(.btn-login):hover::after {
-            width: 100%;
-        }
-
-        .btn-login {
-            background: var(--secondary);
-            padding: 0.6rem 1.5rem;
-            border-radius: 6px;
-            color: white !important;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: none;
             font-weight: 600;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
         }
-
-        .btn-login:hover {
-            background: var(--secondary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
+        
         .hero {
-            background: var(--gradient-primary);
-            padding: 12rem 2rem 6rem;
-            margin-top: 40px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            overflow: hidden;
+            padding: 10rem 2rem 6rem;
+            background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 100%);
         }
-
-        .hero::before {
-            content: '';
+        
+        .orca-bg {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.15;
             z-index: 1;
         }
-
-        .hero-text {
-            color: white;
+        
+        .orca-shape {
+            position: absolute;
+            fill: rgba(255, 255, 255, 0.4);
         }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(10px);
+        
+        .orca-1 {
+            top: 15%;
+            left: 5%;
+            width: 500px;
+            height: 250px;
+            animation: swim1 20s ease-in-out infinite;
         }
-
-        .hero-badge::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: bold;
+        
+        .orca-2 {
+            bottom: 20%;
+            right: 5%;
+            width: 450px;
+            height: 225px;
+            animation: swim2 25s ease-in-out infinite;
         }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+        
+        @keyframes swim1 {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(80px) translateY(-50px); }
         }
-
-        .hero h1 .highlight {
-            color: var(--secondary);
-            position: relative;
+        
+        @keyframes swim2 {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(-60px) translateY(40px); }
         }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            max-width: 540px;
-            margin-bottom: 2rem;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-secondary {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: var(--secondary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-        }
-
-        .btn-large {
-            padding: 1.2rem 2.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Hero Visual */
-        .hero-visual {
-            position: relative;
-        }
-
-        .hero-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(0); }
-            50% { transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateY(-20px); }
-        }
-
-        .hero-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .hero-card-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .hero-card-title {
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .hero-card-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        .hero-stat-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .hero-stat {
-            text-align: center;
-            padding: 1rem;
-            background: var(--bg-light);
-            border-radius: 8px;
-        }
-
-        .hero-stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .hero-stat-label {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem 3rem;
-            margin-top: -3rem;
+        
+        .hero-content {
             position: relative;
             z-index: 10;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .stats-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .stat-item {
             text-align: center;
+            max-width: 1200px;
         }
-
-        .stat-number {
-            font-size: 2.5rem;
+        
+        h1 {
+            font-size: 5rem;
             font-weight: 700;
-            color: var(--primary);
-            line-height: 1;
+            margin-bottom: 2rem;
+            line-height: 1.1;
         }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
+        
+        .gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #f97316 50%, #2c4a8c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200%;
+            animation: gradient-shift 3s ease infinite;
         }
-
-        .stat-divider {
-            width: 1px;
-            height: 60px;
-            background: #e5e7eb;
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
         }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 2rem;
-        }
-
-        .section-light {
-            background: var(--bg-light);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-medium);
-            font-size: 1.1rem;
-            max-width: 600px;
+        
+        .description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 900px;
             margin: 0 auto 3rem;
+            line-height: 1.8;
         }
-
-        /* Process Section */
-        .process-grid {
+        
+        .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .process-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .process-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--secondary);
-        }
-
-        .process-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .process-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .process-card p {
-            font-size: 0.95rem;
-            color: var(--text-medium);
-            line-height: 1.6;
-        }
-
-        /* Benefits Section */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .benefit-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(44, 74, 140, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .benefit-card p {
-            font-size: 0.95rem;
-            color: var(--text-medium);
-        }
-
-        /* Trust Section */
-        .trust-section {
-            background: var(--gradient-primary);
-            padding: 4rem 2rem;
-            text-align: center;
-            color: white;
-        }
-
-        .trust-content {
-            max-width: 800px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-
-        .trust-logo {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            opacity: 0.9;
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
         }
-
-        .trust-quote {
-            font-size: 1.3rem;
-            font-style: italic;
-            opacity: 0.9;
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f97316;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .section {
+            padding: 8rem 2rem;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
             margin-bottom: 1.5rem;
         }
-
-        .trust-author {
-            font-size: 0.95rem;
-            opacity: 0.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--bg-light);
-            padding: 5rem 2rem;
+        
+        .section-subtitle {
+            font-size: 1.3rem;
             text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 800px;
+            margin: 0 auto 5rem;
         }
-
-        .cta-content {
-            max-width: 600px;
+        
+        .prozesse {
+            max-width: 1400px;
             margin: 0 auto;
         }
-
-        .cta-content h2 {
-            font-size: 2.5rem;
+        
+        .prozess {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+        
+        .prozess:nth-child(even) .prozess-content {
+            order: 2;
+        }
+        
+        .prozess-content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+        
+        .prozess-number {
+            display: inline-flex;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2c4a8c 0%, #f97316 100%);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
             font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prozess-content h3 {
+            font-size: 2.2rem;
+            color: #f97316;
             margin-bottom: 1rem;
-            color: var(--text-dark);
         }
-
-        .cta-content p {
+        
+        .prozess-content strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .prozess-content p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .badge-active {
+            display: inline-block;
+            padding: 0.6rem 1.3rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            color: #10b981;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .prozess-image {
+            height: 400px;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .prozess-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+        
+        .cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
             font-size: 1.1rem;
-            color: var(--text-medium);
-            margin-bottom: 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            transition: all 0.3s;
+            display: inline-block;
         }
-
-        /* Footer */
-        .footer {
-            background: #1a1a2e;
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
             color: white;
-            padding: 4rem 2rem 2rem;
+            border: none;
         }
-
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            background: #050811;
+            padding: 5rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
         .footer-content {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
         }
-
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
         .footer-brand h3 {
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 1rem;
         }
-
+        
         .footer-brand p {
             color: rgba(255, 255, 255, 0.6);
-            line-height: 1.8;
-            font-size: 0.95rem;
         }
-
+        
         .footer-section h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
             margin-bottom: 1.5rem;
         }
-
+        
         .footer-section a {
             display: block;
             color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            margin-bottom: 0.75rem;
-            transition: all 0.3s ease;
+            margin-bottom: 0.8rem;
         }
-
-        .footer-section a:hover {
-            color: white;
-            padding-left: 0.5rem;
-        }
-
+        
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             margin-top: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
         }
-
-        /* Responsive */
+        
         @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-content {
-                flex-wrap: wrap;
-                gap: 2rem;
-            }
-
-            .stat-divider {
-                display: none;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .prozess { grid-template-columns: 1fr; }
+            .features { grid-template-columns: repeat(2, 1fr); }
         }
-
+        
         @media (max-width: 768px) {
-            .layout-switcher-bar {
-                padding: 0.5rem 1rem;
-            }
-
-            .layout-switcher-bar .label {
-                display: none;
-            }
-
-            .header {
-                padding: 0.75rem 1rem;
-            }
-
-            .header-nav {
-                display: none;
-            }
-
-            .hero {
-                padding: 10rem 1rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+            h1 { font-size: 3rem; }
+            .stats, .features { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Layout Switcher Bar -->
-    <div class="layout-switcher-bar">
-        <div class="label">Design Preview Mode</div>
-        <div class="layout-dropdown-wrapper">
-            <span class="dev-badge">DEV</span>
-            <label for="layoutSelector">Layout wählen:</label>
-            <select id="layoutSelector" class="layout-dropdown" onchange="switchLayout(this.value)">
-                <option value="index.html" selected>1 – Dark Mode</option>
-                <option value="layout2.html">2 – Light Mode</option>
-                <option value="layout3.html">3 – Actual CI Mode</option>
-            </select>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="header-content">
-            <div class="header-brand">
-                <a href="#home">
-                    <!-- Logo Placeholder - hier echtes Logo einsetzen -->
-                    <svg class="orca-logo" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="25" cy="15" r="12" fill="white"/>
-                        <ellipse cx="25" cy="35" rx="18" ry="12" fill="white"/>
-                        <circle cx="21" cy="14" r="2" fill="#2c4a8c"/>
-                        <circle cx="29" cy="14" r="2" fill="#2c4a8c"/>
-                    </svg>
-                    <div>
-                        <div class="header-logo-text">orca.</div>
-                        <div class="header-tagline">organizing company assets</div>
-                    </div>
-                </a>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo-container">
+                <img src="data:image/png;base64,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" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca. organizing company assets.</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="prozesse-marketing.html">Prozesse</a>
+                <a href="erfolgsgeschichten.html">Erfolgsgeschichten</a>
+                <a href="ueber-uns.html">Über uns</a>
+                <a href="#kontakt" class="nav-btn">Demo buchen</a>
             </div>
-            <nav class="header-nav">
-                <a href="#unternehmen">Unternehmen</a>
-                <a href="#prozesse">Prozesse</a>
-                <a href="#vorteile">Vorteile</a>
-                <a href="#referenzen">Referenzen</a>
-                <a href="#kontakt">Kontakt</a>
-                <a href="#" class="btn-login">Login</a>
-            </nav>
         </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
+        <div class="orca-bg">
+            <svg class="orca-shape orca-1" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="100" cy="50" rx="90" ry="40"/>
+                <ellipse cx="170" cy="45" rx="40" ry="25"/>
+                <circle cx="60" cy="35" r="8"/>
+                <path d="M20,50 Q10,25 15,15 Q20,25 20,50 Z"/>
+            </svg>
+            <svg class="orca-shape orca-2" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="100" cy="50" rx="85" ry="38"/>
+                <ellipse cx="165" cy="48" rx="35" ry="22"/>
+                <circle cx="65" cy="38" r="7"/>
+                <path d="M25,50 Q15,30 18,20 Q23,30 25,50 Z"/>
+            </svg>
+        </div>
+
         <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">Trusted by leading automotive companies</div>
-                <h1>Die Plattform für <span class="highlight">Lieferantenwerkzeuge</span> in der Automobilindustrie</h1>
-                <p class="hero-subtitle">Transparenz. Effizienz. Compliance.</p>
-                <p>orca verbindet Prozesspartner unternehmensübergreifend und digitalisiert das gesamte Lifecycle-Management von Fertigungsmitteln.</p>
-                <div class="hero-cta">
-                    <a href="#kontakt" class="btn btn-secondary btn-large">Jetzt Demo buchen</a>
-                    <a href="#prozesse" class="btn btn-outline btn-large">Mehr erfahren</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <div class="hero-card-header">
-                        <div class="hero-card-icon">📊</div>
-                        <div>
-                            <div class="hero-card-title">MyTools Dashboard</div>
-                            <div class="hero-card-subtitle">Echtzeit-Übersicht aller Werkzeuge</div>
-                        </div>
-                    </div>
-                    <div class="hero-stat-grid">
-                        <div class="hero-stat">
-                            <div class="hero-stat-number">200K+</div>
-                            <div class="hero-stat-label">Werkzeuge</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-number">70</div>
-                            <div class="hero-stat-label">Länder</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-number">99.8%</div>
-                            <div class="hero-stat-label">Inventur-Erfolg</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-number">7.5K</div>
-                            <div class="hero-stat-label">Aktive Nutzer</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h1>
+                <span class="gradient">Werkzeugmanagement</span><br>
+                der Zukunft
+            </h1>
 
-    <!-- Stats Bar -->
-    <div class="container">
-        <div class="stats-bar">
-            <div class="stats-content">
-                <div class="stat-item">
+            <p class="subtitle">
+                Vollständig digitalisiert • KI-gestützt • Supply-Chain integriert
+            </p>
+
+            <p class="description">
+                orca revolutioniert das Management von über 200.000 Lieferantenwerkzeugen in der Automobilindustrie durch intelligente Automatisierung und vollständige Transparenz.
+            </p>
+
+            <div class="stats">
+                <div class="stat-card">
                     <div class="stat-number">200.000+</div>
-                    <div class="stat-label">Verwaltete Werkzeuge</div>
+                    <div class="stat-label">Werkzeuge verwaltet</div>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">70</div>
-                    <div class="stat-label">Länder weltweit</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">99.83%</div>
-                    <div class="stat-label">Inventur-Erfolgsquote</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
+                <div class="stat-card">
                     <div class="stat-number">7.500</div>
                     <div class="stat-label">Aktive Nutzer</div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Prozesse Section -->
-    <section id="prozesse" class="section section-light">
-        <div class="container">
-            <h2 class="section-title">Unsere Prozesse</h2>
-            <p class="section-subtitle">Vier standardisierte Kernprozesse für das vollständige Lifecycle-Management Ihrer Fertigungsmittel.</p>
-            
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-icon">📋</div>
-                    <h3>ABL – Abnahme</h3>
-                    <p>Die Abnahme von Betriebsmitteln und Werkzeugen (ABL) ist der standardisierte Prozess zur Überprüfung und Freigabe neuer oder modifizierter Fertigungsmittel. Unser System führt Sie Schritt für Schritt durch alle notwendigen Prüfungen und Dokumentationen.</p>
+                <div class="stat-card">
+                    <div class="stat-number">3.000</div>
+                    <div class="stat-label">Lieferanten in 70 Ländern</div>
                 </div>
-                <div class="process-card">
-                    <div class="process-icon">🔍</div>
-                    <h3>Inventur</h3>
-                    <p>Die regelmäßige Inventur aller Betriebsmittel gewährleistet eine lückenlose Dokumentation und Bewertung. Mit orca können Sie Ihre Inventurprozesse effizient planen, durchführen und auswerten – mit einer Erfolgsquote von 99,83%.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-icon">🚚</div>
-                    <h3>Verlagerung</h3>
-                    <p>Der Verlagerungsprozess ermöglicht die kontrollierte Übertragung von Betriebsmitteln zwischen Standorten oder Lieferanten. Alle Bewegungen werden dokumentiert und nachvollziehbar archiviert, um die Compliance-Anforderungen zu erfüllen.</p>
-                </div>
-                <div class="process-card">
-                    <div class="process-icon">♻️</div>
-                    <h3>Verschrottung</h3>
-                    <p>Die ordnungsgemäße Verschrottung von Betriebsmitteln erfordert klare Genehmigungsworkflows und vollständige Dokumentation. orca stellt sicher, dass alle Schritte nachvollziehbar und revisionssicher abgewickelt werden.</p>
+                <div class="stat-card">
+                    <div class="stat-number">99.83%</div>
+                    <div class="stat-label">Erfolgsquote Inventur</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section id="vorteile" class="section">
-        <div class="container">
-            <h2 class="section-title">Ihre Vorteile mit orca</h2>
-            <p class="section-subtitle">Maximale Transparenz und Effizienz für Ihr Werkzeugmanagement.</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔗</div>
-                    <h3>Unternehmensübergreifend</h3>
-                    <p>Verbinden Sie alle Prozesspartner auf einer gemeinsamen Plattform.</p>
+    <section class="section">
+        <h2 class="section-title">Intelligente Automatisierung</h2>
+        <p class="section-subtitle">
+            KI-gestützte Technologien für maximale Effizienz im Werkzeugmanagement
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <h3>KI-Validierung</h3>
+                <p>Automatische Werkzeug-Analyse und Nummern-Erkennung</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌐</div>
+                <h3>n-tier Integration</h3>
+                <p>Nahtlose Vernetzung der Lieferkette</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <h3>100% Compliance</h3>
+                <p>Automatischer Steuerberater weltweit</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>80% Effizienz</h3>
+                <p>Drastische Reduktion manueller Arbeit</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Ready</h3>
+                <p>Werkzeuge direkt vor Ort erfassen</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔄</div>
+                <h3>API-First</h3>
+                <p>Nahtlose System-Integration</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Der komplette Lebenszyklus</h2>
+        <p class="section-subtitle">
+            Von der Abnahme bis zur Verschrottung – alle Werkzeugprozesse digital
+        </p>
+
+        <div class="prozesse">
+            <div class="prozess">
+                <div class="prozess-content">
+                    <div class="prozess-number">01</div>
+                    <h3>ABL</h3>
+                    <strong>Abnahmebereitschaftserklärung als Beginn des Werkzeug-Lebenslaufs.</strong>
+                    <p>Die ABL ist Voraussetzung für die geprüfte Abnahme der Werkzeuge durch den Auftraggeber.</p>
+                    <p>Nachweise, validierte Fotos und Dokumentation minimieren das Compliance-Risiko.</p>
+                    <span class="badge-active">● AKTIV</span>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <h3>Echtzeit-Transparenz</h3>
-                    <p>Vollständige Übersicht über alle Werkzeuge, jederzeit und überall.</p>
+                <div class="prozess-image">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Qualitätskontrolle">
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">✅</div>
-                    <h3>Compliance-sicher</h3>
-                    <p>Alle Prozesse erfüllen die strengsten Automotive-Standards.</p>
+            </div>
+
+            <div class="prozess">
+                <div class="prozess-content">
+                    <div class="prozess-number">02</div>
+                    <h3>INVENTUR</h3>
+                    <strong>Inventuren von Werkzeugen effizient durchführen.</strong>
+                    <p>Alle Beteiligten bestätigen, dass Werkzeuge existieren und sich an erwarteten Standorten befinden.</p>
+                    <p>160.000 Werkzeuge inventarisiert mit 99.83% Erfolgsquote.</p>
+                    <span class="badge-active">● AKTIV</span>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Automatisierung</h3>
-                    <p>Reduzieren Sie manuelle Aufwände durch intelligente Workflows.</p>
+                <div class="prozess-image">
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" alt="Lagerverwaltung">
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌍</div>
-                    <h3>Global verfügbar</h3>
-                    <p>Einsatz in 70 Ländern mit mehrsprachiger Unterstützung.</p>
+            </div>
+
+            <div class="prozess">
+                <div class="prozess-content">
+                    <div class="prozess-number">03</div>
+                    <h3>VERLAGERUNG</h3>
+                    <strong>Werkzeug-Verlagerungen weltweit durchführen.</strong>
+                    <p>Standortänderung nach umfassender Prüfung und Genehmigung.</p>
+                    <p>Dokumentation der Werkzeug-Verlagerung in orca.</p>
+                    <span class="badge-active">● AKTIV</span>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3>Bewährte Erfolge</h3>
-                    <p>99,83% Inventur-Erfolgsquote bei über 200.000 Werkzeugen.</p>
+                <div class="prozess-image">
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80" alt="Logistik">
+                </div>
+            </div>
+
+            <div class="prozess">
+                <div class="prozess-content">
+                    <div class="prozess-number">04</div>
+                    <h3>VERSCHROTTUNG</h3>
+                    <strong>Verschrottung von Werkzeugen durchführen.</strong>
+                    <p>Freigabe am Ende des Lebenszyklus nach Prüfung von Langzeitversorgung und Erlöspotenzial.</p>
+                    <span class="badge-active">● AKTIV</span>
+                </div>
+                <div class="prozess-image">
+                    <img src="https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=800&q=80" alt="Recycling">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Section -->
-    <section id="referenzen" class="trust-section">
-        <div class="trust-content">
-            <div class="trust-logo">BMW Group</div>
-            <p class="trust-quote">"orca hat unsere Prozesse für das Management von Lieferantenwerkzeugen revolutioniert. Die Plattform bietet uns beispiellose Transparenz und Effizienz."</p>
-            <p class="trust-author">– Referenzkunde aus der Automobilindustrie</p>
+    <section class="section" style="background: linear-gradient(135deg, rgba(44, 74, 140, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%); text-align: center;">
+        <h2 class="section-title">Bereit für die <span class="gradient">Zukunft?</span></h2>
+        <p class="section-subtitle">
+            Erleben Sie selbst, wie orca Ihr Werkzeugmanagement transformiert.
+        </p>
+        <div class="cta">
+            <a href="#" class="btn btn-primary">Kostenlose Demo</a>
+            <a href="#" class="btn btn-outline">Mehr erfahren</a>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="kontakt" class="cta-section">
-        <div class="cta-content">
-            <h2>Bereit für die Zukunft?</h2>
-            <p>Vereinbaren Sie noch heute eine Demo und erfahren Sie, wie orca Ihr Werkzeugmanagement transformieren kann.</p>
-            <a href="mailto:info@orca.de" class="btn btn-secondary btn-large">Demo buchen</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>orca.</h3>
-                <p>organizing company assets GmbH<br>
-                Antonibergstraße 17<br>
-                86643 Rennertshofen<br>
-                Deutschland</p>
+                <img src="data:image/png;base64,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" alt="orca Logo" class="orca-logo">
+                <h3>orca. organizing company assets.</h3>
+                <p>Die führende Plattform für Werkzeugmanagement in der Automobilindustrie.</p>
+                <p style="margin-top: 1rem; font-weight: 600; color: rgba(255, 255, 255, 0.8);">Trusted by BMW Group</p>
             </div>
+
             <div class="footer-section">
                 <h4>Plattform</h4>
-                <a href="#prozesse">Prozesse</a>
-                <a href="#vorteile">Vorteile</a>
                 <a href="#">Features</a>
-                <a href="#">Preise</a>
+                <a href="#">Prozesse</a>
             </div>
+
             <div class="footer-section">
-                <h4>Unternehmen</h4>
-                <a href="#">Über uns</a>
-                <a href="#">Karriere</a>
-                <a href="#">Partner</a>
-                <a href="#">News</a>
+                <h4>Prozesse</h4>
+                <a href="prozesse-marketing.html">Prozesse</a>
+                <a href="erfolgsgeschichten.html">Erfolgsgeschichten</a>
             </div>
+
             <div class="footer-section">
                 <h4>Support</h4>
-                <a href="#">Anleitungen</a>
-                <a href="#">Kontakt</a>
-                <a href="#">Impressum</a>
-                <a href="#">Datenschutz</a>
+                <a href="prozesse-support.html">Anleitungen</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Unternehmen</h4>
+                <a href="ueber-uns.html">Über uns</a>
+                <a href="erfolgsgeschichten.html#partner">Partner</a>
+                <a href="#">Karriere</a>
             </div>
         </div>
+
         <div class="footer-bottom">
-            © 2024 orca. organizing company assets GmbH. Alle Rechte vorbehalten.
+            <p>© 2024 orca. organizing company assets GmbH</p>
+            <p>Antonibergstraße 17 | 86643 Rennertshofen | Deutschland</p>
         </div>
     </footer>
-
-    <script>
-        // Layout Switcher Function
-        function switchLayout(layoutFile) {
-            if (layoutFile && !layoutFile.includes('(in Arbeit)')) {
-                window.location.href = layoutFile;
-            }
-        }
-
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth Scroll for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
