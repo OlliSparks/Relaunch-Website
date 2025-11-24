@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>orca. organizing company assets - Werkzeug-Management der Zukunft</title>
+    <title>orca. organizing company assets - Werkzeugmanagement für die Automobilindustrie</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,7 +27,41 @@
             line-height: 1.6;
         }
 
-        /* ===== NAVIGATION ===== */
+        /* Mode Switcher */
+        .mode-switcher {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9999;
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .mode-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .mode-btn:hover { transform: scale(1.1); }
+        .mode-btn.active { border-color: var(--accent); }
+        .mode-btn.dark { background: #0a0e1a; }
+        .mode-btn.light { background: #ffffff; }
+        .mode-btn.ci { background: linear-gradient(135deg, #1C2553 50%, #5A2408 50%); }
+
+        /* Navigation */
         .nav {
             position: fixed;
             top: 0;
@@ -56,35 +90,12 @@
             color: white;
         }
         
-        .orca-logo {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
-        
-        .logo-text {
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-        
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
         .logo-text span { color: var(--accent); }
         
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s;
-            letter-spacing: 0.02em;
-        }
-        
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: white; }
         .nav-links a.active { color: var(--accent); }
         
@@ -93,22 +104,13 @@
             color: white;
             padding: 0.8rem 2rem;
             border-radius: 50px;
-            border: none;
             font-weight: 600;
-            cursor: pointer;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
             text-decoration: none;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
-        }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3); }
 
-        /* ===== HERO SECTION ===== */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -118,43 +120,19 @@
             overflow: hidden;
         }
         
-        /* Orca Wellen-Hintergrund */
         .hero::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            height: 300px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231C2553' fill-opacity='0.15' d='M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,128C672,117,768,139,864,165.3C960,192,1056,224,1152,213.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231C2553' fill-opacity='0.1' d='M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,128C672,117,768,139,864,165.3C960,192,1056,224,1152,213.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
             background-size: cover;
             opacity: 0.5;
         }
         
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(28, 37, 83, 0.3) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        
-        /* Dezente Orca-Silhouette */
-        .orca-bg {
-            position: absolute;
-            right: 5%;
-            bottom: 10%;
-            width: 400px;
-            height: 400px;
-            opacity: 0.04;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='white'/%3E%3Cellipse cx='30' cy='45' rx='8' ry='12' fill='white'/%3E%3Ccircle cx='35' cy='50' r='3' fill='%230a0e1a'/%3E%3Cellipse cx='70' cy='60' rx='15' ry='8' fill='white' transform='rotate(-20 70 60)'/%3E%3C/svg%3E") no-repeat center;
-            background-size: contain;
-        }
-        
-        .hero-content {
+        .hero-container {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
@@ -165,14 +143,27 @@
             z-index: 1;
         }
         
-        .hero-text h1 {
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title {
             font-size: 3.5rem;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.5rem;
         }
         
-        .hero-text h1 .highlight {
+        .hero-title .highlight {
             background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -183,321 +174,90 @@
             font-size: 1.3rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
-            font-weight: 400;
             line-height: 1.6;
         }
         
-        .hero-badges {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .badge {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .badge-icon { color: var(--accent); }
-        
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
         
         .btn-primary {
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            border: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-family: 'Oswald', sans-serif;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
-        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4); }
         
         .btn-secondary {
             background: transparent;
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             border: 2px solid var(--border);
             font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-family: 'Oswald', sans-serif;
             text-decoration: none;
             transition: all 0.3s;
         }
-        
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            background: rgba(249, 115, 22, 0.1);
-        }
+        .btn-secondary:hover { border-color: var(--accent); background: rgba(249, 115, 22, 0.1); }
 
-        /* ===== VIDEO SECTION ===== */
-        .hero-video {
+        .hero-visual {
             position: relative;
         }
         
         .video-container {
-            position: relative;
+            background: linear-gradient(135deg, rgba(28, 37, 83, 0.3) 0%, rgba(10, 14, 26, 0.8) 100%);
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border);
             aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
-        }
-        
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
         }
         
-        .video-placeholder:hover .play-btn {
-            transform: scale(1.1);
-            box-shadow: 0 0 60px rgba(249, 115, 22, 0.5);
-        }
-        
-        .play-btn {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s;
-            box-shadow: 0 0 40px rgba(249, 115, 22, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
-        .play-btn svg {
-            width: 40px;
-            height: 40px;
-            fill: white;
-            margin-left: 5px;
-        }
-        
-        .video-label {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        
-        .video-glow {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
+        .play-button:hover { transform: scale(1.1); box-shadow: 0 0 40px rgba(249, 115, 22, 0.5); }
+        .play-button::after { content: '▶'; color: white; font-size: 1.5rem; margin-left: 5px; }
 
-        /* ===== TRUST BAR ===== */
-        .trust-bar {
-            background: linear-gradient(90deg, rgba(28, 37, 83, 0.3) 0%, rgba(28, 37, 83, 0.1) 100%);
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .trust-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .trust-item {
-            text-align: center;
-        }
-        
-        .trust-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1;
-        }
-        
-        .trust-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 0.3rem;
-        }
-        
-        .trust-divider {
-            width: 1px;
-            height: 50px;
-            background: var(--border);
-        }
+        /* Sections Common */
+        .section { padding: 100px 2rem; }
+        .section-container { max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label { color: var(--accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+        .section-title { font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
 
-        /* ===== PROBLEM/SOLUTION ===== */
-        .problem-solution {
-            padding: 100px 2rem;
-            position: relative;
-            background: linear-gradient(180deg, rgba(28, 37, 83, 0.1) 0%, transparent 100%);
-        }
-        
-        .section-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .problem-solution-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-        
-        .problem-card, .solution-card {
-            padding: 3rem;
-            border-radius: 20px;
-            position: relative;
-        }
-        
-        .problem-card {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.02) 100%);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-        }
-        
-        .solution-card {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.02) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-        
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .problem-card .card-icon {
-            background: rgba(239, 68, 68, 0.2);
-        }
-        
-        .solution-card .card-icon {
-            background: rgba(16, 185, 129, 0.2);
-        }
-        
-        .card-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .card-list {
-            list-style: none;
-        }
-        
-        .card-list li {
-            padding: 0.75rem 0;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 1.05rem;
-        }
-        
-        .card-list li span {
-            flex-shrink: 0;
-        }
-
-        /* ===== PROZESSE ===== */
-        .processes {
-            padding: 80px 2rem 100px;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-label {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
-        }
-        
+        /* Processes */
+        .processes { background: rgba(28, 37, 83, 0.1); }
+        .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
         .process-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 2rem 1.5rem;
             text-align: center;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
         }
+        .process-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .process-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .process-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .process-desc { font-size: 0.9rem; color: var(--text-secondary); }
 
-        /* ===== ADVANTAGES ===== */
-        .advantages {
-            padding: 100px 2rem;
-        }
-        
-        .advantages-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-        
+        /* Advantages */
+        .advantages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
         .advantage-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -505,478 +265,117 @@
             padding: 2rem;
             transition: all 0.3s;
         }
-        
-        .advantage-card:hover {
-            border-color: rgba(249, 115, 22, 0.3);
-            transform: translateY(-3px);
-        }
-        
-        .advantage-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .advantage-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        
-        .advantage-desc {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        
-        .process-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), #fbbf24);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-        
-        .process-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .process-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(249, 115, 22, 0.3);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .process-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.1);
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-        }
-        
-        .process-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, rgba(28, 37, 83, 0.5) 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-        }
-        
-        .process-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .process-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
+        .advantage-card:hover { border-color: var(--accent); }
+        .advantage-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .advantage-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .advantage-desc { font-size: 0.95rem; color: var(--text-secondary); }
 
-        /* ===== BENEFITS ===== */
-        .benefits {
-            padding: 100px 2rem;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .benefit-column {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 3rem;
-        }
-        
-        .benefit-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .benefit-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-        
-        .benefit-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .benefit-list {
-            list-style: none;
-        }
-        
-        .benefit-list li {
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            font-size: 1.05rem;
-        }
-        
-        .benefit-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .benefit-check {
-            color: #10b981;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
+        /* Problem/Solution */
+        .problem-solution { background: rgba(28, 37, 83, 0.1); }
+        .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .ps-card { border-radius: 20px; padding: 3rem; }
+        .ps-card.problem { background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.02) 100%); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .ps-card.solution { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.02) 100%); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .ps-label { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 1rem; }
+        .ps-card.problem .ps-label { color: #ef4444; }
+        .ps-card.solution .ps-label { color: #10b981; }
+        .ps-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .ps-list { list-style: none; }
+        .ps-list li { padding: 0.75rem 0; display: flex; align-items: flex-start; gap: 1rem; color: var(--text-secondary); }
+        .ps-list li span { flex-shrink: 0; }
 
-        /* ===== BMW REFERENZ ===== */
-        .reference {
-            padding: 100px 2rem;
-            background: linear-gradient(180deg, rgba(28, 37, 83, 0.1) 0%, transparent 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Wellen-Hintergrund */
-        .reference::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%231C2553' fill-opacity='0.1' d='M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,128C960,149,1056,171,1152,165.3C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'%3E%3C/path%3E%3C/svg%3E") no-repeat top;
-            background-size: cover;
-        }
-        
-        .reference-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .reference-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(249, 115, 22, 0.1);
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-        }
-        
-        .reference-quote {
-            font-size: 1.8rem;
-            font-weight: 500;
-            line-height: 1.5;
-            margin-bottom: 2rem;
-            font-style: italic;
-            color: var(--text-secondary);
-        }
-        
-        .reference-stats {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .ref-stat {
-            text-align: center;
-        }
-        
-        .ref-stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-        
-        .ref-stat-label {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        
-        .reference-cta {
-            margin-top: 3rem;
-        }
+        /* Benefits */
+        .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .benefit-column { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
+        .benefit-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+        .benefit-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .benefit-title { font-size: 1.4rem; font-weight: 600; }
+        .benefit-list { list-style: none; }
+        .benefit-list li { padding: 0.75rem 0; display: flex; align-items: flex-start; gap: 1rem; color: var(--text-secondary); }
+        .benefit-check { color: #10b981; }
 
-        /* ===== TECHNOLOGIE ===== */
-        .technology {
-            padding: 100px 2rem;
-        }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
-        }
-        
+        /* Reference */
+        .reference { background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%); }
+        .reference-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .reference-quote { font-size: 1.4rem; font-style: italic; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8; }
+        .reference-author { font-weight: 600; color: white; }
+        .reference-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .stat-card { background: rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 2rem; text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
+        .stat-label { color: var(--text-secondary); margin-top: 0.5rem; }
+
+        /* Technology */
+        .tech-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
         .tech-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            padding: 2rem;
             text-align: center;
             transition: all 0.3s;
         }
-        
-        .tech-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        .tech-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .tech-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tech-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
+        .tech-card:hover { border-color: var(--accent); }
+        .tech-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .tech-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .tech-desc { font-size: 0.9rem; color: var(--text-secondary); }
 
-        /* ===== CTA SECTION ===== */
+        /* CTA */
         .cta-section {
             padding: 100px 2rem;
-            background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='white' stroke-opacity='0.03' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='white' stroke-opacity='0.03' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='white' stroke-opacity='0.03' stroke-width='0.5'/%3E%3C/svg%3E") repeat;
-            background-size: 100px 100px;
-        }
-        
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
-        
-        .cta-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .cta-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .cta-subtitle { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem; }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            background: #050810;
-            padding: 60px 2rem 30px;
-            border-top: 1px solid var(--border);
-        }
-        
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-        }
-        
-        .footer-brand .logo-text {
-            margin-bottom: 1rem;
-        }
-        
-        .footer-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-        
-        .footer-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        .footer-legal a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin-left: 2rem;
-        }
-        
-        .footer-legal a:hover {
-            color: var(--accent);
-        }
+        /* Footer */
+        .footer { background: #050810; padding: 60px 2rem 30px; border-top: 1px solid var(--border); }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; }
+        .footer-brand .logo-text { margin-bottom: 1rem; }
+        .footer-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+        .footer-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-bottom { max-width: 1400px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer-legal a { color: var(--text-secondary); text-decoration: none; margin-left: 2rem; }
+        .footer-legal a:hover { color: var(--accent); }
 
-        /* ===== RESPONSIVE ===== */
+        /* Responsive */
         @media (max-width: 1200px) {
-            .tech-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .process-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .advantages-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .process-grid { grid-template-columns: repeat(3, 1fr); }
+            .tech-grid { grid-template-columns: repeat(3, 1fr); }
+            .advantages-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        
         @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-badges {
-                justify-content: center;
-            }
-            
-            .hero-ctas {
-                justify-content: center;
-            }
-            
-            .problem-solution-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .process-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .ps-grid, .benefits-grid, .reference-content { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
         }
-        
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .advantages-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .tech-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .reference-stats {
-                gap: 2rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .footer-legal a {
-                margin: 0 1rem;
-            }
+            .nav-links { display: none; }
+            .hero-title { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .tech-grid { grid-template-columns: repeat(2, 1fr); }
+            .advantages-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-legal a { margin: 0 1rem; }
+            .mode-switcher { bottom: 1rem; right: 1rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Mode Switcher -->
+    <div class="mode-switcher">
+        <a href="index.html" class="mode-btn dark active" title="Dark Mode">🌙</a>
+        <a href="light-mode-index.html" class="mode-btn light" title="Light Mode">☀️</a>
+        <a href="ci-mode-index.html" class="mode-btn ci" title="CI Mode">🎨</a>
+    </div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -996,200 +395,155 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="orca-bg"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Werkzeug-Management<br><span class="highlight">der Zukunft.</span></h1>
-                <p class="hero-subtitle">
-                    Die Plattform für Ihre Lieferantenwerkzeuge in der Automobilindustrie. 
-                    orca verbindet OEMs und Lieferanten weltweit – für Inventuren, Verlagerungen 
-                    und den gesamten Lebenszyklus Ihrer Fertigungsmittel.
-                </p>
-                <div class="hero-badges">
-                    <span class="badge"><span class="badge-icon">✓</span> KI-gestützt</span>
-                    <span class="badge"><span class="badge-icon">✓</span> API-basiert</span>
-                    <span class="badge"><span class="badge-icon">✓</span> Mobil</span>
-                    <span class="badge"><span class="badge-icon">✓</span> Catena-X ready</span>
-                </div>
-                <div class="hero-ctas">
-                    <a href="#video" class="btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        Film ansehen
-                    </a>
-                    <a href="#demo" class="btn-secondary">Demo anfragen</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🚀 Die Plattform für Fertigungsmittel</div>
+                <h1 class="hero-title">Werkzeugmanagement für die <span class="highlight">Automobilindustrie</span></h1>
+                <p class="hero-subtitle">orca ist die Plattform für Ihre Prozesse rund um Lieferantenwerkzeuge – von der Abnahme bis zur Verschrottung. Digitalisiert. Transparent. Compliant.</p>
+                <div class="hero-buttons">
+                    <a href="#demo" class="btn-primary">Demo anfragen</a>
+                    <a href="prozesse.html" class="btn-secondary">Prozesse entdecken</a>
                 </div>
             </div>
-            <div class="hero-video" id="video">
+            <div class="hero-visual">
                 <div class="video-container">
-                    <div class="video-glow"></div>
-                    <div class="video-placeholder">
-                        <div class="play-btn">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                        <span class="video-label">orca in 2 Minuten erklärt</span>
-                    </div>
+                    <div class="play-button"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Prozesse Section -->
-    <section class="processes">
+    <!-- Processes -->
+    <section class="section processes">
         <div class="section-container">
             <div class="section-header">
                 <div class="section-label">Kernprozesse</div>
                 <h2 class="section-title">Der komplette Lebenszyklus</h2>
-                <p class="section-subtitle">
-                    Von der Abnahme bis zur Verschrottung – orca begleitet Ihre Fertigungsmittel 
-                    durch alle Phasen mit digitalisierten, effizienten Prozessen.
-                </p>
+                <p class="section-subtitle">Von der Abnahme bis zur Verschrottung – alle Prozesse in einer Plattform.</p>
             </div>
             <div class="process-grid">
                 <div class="process-card">
-                    <span class="process-number">01</span>
                     <div class="process-icon">📋</div>
-                    <h3 class="process-title">ABL</h3>
-                    <p class="process-desc">
-                        Die Abnahmebereitschaftserklärung als Beginn des Fertigungsmittel-Lebenszyklus. 
-                        Validierte Fotos und Dokumentation für maximale Compliance.
-                    </p>
+                    <div class="process-name">ABL</div>
+                    <div class="process-desc">Abnahmebereitschaftserklärung</div>
                 </div>
                 <div class="process-card">
-                    <span class="process-number">02</span>
                     <div class="process-icon">🔍</div>
-                    <h3 class="process-title">Inventur</h3>
-                    <p class="process-desc">
-                        Effiziente Inventuren von Fertigungsmitteln – remote oder vor Ort. 
-                        Über alle Standorte und Unterlieferanten hinweg.
-                    </p>
+                    <div class="process-name">Inventur</div>
+                    <div class="process-desc">Bestandsnachweis</div>
                 </div>
                 <div class="process-card">
-                    <span class="process-number">03</span>
                     <div class="process-icon">🔄</div>
-                    <h3 class="process-title">Vertragspartnerwechsel</h3>
-                    <p class="process-desc">
-                        Wenn Werkzeuge den Vertragspartner wechseln. 
-                        Strukturiert übergeben mit lückenloser Dokumentation.
-                    </p>
+                    <div class="process-name">Vertragspartnerwechsel</div>
+                    <div class="process-desc">Übergabe dokumentiert</div>
                 </div>
                 <div class="process-card">
-                    <span class="process-number">04</span>
                     <div class="process-icon">🌍</div>
-                    <h3 class="process-title">Verlagerung</h3>
-                    <p class="process-desc">
-                        Weltweite Verlagerungen anmelden, prüfen und durchführen. 
-                        Regelbasiert und automatisch compliant.
-                    </p>
+                    <div class="process-name">Verlagerung</div>
+                    <div class="process-desc">Weltweit compliant</div>
                 </div>
                 <div class="process-card">
-                    <span class="process-number">05</span>
                     <div class="process-icon">♻️</div>
-                    <h3 class="process-title">Verschrottung</h3>
-                    <p class="process-desc">
-                        Ende des Lebenszyklus strukturiert abwickeln. 
-                        Mit allen Beteiligten und vollständiger Dokumentation.
-                    </p>
+                    <div class="process-name">Verschrottung</div>
+                    <div class="process-desc">Ende des Lebenszyklus</div>
                 </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="prozesse.html" class="btn-secondary">Alle Prozesse entdecken →</a>
             </div>
         </div>
     </section>
 
-    <!-- Vorteile Section (von aktueller Website) -->
-    <section class="advantages">
+    <!-- Advantages -->
+    <section class="section">
         <div class="section-container">
             <div class="section-header">
                 <div class="section-label">Vorteile</div>
                 <h2 class="section-title">Was orca auszeichnet</h2>
+                <p class="section-subtitle">Die Plattform, die alle Beteiligten verbindet.</p>
             </div>
             <div class="advantages-grid">
                 <div class="advantage-card">
-                    <div class="advantage-icon">📊</div>
-                    <h3 class="advantage-title">Flexible Prozesstiefe</h3>
-                    <p class="advantage-desc">Je nach Anforderung und OEM werden Prozesse unterschiedlich tief durchlaufen. Von der einfachen Bestandsbestätigung per Haken bis zur Vollinventur mit Foto-Nachweisen.</p>
+                    <div class="advantage-icon">⚙️</div>
+                    <div class="advantage-title">Flexible Prozesstiefe</div>
+                    <div class="advantage-desc">Je nach Anforderung unterschiedlich tief, von Haken bis Vollinventur mit Fotos.</div>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-icon">🏢</div>
-                    <h3 class="advantage-title">Rollen & Verantwortlichkeiten</h3>
-                    <p class="advantage-desc">Jedes Unternehmen kann Rollen und Verantwortlichkeiten so zuweisen, dass die Werkzeuge der eigenen Organisation entsprechend verankert sind. Vom Konzern bis zum einzelnen Standort.</p>
+                    <div class="advantage-icon">👥</div>
+                    <div class="advantage-title">Rollen & Verantwortlichkeiten</div>
+                    <div class="advantage-desc">Zuweisbar vom Konzern bis zum einzelnen Standort.</div>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-icon">🔗</div>
-                    <h3 class="advantage-title">Sub-Lieferanten kostenlos</h3>
-                    <p class="advantage-desc">Jedes Unternehmen kann Sub-Lieferanten auf die Plattform holen. Werkzeuge können weitergeleitet werden – der Sub hat alle Features, die er braucht, ohne Gebühren.</p>
+                    <div class="advantage-icon">💰</div>
+                    <div class="advantage-title">Sub-Lieferanten kostenlos</div>
+                    <div class="advantage-desc">Können auf Plattform geholt werden, alle Features ohne Gebühren.</div>
                 </div>
                 <div class="advantage-card">
                     <div class="advantage-icon">📱</div>
-                    <h3 class="advantage-title">Mobil ohne App</h3>
-                    <p class="advantage-desc">orca funktioniert auf allen Mobilgeräten, ohne separate Apps. Fotos und Checks können direkt am Werkzeug aufgenommen werden.</p>
+                    <div class="advantage-title">Mobil ohne App</div>
+                    <div class="advantage-desc">Funktioniert auf allen Mobilgeräten, Fotos direkt am Werkzeug.</div>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-icon">👁️</div>
-                    <h3 class="advantage-title">Need-to-know Prinzip</h3>
-                    <p class="advantage-desc">Die Lieferantenkette wird nur so weit angezeigt, wie es zur Durchführung der Prozesse erforderlich ist. Jeder sieht die Informationen zum Werkzeug und kann seine eigenen ergänzen.</p>
+                    <div class="advantage-icon">🔒</div>
+                    <div class="advantage-title">Need-to-know Prinzip</div>
+                    <div class="advantage-desc">Lieferantenkette nur so weit angezeigt wie erforderlich.</div>
                 </div>
                 <div class="advantage-card">
                     <div class="advantage-icon">🔢</div>
-                    <h3 class="advantage-title">Eigene Nummernsysteme</h3>
-                    <p class="advantage-desc">Nützlich für Unternehmen, die mit der OEM-Inventarnummer wenig anfangen können. BM-Nummern, FM-Nummern und dergleichen für Betrieb und Instandhaltung nutzen.</p>
+                    <div class="advantage-title">Eigene Nummernsysteme</div>
+                    <div class="advantage-desc">BM-Nummern, FM-Nummern parallel zur OEM-Inventarnummer.</div>
                 </div>
                 <div class="advantage-card">
                     <div class="advantage-icon">🤖</div>
-                    <h3 class="advantage-title">Automatische Validierung</h3>
-                    <p class="advantage-desc">Nachweise werden automatisch validiert, Fotos analysiert, Inventarnummern ausgelesen und verglichen, Doppelungschecks ausgeführt – alles automatisch.</p>
+                    <div class="advantage-title">Automatische Validierung</div>
+                    <div class="advantage-desc">Fotos analysiert, Inventarnummern ausgelesen, Doppelungschecks.</div>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-icon">⚖️</div>
-                    <h3 class="advantage-title">Automatischer Steuerberater</h3>
-                    <p class="advantage-desc">Vorhaben wie Verlagerungen werden automatisch auf Zulässigkeit und Durchführbarkeit beurteilt. Die Regelwerke sind durch die Fachabteilungen einstellbar.</p>
+                    <div class="advantage-icon">📊</div>
+                    <div class="advantage-title">Automatischer Steuerberater</div>
+                    <div class="advantage-desc">Vorhaben automatisch auf Zulässigkeit geprüft, Regelwerke einstellbar.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem/Solution Section -->
-    <section class="problem-solution">
-        <div class="section-container">
-            <div class="problem-solution-grid">
-                <div class="problem-card">
-                    <div class="card-icon">⚠️</div>
-                    <h3 class="card-title">Die Herausforderung</h3>
-                    <ul class="card-list">
-                        <li><span>❌</span> Lieferantenwerkzeuge im Wert von Milliarden Euro – verteilt auf tausende Standorte weltweit</li>
-                        <li><span>❌</span> Inventuren mit Excel, E-Mail und Telefon? Ineffizient und fehleranfällig</li>
-                        <li><span>❌</span> Keine Transparenz über die komplette Supply Chain bis zum n-Tier</li>
-                        <li><span>❌</span> Compliance-Risiken bei Verlagerungen ohne Dokumentation</li>
-                        <li><span>❌</span> Wirtschaftsprüfer fordern belastbare Nachweise</li>
-                    </ul>
-                </div>
-                <div class="solution-card">
-                    <div class="card-icon">✨</div>
-                    <h3 class="card-title">Die Lösung: orca</h3>
-                    <ul class="card-list">
-                        <li><span>✓</span> Eine Plattform für alle Beteiligten – OEMs, Vertragspartner, Betreiber, Werkzeughersteller</li>
-                        <li><span>✓</span> Digitale, automatisierte und regelbasierte Prozesse</li>
-                        <li><span>✓</span> Echtzeit-Transparenz über die gesamte Lieferkette</li>
-                        <li><span>✓</span> KI-gestützte Validierung von Fotos und Nachweisen</li>
-                        <li><span>✓</span> Audit-sichere Dokumentation für Compliance</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="benefits">
+    <!-- Problem / Solution -->
+    <section class="section problem-solution">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">Vorteile</div>
+                <div class="section-label">Herausforderung & Lösung</div>
+                <h2 class="section-title">Von der Komplexität zur Klarheit</h2>
+            </div>
+            <div class="ps-grid">
+                <div class="ps-card problem">
+                    <div class="ps-label">❌ DIE HERAUSFORDERUNG</div>
+                    <h3 class="ps-title">Werkzeuge im Nebel</h3>
+                    <ul class="ps-list">
+                        <li><span>•</span> Unklare Standorte über mehrere Lieferantenstufen</li>
+                        <li><span>•</span> Manuelle Prozesse mit Excel und E-Mail</li>
+                        <li><span>•</span> Compliance-Risiken bei Verlagerungen</li>
+                        <li><span>•</span> Keine durchgängige Dokumentation</li>
+                    </ul>
+                </div>
+                <div class="ps-card solution">
+                    <div class="ps-label">✓ DIE LÖSUNG</div>
+                    <h3 class="ps-title">Transparenz mit orca</h3>
+                    <ul class="ps-list">
+                        <li><span>✓</span> Echtzeit-Überblick über alle Werkzeuge</li>
+                        <li><span>✓</span> Digitalisierte, geführte Prozesse</li>
+                        <li><span>✓</span> Automatische Compliance-Prüfung</li>
+                        <li><span>✓</span> Audit-sichere Dokumentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Mehrwert</div>
                 <h2 class="section-title">Mehrwert für alle Beteiligten</h2>
-                <p class="section-subtitle">
-                    orca schafft Effizienz und Transparenz – für OEMs und Lieferanten gleichermaßen.
-                </p>
             </div>
             <div class="benefits-grid">
                 <div class="benefit-column">
@@ -1198,26 +552,10 @@
                         <h3 class="benefit-title">Für OEMs</h3>
                     </div>
                     <ul class="benefit-list">
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>Vollständige Transparenz über alle Werkzeuge in der Supply Chain</span>
-                        </li>
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>Automatisierte Compliance-Prüfungen nach länderspezifischen Regelwerken</span>
-                        </li>
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>KI-gestützte Validierung von Fotos, Inventarnummern und Nachweisen</span>
-                        </li>
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>API-basierte Integration in SAP, Oracle und bestehende Systeme</span>
-                        </li>
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>Audit-sichere Dokumentation für Wirtschaftsprüfer</span>
-                        </li>
+                        <li><span class="benefit-check">✓</span> Vollständige Transparenz über alle Werkzeuge</li>
+                        <li><span class="benefit-check">✓</span> Automatisierte Compliance-Prüfungen</li>
+                        <li><span class="benefit-check">✓</span> KI-gestützte Validierung</li>
+                        <li><span class="benefit-check">✓</span> API-Integration in bestehende Systeme</li>
                     </ul>
                 </div>
                 <div class="benefit-column">
@@ -1226,83 +564,62 @@
                         <h3 class="benefit-title">Für Lieferanten</h3>
                     </div>
                     <ul class="benefit-list">
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>Einfache mobile Nutzung auf allen Geräten – ohne separate App</span>
-                        </li>
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>Sublieferanten kostenlos auf die Plattform einbinden</span>
-                        </li>
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>Eigene Nummernsysteme (BM, FM) parallel zur OEM-Inventarnummer</span>
-                        </li>
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>Automatische Dokumentenerstellung für Zoll und Steuerbehörden</span>
-                        </li>
-                        <li>
-                            <span class="benefit-check">✓</span>
-                            <span>Weniger Aufwand durch digitalisierte, geführte Prozesse</span>
-                        </li>
+                        <li><span class="benefit-check">✓</span> Einfache mobile Nutzung</li>
+                        <li><span class="benefit-check">✓</span> Sublieferanten kostenlos einbinden</li>
+                        <li><span class="benefit-check">✓</span> Eigene Nummernsysteme</li>
+                        <li><span class="benefit-check">✓</span> Weniger Aufwand durch digitalisierte Prozesse</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reference Section -->
-    <section class="reference">
-        <div class="reference-content">
-            <div class="reference-badge">
-                <span>⭐</span>
-                <span>Premium-Kunde</span>
+    <!-- Reference -->
+    <section class="section reference">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Referenz</div>
+                <h2 class="section-title">BMW Group vertraut auf orca</h2>
             </div>
-            <h2 class="section-title">BMW Group vertraut auf orca</h2>
-            <p class="reference-quote">
-                „BMW hat sich für orca als die spezialisierte Plattform für werkzeugbezogene 
-                Prozesse in globalen Wertschöpfungsketten entschieden und begleitet orca als Premium-Customer."
-            </p>
-            <div class="reference-stats">
-                <div class="ref-stat">
-                    <div class="ref-stat-number">200.000+</div>
-                    <div class="ref-stat-label">Werkzeuge im Scope</div>
+            <div class="reference-content">
+                <div class="reference-text">
+                    <p class="reference-quote">"Mit orca haben wir erstmals vollständige Transparenz über unsere Lieferantenwerkzeuge weltweit – von der Abnahme bis zur Verschrottung."</p>
+                    <p class="reference-author">BMW Group – Premium Customer seit 2021</p>
                 </div>
-                <div class="ref-stat">
-                    <div class="ref-stat-number">3.000+</div>
-                    <div class="ref-stat-label">Unternehmen</div>
+                <div class="reference-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">200.000+</div>
+                        <div class="stat-label">Werkzeuge verwaltet</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3.000+</div>
+                        <div class="stat-label">Unternehmen</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">70+</div>
+                        <div class="stat-label">Länder weltweit</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">99,83%</div>
+                        <div class="stat-label">Inventurquote</div>
+                    </div>
                 </div>
-                <div class="ref-stat">
-                    <div class="ref-stat-number">70+</div>
-                    <div class="ref-stat-label">Länder weltweit</div>
-                </div>
-                <div class="ref-stat">
-                    <div class="ref-stat-number">99,83%</div>
-                    <div class="ref-stat-label">Inventurerfolg</div>
-                </div>
-            </div>
-            <div class="reference-cta">
-                <a href="erfolgsgeschichten.html" class="btn-secondary">Zur Erfolgsgeschichte →</a>
             </div>
         </div>
     </section>
 
-    <!-- Technology Section -->
-    <section class="technology">
+    <!-- Technology -->
+    <section class="section">
         <div class="section-container">
             <div class="section-header">
                 <div class="section-label">Technologie</div>
-                <h2 class="section-title">Bereit für die Zukunft</h2>
-                <p class="section-subtitle">
-                    Modernste Technologie für die Anforderungen der Automobilindustrie von morgen.
-                </p>
+                <h2 class="section-title">Zukunftssicher & integriert</h2>
             </div>
             <div class="tech-grid">
                 <div class="tech-card">
-                    <div class="tech-icon">🔗</div>
+                    <div class="tech-icon">🔌</div>
                     <div class="tech-name">API-basiert</div>
-                    <div class="tech-desc">Nahtlose Integration in bestehende Systeme</div>
+                    <div class="tech-desc">REST-API für SAP, Oracle & mehr</div>
                 </div>
                 <div class="tech-card">
                     <div class="tech-icon">📱</div>
@@ -1312,34 +629,28 @@
                 <div class="tech-card">
                     <div class="tech-icon">🤖</div>
                     <div class="tech-name">KI-gestützt</div>
-                    <div class="tech-desc">Automatische Validierung & Analyse</div>
+                    <div class="tech-desc">Automatische Foto-Validierung</div>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-icon">🌐</div>
-                    <div class="tech-name">Catena-X ready</div>
-                    <div class="tech-desc">Vorbereitet für den Datenraum</div>
+                    <div class="tech-icon">🔗</div>
+                    <div class="tech-name">Catena-X</div>
+                    <div class="tech-desc">Ready für den Datenraum</div>
                 </div>
                 <div class="tech-card">
                     <div class="tech-icon">☁️</div>
                     <div class="tech-name">Cloud-native</div>
-                    <div class="tech-desc">Skalierbar und sicher</div>
+                    <div class="tech-desc">Skalierbar & sicher</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta-section" id="demo">
-        <div class="cta-content">
-            <h2 class="cta-title">Bereit, Ihr Werkzeugmanagement zu digitalisieren?</h2>
-            <p class="cta-subtitle">
-                Lassen Sie uns gemeinsam besprechen, wie orca Ihre Prozesse 
-                effizienter und transparenter machen kann.
-            </p>
-            <div class="cta-buttons">
-                <a href="#" class="btn-primary">Demo anfragen</a>
-                <a href="ueber-uns.html" class="btn-secondary">Kontakt aufnehmen</a>
-            </div>
+        <div class="section-container">
+            <h2 class="cta-title">Bereit für transparentes Werkzeugmanagement?</h2>
+            <p class="cta-subtitle">Lassen Sie uns gemeinsam besprechen, wie orca Ihre Prozesse digitalisieren kann.</p>
+            <a href="mailto:info@2-b-connected.com" class="btn-primary">Demo anfragen</a>
         </div>
     </section>
 
@@ -1348,37 +659,30 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo-text">orca<span>.</span> organizing company assets</div>
-                <p class="footer-desc">
-                    Die Plattform für die unternehmensübergreifende Organisation 
-                    von Fertigungsmitteln in globalen Wertschöpfungsketten.
-                </p>
+                <p class="footer-desc">Die Plattform für die unternehmensübergreifende Organisation von Fertigungsmitteln in globalen Wertschöpfungsketten.</p>
             </div>
-            <div class="footer-col">
+            <div>
                 <h4 class="footer-title">Plattform</h4>
                 <ul class="footer-links">
                     <li><a href="prozesse.html">Prozesse</a></li>
                     <li><a href="erfolgsgeschichten.html">Erfolgsgeschichten</a></li>
-                    <li><a href="#">Technologie</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
+            <div>
                 <h4 class="footer-title">Support</h4>
                 <ul class="footer-links">
                     <li><a href="support.html">Hilfe & FAQ</a></li>
-                    <li><a href="#">Dokumentation</a></li>
-                    <li><a href="#">Videos</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
+            <div>
                 <h4 class="footer-title">Unternehmen</h4>
                 <ul class="footer-links">
                     <li><a href="ueber-uns.html">Über uns</a></li>
-                    <li><a href="ueber-uns.html#kontakt">Kontakt</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>© 2024 orca. organizing company assets GmbH. Alle Rechte vorbehalten.</div>
+            <div>© 2024 orca. organizing company assets GmbH</div>
             <div class="footer-legal">
                 <a href="#">Impressum</a>
                 <a href="#">Datenschutz</a>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prozesse - orca. organizing company assets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #1C2553;
+            --primary-light: #2d3a6d;
+            --highlight: #5A2408;
+            --highlight-dark: #451c06;
+            --secondary: #D2D2D2;
+            --neutral: #E8E9ED;
+            --bg-light: #ffffff;
+            --bg-alt: #E8E9ED;
+            --text-primary: #1C2553;
+            --text-secondary: #4a5568;
+            --border: rgba(28, 37, 83, 0.15);
+        }
+        
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 2px 20px rgba(28, 37, 83, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .orca-logo { width: 50px; height: 50px; object-fit: contain; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.02em; color: var(--primary); }
+        .logo-text span { color: var(--highlight); }
+        
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--highlight); }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, var(--highlight) 0%, var(--highlight-dark) 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: 'Oswald', sans-serif;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(90, 36, 8, 0.3); }
+
+        /* ===== HERO ===== */
+        .page-hero {
+            padding: 140px 2rem 80px;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--neutral) 100%);
+        }
+        
+        .page-hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+        .page-label { color: var(--highlight); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+        .page-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--primary); }
+        .page-title .highlight { background: linear-gradient(135deg, var(--highlight) 0%, #8b4513 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-subtitle { font-size: 1.3rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+
+        /* ===== LIFECYCLE ===== */
+        .lifecycle {
+            padding: 60px 2rem;
+            background: var(--neutral);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .lifecycle-content { max-width: 1400px; margin: 0 auto; }
+        .lifecycle-steps { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .lifecycle-step { display: flex; align-items: center; gap: 1rem; }
+        .step-number { width: 50px; height: 50px; background: linear-gradient(135deg, var(--highlight) 0%, var(--highlight-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; color: white; }
+        .step-name { font-weight: 600; font-size: 1.1rem; color: var(--primary); }
+        .step-arrow { color: var(--highlight); font-size: 1.5rem; }
+
+        /* ===== PROCESS SECTIONS ===== */
+        .process-section { padding: 100px 2rem; position: relative; background: var(--bg-light); }
+        .process-section:nth-child(even) { background: var(--neutral); }
+        
+        .process-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .process-section:nth-child(even) .process-container { direction: rtl; }
+        .process-section:nth-child(even) .process-container > * { direction: ltr; }
+        
+        .process-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(28, 37, 83, 0.2);
+            border: 3px solid var(--primary);
+        }
+        
+        .process-image.abl { background: linear-gradient(135deg, #1C2553 0%, #0f172a 50%, #1e293b 100%); }
+        .process-image.inventur { background: linear-gradient(135deg, #2d3a4a 0%, #1a252f 50%, #1C2553 100%); }
+        .process-image.vpw { background: linear-gradient(135deg, #1C2553 0%, #2d3a6d 50%, #1e293b 100%); }
+        .process-image.verlagerung { background: linear-gradient(135deg, #1e3a5f 0%, #1C2553 50%, #0c1929 100%); }
+        .process-image.verschrottung { background: linear-gradient(135deg, #5A2408 0%, #3d1a08 50%, #2d1a10 100%); }
+        
+        .process-image-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+        .process-image-icon { font-size: 5rem; margin-bottom: 1rem; opacity: 0.9; }
+        .process-image-label { font-size: 1.5rem; font-weight: 600; opacity: 0.9; color: white; }
+        
+        .process-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='white' fill-opacity='0.05' d='M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,128C672,117,768,139,864,165.3C960,192,1056,224,1152,213.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+        }
+        
+        .process-badge { position: absolute; top: 1.5rem; left: 1.5rem; background: var(--highlight); color: white; padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; z-index: 1; }
+        
+        .process-content { padding: 2rem 0; }
+        .process-number-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(90, 36, 8, 0.1); border: 1px solid rgba(90, 36, 8, 0.3); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; color: var(--highlight); margin-bottom: 1.5rem; }
+        .process-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary); }
+        .process-subtitle { font-size: 1.2rem; color: var(--highlight); margin-bottom: 1.5rem; font-weight: 500; }
+        .process-description { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8; }
+        
+        .process-features { list-style: none; }
+        .process-features li { padding: 0.75rem 0; display: flex; align-items: flex-start; gap: 1rem; color: var(--text-secondary); font-size: 1.05rem; }
+        .process-features li span.icon { color: var(--highlight); font-size: 1.2rem; flex-shrink: 0; }
+
+        /* ===== BENEFITS ===== */
+        .benefits-overview { padding: 100px 2rem; background: var(--neutral); }
+        .section-container { max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label { color: var(--highlight); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; }
+        .section-title { font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary); }
+        .section-subtitle { font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+        
+        .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+        .benefit-column { background: white; border: 2px solid var(--primary); border-radius: 20px; padding: 3rem; box-shadow: 0 4px 20px rgba(28, 37, 83, 0.08); }
+        .benefit-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--neutral); }
+        .benefit-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--highlight) 0%, var(--highlight-dark) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .benefit-title { font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+        .benefit-list { list-style: none; }
+        .benefit-list li { padding: 1rem 0; border-bottom: 1px solid var(--neutral); display: flex; align-items: flex-start; gap: 1rem; font-size: 1.05rem; color: var(--text-secondary); }
+        .benefit-list li:last-child { border-bottom: none; }
+        .benefit-check { color: var(--highlight); font-size: 1.2rem; flex-shrink: 0; }
+
+        /* ===== CTA ===== */
+        .cta-section { padding: 100px 2rem; background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%); position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='white' stroke-opacity='0.03' stroke-width='0.5'/%3E%3C/svg%3E") repeat; background-size: 100px; }
+        .cta-content { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+        .cta-title { font-size: 2.8rem; font-weight: 700; margin-bottom: 1.5rem; color: white; }
+        .cta-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; }
+        .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        
+        .btn-primary { background: linear-gradient(135deg, var(--highlight) 0%, var(--highlight-dark) 100%); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: 1.1rem; font-family: 'Oswald', sans-serif; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(90, 36, 8, 0.4); }
+        .btn-secondary { background: transparent; color: white; padding: 1rem 2.5rem; border-radius: 50px; border: 2px solid rgba(255,255,255,0.3); font-weight: 600; font-size: 1.1rem; font-family: 'Oswald', sans-serif; text-decoration: none; transition: all 0.3s; }
+        .btn-secondary:hover { border-color: var(--highlight); background: rgba(90, 36, 8, 0.2); }
+
+        /* ===== FOOTER ===== */
+        .footer { background: var(--primary); padding: 60px 2rem 30px; }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; }
+        .footer-brand .logo-text { margin-bottom: 1rem; color: white; }
+        .footer-brand .logo-text span { color: var(--secondary); }
+        .footer-desc { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7; }
+        .footer-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; color: white; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--secondary); }
+        .footer-bottom { max-width: 1400px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+        .footer-legal a { color: rgba(255,255,255,0.7); text-decoration: none; margin-left: 2rem; }
+        .footer-legal a:hover { color: var(--secondary); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .process-container { grid-template-columns: 1fr; gap: 3rem; }
+            .process-section:nth-child(even) .process-container { direction: ltr; }
+            .lifecycle-steps { justify-content: center; }
+            .step-arrow { display: none; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-title { font-size: 2.5rem; }
+            .process-title { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+            .lifecycle-step { width: 100%; justify-content: center; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-legal a { margin: 0 1rem; }
+        }
+    .mode-switcher{position:fixed;bottom:2rem;right:2rem;z-index:9999;display:flex;gap:.5rem;background:rgba(255,255,255,.95);padding:.5rem;border-radius:50px;border:1px solid rgba(28,37,83,.2);box-shadow:0 4px 20px rgba(0,0,0,.1)}.mode-btn{width:40px;height:40px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}.mode-btn:hover{transform:scale(1.1)}.mode-btn.active{border-color:#f97316}.mode-btn.dark{background:#0a0e1a}.mode-btn.light{background:#fff;border:1px solid #ddd}.mode-btn.ci{background:linear-gradient(135deg,#1C2553 50%,#5A2408 50%)}</style>
+</head>
+<body>
+    <div class="mode-switcher"><a href="prozesse.html" class="mode-btn dark" title="Dark Mode">🌙</a><a href="light-mode-prozesse.html" class="mode-btn light" title="Light Mode">☀️</a><a href="ci-mode-prozesse.html" class="mode-btn ci active" title="CI Mode">🎨</a></div>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="ci-mode-index.html" class="logo-container">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231C2553'/%3E%3Cellipse cx='38' cy='40' rx='8' ry='10' fill='white'/%3E%3Cellipse cx='60' cy='55' rx='18' ry='10' fill='white' transform='rotate(-15 60 55)'/%3E%3C/svg%3E" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="ci-mode-index.html">Start</a>
+                <a href="ci-mode-prozesse.html" class="active">Prozesse</a>
+                <a href="ci-mode-erfolgsgeschichten.html">Erfolgsgeschichten</a>
+                <a href="ci-mode-support.html">Support</a>
+                <a href="ci-mode-ueber-uns.html">Über uns</a>
+                <a href="ci-mode-index.html#demo" class="nav-btn">Demo anfragen</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <div class="page-label">Kernprozesse</div>
+            <h1 class="page-title">Der komplette <span class="highlight">Lebenszyklus</span></h1>
+            <p class="page-subtitle">Von der Abnahme bis zur Verschrottung – orca begleitet Ihre Fertigungsmittel durch alle Phasen mit digitalisierten, effizienten Prozessen.</p>
+        </div>
+    </section>
+
+    <section class="lifecycle">
+        <div class="lifecycle-content">
+            <div class="lifecycle-steps">
+                <div class="lifecycle-step"><div class="step-number">1</div><div class="step-name">ABL</div></div>
+                <div class="step-arrow">→</div>
+                <div class="lifecycle-step"><div class="step-number">2</div><div class="step-name">Inventur</div></div>
+                <div class="step-arrow">→</div>
+                <div class="lifecycle-step"><div class="step-number">3</div><div class="step-name">Vertragspartnerwechsel</div></div>
+                <div class="step-arrow">→</div>
+                <div class="lifecycle-step"><div class="step-number">4</div><div class="step-name">Verlagerung</div></div>
+                <div class="step-arrow">→</div>
+                <div class="lifecycle-step"><div class="step-number">5</div><div class="step-name">Verschrottung</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section" id="abl">
+        <div class="process-container">
+            <div class="process-visual">
+                <div class="process-image abl">
+                    <div class="process-badge">Prozess 01</div>
+                    <div class="process-image-content">
+                        <div class="process-image-icon">📋</div>
+                        <div class="process-image-label">Abnahmebereitschaft</div>
+                    </div>
+                </div>
+            </div>
+            <div class="process-content">
+                <div class="process-number-badge"><span>01</span><span>Start des Lebenszyklus</span></div>
+                <h2 class="process-title">Abnahmebereitschaftserklärung (ABL)</h2>
+                <p class="process-subtitle">Verifizierter Start für maximale Compliance</p>
+                <p class="process-description">Die Abnahmebereitschaftserklärung des Lieferanten ist Voraussetzung für die verifizierte und abgesicherte Abnahme des Fertigungsmittels durch den Auftraggeber. Verifikation, validierte Fotos und Dokumentation minimieren das Compliance-Risiko und bilden die Grundlage für nachfolgende Bestandsmanagementprozesse.</p>
+                <ul class="process-features">
+                    <li><span class="icon">✓</span><span>Validierte Fotos mit Geo-Daten und Zeitstempel</span></li>
+                    <li><span class="icon">✓</span><span>Automatische Prüfung der Inventarnummer</span></li>
+                    <li><span class="icon">✓</span><span>Dokumentation als Basis für alle Folgeprozesse</span></li>
+                    <li><span class="icon">✓</span><span>Compliance-konforme Abnahme durch den Auftraggeber</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section" id="inventur">
+        <div class="process-container">
+            <div class="process-visual">
+                <div class="process-image inventur">
+                    <div class="process-badge">Prozess 02</div>
+                    <div class="process-image-content">
+                        <div class="process-image-icon">🔍</div>
+                        <div class="process-image-label">Inventur</div>
+                    </div>
+                </div>
+            </div>
+            <div class="process-content">
+                <div class="process-number-badge"><span>02</span><span>Bestandsnachweis</span></div>
+                <h2 class="process-title">Inventur</h2>
+                <p class="process-subtitle">Effizient. Remote oder vor Ort.</p>
+                <p class="process-description">Mit der Inventur bestätigen der Vertragspartner und alle Beteiligten in der Lieferkette, dass die Fertigungsmittel existieren und sich an den erwarteten Standorten und Unternehmen befinden. Das Ergebnis entspricht einer Inventur eigener Fertigungsmittel und Anlagen – aber über mehrere Parteien und Standorte hinweg.</p>
+                <ul class="process-features">
+                    <li><span class="icon">✓</span><span>Bestandsbestätigung über die gesamte Supply Chain</span></li>
+                    <li><span class="icon">✓</span><span>Remote-Inventur mit validierten Fotos möglich</span></li>
+                    <li><span class="icon">✓</span><span>Automatische Doppelungschecks und Plausibilitätsprüfung</span></li>
+                    <li><span class="icon">✓</span><span>Vom 1st-Tier bis zum n-Tier durchgängig</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section" id="vertragspartnerwechsel">
+        <div class="process-container">
+            <div class="process-visual">
+                <div class="process-image vpw">
+                    <div class="process-badge">Prozess 03</div>
+                    <div class="process-image-content">
+                        <div class="process-image-icon">🔄</div>
+                        <div class="process-image-label">Vertragspartnerwechsel</div>
+                    </div>
+                </div>
+            </div>
+            <div class="process-content">
+                <div class="process-number-badge"><span>03</span><span>Übergabe dokumentiert</span></div>
+                <h2 class="process-title">Vertragspartnerwechsel</h2>
+                <p class="process-subtitle">Strukturierte Übergabe mit lückenloser Dokumentation</p>
+                <p class="process-description">Wenn Werkzeuge den Vertragspartner wechseln, muss die Übergabe sauber dokumentiert werden. orca stellt sicher, dass alle Beteiligten – abgebender und übernehmender Vertragspartner sowie der Auftraggeber – den Prozess transparent und nachvollziehbar durchlaufen. Rechte und Pflichten werden korrekt übertragen.</p>
+                <ul class="process-features">
+                    <li><span class="icon">✓</span><span>Strukturierter Übergabeprozess zwischen Vertragspartnern</span></li>
+                    <li><span class="icon">✓</span><span>Dokumentierte Bestätigung aller Beteiligten</span></li>
+                    <li><span class="icon">✓</span><span>Automatische Aktualisierung der Zuständigkeiten</span></li>
+                    <li><span class="icon">✓</span><span>Lückenlose Historie des Werkzeugs</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section" id="verlagerung">
+        <div class="process-container">
+            <div class="process-visual">
+                <div class="process-image verlagerung">
+                    <div class="process-badge">Prozess 04</div>
+                    <div class="process-image-content">
+                        <div class="process-image-icon">🌍</div>
+                        <div class="process-image-label">Verlagerung</div>
+                    </div>
+                </div>
+            </div>
+            <div class="process-content">
+                <div class="process-number-badge"><span>04</span><span>Weltweit compliant</span></div>
+                <h2 class="process-title">Verlagerung</h2>
+                <p class="process-subtitle">Weltweite Verlagerungen. Regelbasiert. Automatisch compliant.</p>
+                <p class="process-description">Verlagerungen von Werkzeugen – ob innerhalb eines Landes oder grenzüberschreitend – erfordern die Einhaltung komplexer Regelwerke. orca prüft automatisch die Zulässigkeit und Durchführbarkeit anhand der länderspezifischen Vorgaben. So wird jede Verlagerung automatisch compliant dokumentiert.</p>
+                <ul class="process-features">
+                    <li><span class="icon">✓</span><span>Automatische Prüfung länderspezifischer Regelwerke</span></li>
+                    <li><span class="icon">✓</span><span>Umsatzsteuerliche Compliance automatisch sichergestellt</span></li>
+                    <li><span class="icon">✓</span><span>Genehmigungsworkflows mit allen Beteiligten</span></li>
+                    <li><span class="icon">✓</span><span>Dokumentenerstellung für Zoll und Steuerbehörden</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section" id="verschrottung">
+        <div class="process-container">
+            <div class="process-visual">
+                <div class="process-image verschrottung">
+                    <div class="process-badge">Prozess 05</div>
+                    <div class="process-image-content">
+                        <div class="process-image-icon">♻️</div>
+                        <div class="process-image-label">Verschrottung</div>
+                    </div>
+                </div>
+            </div>
+            <div class="process-content">
+                <div class="process-number-badge"><span>05</span><span>Ende des Lebenszyklus</span></div>
+                <h2 class="process-title">Verschrottung</h2>
+                <p class="process-subtitle">Strukturiertes Ende. Vollständig dokumentiert.</p>
+                <p class="process-description">Am Ende des Lebenszyklus eines Fertigungsmittels steht die Verschrottung. orca stellt sicher, dass dieser Prozess mit allen Beteiligten abgestimmt und vollständig dokumentiert wird. Die Ausbuchung aus den Systemen erfolgt auf Basis verifizierter Nachweise.</p>
+                <ul class="process-features">
+                    <li><span class="icon">✓</span><span>Koordinierter Prozess mit allen Beteiligten</span></li>
+                    <li><span class="icon">✓</span><span>Verifizierte Nachweise der Verschrottung</span></li>
+                    <li><span class="icon">✓</span><span>Compliance-konforme Ausbuchung</span></li>
+                    <li><span class="icon">✓</span><span>Vollständige Dokumentation für Wirtschaftsprüfer</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-overview">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Vorteile</div>
+                <h2 class="section-title">Mehrwert für alle Beteiligten</h2>
+                <p class="section-subtitle">orca schafft Effizienz und Transparenz – für OEMs und Lieferanten gleichermaßen.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-column">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">🏭</div>
+                        <h3 class="benefit-title">Für OEMs</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><span class="benefit-check">✓</span><span>Vollständige Transparenz über alle Werkzeuge in der Supply Chain</span></li>
+                        <li><span class="benefit-check">✓</span><span>Automatisierte Compliance-Prüfungen nach länderspezifischen Regelwerken</span></li>
+                        <li><span class="benefit-check">✓</span><span>KI-gestützte Validierung von Fotos, Inventarnummern und Nachweisen</span></li>
+                        <li><span class="benefit-check">✓</span><span>API-basierte Integration in SAP, Oracle und bestehende Systeme</span></li>
+                        <li><span class="benefit-check">✓</span><span>Audit-sichere Dokumentation für Wirtschaftsprüfer</span></li>
+                    </ul>
+                </div>
+                <div class="benefit-column">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">🔧</div>
+                        <h3 class="benefit-title">Für Lieferanten</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><span class="benefit-check">✓</span><span>Einfache mobile Nutzung auf allen Geräten – ohne separate App</span></li>
+                        <li><span class="benefit-check">✓</span><span>Sublieferanten kostenlos auf die Plattform einbinden</span></li>
+                        <li><span class="benefit-check">✓</span><span>Eigene Nummernsysteme (BM, FM) parallel zur OEM-Inventarnummer</span></li>
+                        <li><span class="benefit-check">✓</span><span>Automatische Dokumentenerstellung für Zoll und Steuerbehörden</span></li>
+                        <li><span class="benefit-check">✓</span><span>Weniger Aufwand durch digitalisierte, geführte Prozesse</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Bereit, Ihre Prozesse zu digitalisieren?</h2>
+            <p class="cta-subtitle">Lassen Sie uns gemeinsam besprechen, wie orca Ihre Werkzeugprozesse effizienter und transparenter machen kann.</p>
+            <div class="cta-buttons">
+                <a href="ci-mode-index.html#demo" class="btn-primary">Demo anfragen</a>
+                <a href="ci-mode-ueber-uns.html" class="btn-secondary">Kontakt aufnehmen</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-text">orca<span>.</span> organizing company assets</div>
+                <p class="footer-desc">Die Plattform für die unternehmensübergreifende Organisation von Fertigungsmitteln in globalen Wertschöpfungsketten.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Plattform</h4>
+                <ul class="footer-links">
+                    <li><a href="ci-mode-prozesse.html">Prozesse</a></li>
+                    <li><a href="ci-mode-erfolgsgeschichten.html">Erfolgsgeschichten</a></li>
+                    <li><a href="#">Technologie</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="ci-mode-support.html">Hilfe & FAQ</a></li>
+                    <li><a href="#">Dokumentation</a></li>
+                    <li><a href="#">Videos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Unternehmen</h4>
+                <ul class="footer-links">
+                    <li><a href="ci-mode-ueber-uns.html">Über uns</a></li>
+                    <li><a href="ci-mode-ueber-uns.html#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2024 orca. organizing company assets GmbH. Alle Rechte vorbehalten.</div>
+            <div class="footer-legal">
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
