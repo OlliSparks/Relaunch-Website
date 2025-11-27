@@ -29,7 +29,7 @@
         .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--primary); }
         .orca-logo { width: 50px; height: 50px; }
         .logo-text { font-size: 1.3rem; font-weight: 600; color: var(--primary); }
-        .logo-text span { color: var(--highlight); }
+        /* Logo dot inherits text color */
         .nav-links { display: flex; gap: 2.5rem; align-items: center; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary); }
@@ -97,7 +97,7 @@
         .footer { background: var(--primary); padding: 60px 2rem 30px; }
         .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; }
         .footer-brand .logo-text { margin-bottom: 1rem; color: white; }
-        .footer-brand .logo-text span { color: var(--secondary); }
+        .footer-brand /* Logo dot inherits text color */
         .footer-desc { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
         .footer-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; color: white; }
         .footer-links { list-style: none; }
