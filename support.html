@@ -21,7 +21,7 @@
         
         body { font-family: 'Oswald', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
 
-        .mode-switcher{position:fixed;bottom:2rem;right:2rem;z-index:9999;display:flex;gap:.5rem;background:rgba(0,0,0,.8);padding:.5rem;border-radius:50px;border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}.mode-btn{width:40px;height:40px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}.mode-btn:hover{transform:scale(1.1)}.mode-btn.active{border-color:#f97316}.mode-btn.dark{background:#0a0e1a}.mode-btn.light{background:#fff}.mode-btn.ci{background:linear-gradient(135deg,#1C2553 50%,#5A2408 50%)}
+        .mode-switcher{position:fixed;bottom:2rem;right:2rem;z-index:9999;display:flex;gap:.5rem;background:rgba(0,0,0,.8);padding:.5rem;border-radius:50px;border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}.mode-btn{width:40px;height:40px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}.mode-btn:hover{transform:scale(1.1)}.mode-btn.active{border-color:#f97316}.mode-btn.dark{background:#0a0e1a}.mode-btn.light{background:#fff}
 
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 26, 0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
         .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
@@ -219,7 +219,7 @@
     <div class="mode-switcher">
         <a href="support.html" class="mode-btn dark active" title="Dark Mode">🌙</a>
         <a href="light-mode-support.html" class="mode-btn light" title="Light Mode">☀️</a>
-        <a href="ci-mode-support.html" class="mode-btn ci" title="CI Mode">🎨</a>
+        
     </div>
 
     <nav class="nav">
@@ -701,9 +701,9 @@
                 <h3>Direkter Support</h3>
                 <p>Sie haben Fragen oder benötigen Hilfe? Unser Support-Team ist für Sie da. Weitere Informationen, Klickanleitungen und FAQs finden Sie auch direkt im System auf der Home-Seite.</p>
                 <div class="contact-methods">
-                    <a href="mailto:support@2-b-connected.com" class="contact-method">
+                    <a href="/cdn-cgi/l/email-protection#dfacaaafafb0adab9fedf2bdf2bcb0b1b1babcabbabbf1bcb0b2" class="contact-method">
                         <span class="contact-method-icon">📧</span>
-                        <span class="contact-method-text">support@2-b-connected.com</span>
+                        <span class="contact-method-text"><span class="__cf_email__" data-cfemail="5f2c2a2f2f302d2b1f6d723d723c3031313a3c2b3a3b713c3032">[email&#160;protected]</span></span>
                     </a>
                     <a href="https://www.organizingcompanyassets.com/dialogveranstaltung" target="_blank" class="contact-method">
                         <span class="contact-method-icon">📅</span>
@@ -757,7 +757,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function showProcess(processId) {
             // Hide all panels
             document.querySelectorAll('.process-panel').forEach(panel => {
@@ -780,15 +780,4 @@
             // Close all accordions in this panel
             const panel = header.closest('.process-panel');
             panel.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-            panel.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
-            
-            // Toggle clicked accordion
-            if (!isActive) {
-                header.classList.add('active');
-                content.classList.add('active');
-            }
-        }
-    </script>
-
-</body>
-</html>
+            panel.querySelectorAll('.accordion-content').forEach(c => c.classLis

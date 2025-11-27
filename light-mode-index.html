@@ -439,7 +439,7 @@
         
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }
         
@@ -711,7 +711,7 @@
         
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }
         
@@ -965,17 +965,63 @@
         }
     </style>
     <style>
+        
+        /* ===== VIDEO MODAL ===== */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+        }
+        .video-modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+        .video-modal-close:hover {
+            transform: scale(1.2);
+        }
+        .video-modal video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
         .mode-switcher { position: fixed; bottom: 2rem; right: 2rem; z-index: 9999; display: flex; gap: 0.5rem; background: rgba(255,255,255,0.95); padding: 0.5rem; border-radius: 50px; border: 1px solid rgba(28,37,83,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         .mode-btn { width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; text-decoration: none; }
         .mode-btn:hover { transform: scale(1.1); }
         .mode-btn.active { border-color: #f97316; }
         .mode-btn.dark { background: #0a0e1a; }
         .mode-btn.light { background: #ffffff; border: 1px solid #ddd; }
-        .mode-btn.ci { background: linear-gradient(135deg, #1C2553 50%, #5A2408 50%); }
+        
     </style>
 </head>
 <body>
-    <div class="mode-switcher"><a href="index.html" class="mode-btn dark" title="Dark Mode">🌙</a><a href="light-mode-index.html" class="mode-btn light active" title="Light Mode">☀️</a><a href="ci-mode-index.html" class="mode-btn ci" title="CI Mode">🎨</a></div>
+    <div class="mode-switcher"><a href="index.html" class="mode-btn dark" title="Dark Mode">🌙</a><a href="light-mode-index.html" class="mode-btn light active" title="Light Mode">☀️</a></div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -1010,7 +1056,7 @@
                     <span class="badge"><span class="badge-icon">✓</span> KI-gestützt</span>
                     <span class="badge"><span class="badge-icon">✓</span> API-basiert</span>
                     <span class="badge"><span class="badge-icon">✓</span> Mobil</span>
-                    <span class="badge"><span class="badge-icon">✓</span> Catena-X ready</span>
+                    
                 </div>
                 <div class="hero-ctas">
                     <a href="#video" class="btn-primary">
@@ -1033,6 +1079,17 @@
             </div>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="closeVideo">✕</button>
+            <video id="orca-video" controls playsinline>
+                <source src="https://video.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/4a7d7a6e-440e-448c-b2fd-e8302b221e47/playlist.m3u8" type="application/x-mpegURL">
+            </video>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
     <!-- Prozesse Section -->
     <section class="processes">
@@ -1313,11 +1370,7 @@
                     <div class="tech-name">KI-gestützt</div>
                     <div class="tech-desc">Automatische Validierung & Analyse</div>
                 </div>
-                <div class="tech-card">
-                    <div class="tech-icon">🌐</div>
-                    <div class="tech-name">Catena-X ready</div>
-                    <div class="tech-desc">Vorbereitet für den Datenraum</div>
-                </div>
+                
                 <div class="tech-card">
                     <div class="tech-icon">☁️</div>
                     <div class="tech-name">Cloud-native</div>
@@ -1384,6 +1437,53 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('orca-video');
+            var videoSrc = 'https://video.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/4a7d7a6e-440e-448c-b2fd-e8302b221e47/playlist.m3u8';
+            var modal = document.getElementById('videoModal');
+            var playBtn = document.querySelector('.video-placeholder');
+            var closeBtn = document.getElementById('closeVideo');
+            
+            var hls;
+            if (Hls.isSupported()) {
+                hls = new Hls();
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = videoSrc;
+            }
+            
+            playBtn.addEventListener('click', function() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                video.play();
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                video.pause();
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    video.pause();
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    video.pause();
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
