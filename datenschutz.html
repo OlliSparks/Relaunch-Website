@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz - orca. organizing company assets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1C2553;
+            --accent: #f97316;
+            --accent-dark: #ea580c;
+            --bg-dark: #0a0e1a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== CONTENT ===== */
+        .content-section {
+            padding: 150px 2rem 100px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .page-title span {
+            color: var(--accent);
+        }
+
+        .content-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .content-block h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .content-block h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .content-block p {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .content-block ul {
+            color: var(--text-secondary);
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .content-block a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .content-block a:hover {
+            text-decoration: underline;
+        }
+
+        .update-info {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand .logo-text {
+            font-size: 1.2rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-title { font-size: 2rem; }
+            .content-section { padding: 120px 1.5rem 60px; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="prozesse.html">Prozesse</a></li>
+                <li><a href="erfolgsgeschichten.html">Erfolgsgeschichten</a></li>
+                <li><a href="ueber-uns.html">Über uns</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h1 class="page-title">Datenschutz<span>.</span></h1>
+
+        <div class="content-block">
+            <h2>1. Allgemeine Informationen</h2>
+            <p>Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG).</p>
+            <p><strong>Verantwortlicher:</strong></p>
+            <p>orca. organizing company assets GmbH<br>
+            Antonibergstraße 17<br>
+            86643 Rennertshofen<br>
+            Deutschland</p>
+            <p>E-Mail: <a href="mailto:contact@organizingcompanyassets.com">contact@organizingcompanyassets.com</a></p>
+        </div>
+
+        <div class="content-block">
+            <h2>2. Ihre Rechte</h2>
+            <p>Ihnen stehen grundsätzlich folgende Rechte bezüglich Ihrer personenbezogenen Daten zu:</p>
+            <ul>
+                <li><strong>Recht auf Auskunft</strong> – Sie können Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten verlangen.</li>
+                <li><strong>Recht auf Berichtigung oder Löschung</strong> – Sie können die Berichtigung unrichtiger Daten oder die Löschung Ihrer Daten verlangen.</li>
+                <li><strong>Recht auf Einschränkung der Verarbeitung</strong> – Sie können die Einschränkung der Verarbeitung Ihrer Daten verlangen.</li>
+                <li><strong>Recht auf Widerspruch gegen die Verarbeitung</strong> – Sie können der Verarbeitung Ihrer Daten widersprechen.</li>
+                <li><strong>Recht auf Datenübertragbarkeit</strong> – Sie können verlangen, dass wir Ihnen Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format übermitteln.</li>
+            </ul>
+            <p>Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>3. Datenverarbeitung beim Webseitenbesuch</h2>
+            <p>Bei der rein informatorischen Nutzung unserer Website erheben wir automatisch technische Daten, die Ihr Browser an unseren Server übermittelt:</p>
+            <ul>
+                <li>IP-Adresse</li>
+                <li>Datum und Uhrzeit des Zugriffs</li>
+                <li>Referrer-URL (zuvor besuchte Seite)</li>
+                <li>HTTP-Statuscode</li>
+                <li>Browser- und Betriebssysteminformationen</li>
+                <li>Spracheinstellungen</li>
+            </ul>
+            <p>Diese Daten werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO erhoben und dienen der Gewährleistung der Stabilität und Sicherheit unserer Website.</p>
+            <p>Unsere Website wird bei Squarespace gehostet. Mit diesem Anbieter besteht ein Auftragsverarbeitungsvertrag.</p>
+
+            <h3>Kontaktformular</h3>
+            <p>Wenn Sie unser Kontaktformular nutzen, werden die von Ihnen angegebenen Daten (z.B. E-Mail-Adresse, Name) zum Zweck der Bearbeitung Ihrer Anfrage verarbeitet. Diese Daten werden nur so lange gespeichert, wie es für die Bearbeitung Ihrer Anfrage erforderlich ist.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>4. Cookies</h2>
+            <p>Wir verwenden auf unserer Website ausschließlich <strong>zwingend erforderliche Cookies</strong>, die für die grundlegende Funktionalität und Sicherheit der Website notwendig sind. Diese Cookies dienen nicht zu Marketing- oder Tracking-Zwecken.</p>
+            <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bereitstellung einer funktionsfähigen Website).</p>
+        </div>
+
+        <div class="content-block">
+            <h2>5. Datensicherheit</h2>
+            <p>Wir schützen Ihre Daten durch geeignete technische und organisatorische Maßnahmen. Für die Übertragung vertraulicher Daten nutzen wir eine SSL/TLS-Verschlüsselung, erkennbar am Schloss-Symbol in der Adressleiste Ihres Browsers.</p>
+            <p>Bitte beachten Sie, dass die Datenübertragung im Internet grundsätzlich Sicherheitslücken aufweisen kann. Ein lückenloser Schutz vor dem Zugriff durch Dritte ist nicht möglich.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>6. Änderungen dieser Datenschutzhinweise</h2>
+            <p>Wir behalten uns vor, diese Datenschutzhinweise bei Bedarf anzupassen, um sie an geänderte rechtliche Rahmenbedingungen oder bei Änderungen unserer Dienste anzupassen. Wir empfehlen Ihnen, diese Seite regelmäßig zu besuchen.</p>
+        </div>
+
+        <div class="update-info">
+            <p><strong>Stand:</strong> Juni 2021</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </div>
+            <div class="footer-legal">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="footer-copyright">
+                © 2024 orca. organizing company assets GmbH
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

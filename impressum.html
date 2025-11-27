@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - orca. organizing company assets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1C2553;
+            --accent: #f97316;
+            --accent-dark: #ea580c;
+            --bg-dark: #0a0e1a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== CONTENT ===== */
+        .content-section {
+            padding: 150px 2rem 100px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .page-title span {
+            color: var(--accent);
+        }
+
+        .content-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .content-block h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .content-block p {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .content-block a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .content-block a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand .logo-text {
+            font-size: 1.2rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-title { font-size: 2rem; }
+            .content-section { padding: 120px 1.5rem 60px; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="prozesse.html">Prozesse</a></li>
+                <li><a href="erfolgsgeschichten.html">Erfolgsgeschichten</a></li>
+                <li><a href="ueber-uns.html">Über uns</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h1 class="page-title">Impressum<span>.</span></h1>
+
+        <div class="content-block">
+            <h2>Angaben gemäß § 5 TMG</h2>
+            <p><strong>orca. organizing company assets GmbH</strong></p>
+            <p>Antonibergstraße 17</p>
+            <p>86643 Rennertshofen</p>
+            <p>Deutschland</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Registereintrag</h2>
+            <p>Handelsregister: HRB 10160</p>
+            <p>Registergericht: Amtsgericht Ingolstadt</p>
+            <p>Umsatzsteuer-ID: DE343734884</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Geschäftsführung</h2>
+            <p>Burkhard Grosche</p>
+            <p>Oliver Sparks</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Kontakt</h2>
+            <p>Telefon: +49-(0)8434-2569870</p>
+            <p>E-Mail: <a href="mailto:contact@organizingcompanyassets.com">contact@organizingcompanyassets.com</a></p>
+            <p>Support: <a href="mailto:orca-support@organizingcompanyassets.com">orca-support@organizingcompanyassets.com</a></p>
+        </div>
+
+        <div class="content-block">
+            <h2>Zielgruppe</h2>
+            <p>Die Angebote der orca. organizing company assets GmbH richten sich ausschließlich an Unternehmer im Sinne des § 14 BGB, d.h. an gewerbliche Unternehmen und öffentliche Einrichtungen. Verbraucher im Sinne des § 13 BGB sind von unserem Angebot ausgeschlossen.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Haftung für Inhalte</h2>
+            <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Haftung für Links</h2>
+            <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>Urheberrecht</h2>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </div>
+            <div class="footer-legal">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="footer-copyright">
+                © 2024 orca. organizing company assets GmbH
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
