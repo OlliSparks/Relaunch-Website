@@ -124,23 +124,29 @@
             box-shadow: 0 30px 80px rgba(28, 37, 83, 0.15);
         }
         
-        /* Gradient Backgrounds für Prozesse - jetzt nur Fallback */
-        .process-image.abl,
-        .process-image.inventur,
-        .process-image.vpw,
-        .process-image.verlagerung,
-        .process-image.verschrottung {
-            background: linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 100%);
+        .process-image.abl { background: linear-gradient(135deg, #1e3a5f 0%, #0d1b2a 50%, #1b263b 100%); }
+        .process-image.inventur { background: linear-gradient(135deg, #2d3a4a 0%, #1a252f 50%, #0f1419 100%); }
+        .process-image.vpw { background: linear-gradient(135deg, #1C2553 0%, #0f172a 50%, #1e293b 100%); }
+        .process-image.verlagerung { background: linear-gradient(135deg, #1e3a5f 0%, #172554 50%, #0c1929 100%); }
+        .process-image.verschrottung { background: linear-gradient(135deg, #3d2914 0%, #1a1105 50%, #2d1f0d 100%); }
+        
+        .process-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        
+        .process-image-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+        .process-image-icon { font-size: 5rem; margin-bottom: 1rem; opacity: 0.9; }
+        .process-image-label { font-size: 1.5rem; font-weight: 600; opacity: 0.8; color: white; }
+        
+        .process-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='white' fill-opacity='0.05' d='M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,128C672,117,768,139,864,165.3C960,192,1056,224,1152,213.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
         }
-
-        .process-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-                
+        
         .process-badge { position: absolute; top: 1.5rem; left: 1.5rem; background: rgba(249, 115, 22, 0.9); color: white; padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; z-index: 1; }
         
         .process-content { padding: 2rem 0; }
