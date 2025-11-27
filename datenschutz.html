@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutz - orca. organizing company assets</title>
+    <title>Datenschutzhinweise - orca. organizing company assets</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,8 +61,6 @@
             letter-spacing: 0.02em;
         }
 
-        /* Logo dot inherits text color */
-
         .nav-links {
             display: flex;
             gap: 2.5rem;
@@ -91,12 +89,18 @@
         .page-title {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             color: var(--text-primary);
         }
 
         .page-title span {
             color: var(--accent);
+        }
+
+        .intro-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
 
         .content-block {
@@ -110,14 +114,6 @@
             color: var(--accent);
         }
 
-        .content-block h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-            margin-top: 1.5rem;
-            color: var(--text-primary);
-        }
-
         .content-block p {
             color: var(--text-secondary);
             margin-bottom: 0.75rem;
@@ -128,11 +124,17 @@
             color: var(--text-secondary);
             margin-left: 1.5rem;
             margin-bottom: 1rem;
+            list-style: none;
         }
 
         .content-block ul li {
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
+        }
+
+        .content-block ul li::before {
+            content: "–";
+            margin-right: 0.5rem;
         }
 
         .content-block a {
@@ -152,54 +154,11 @@
             font-size: 0.95rem;
         }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-brand .logo-text {
-            font-size: 1.2rem;
-        }
-
-        .footer-legal {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .footer-legal a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .footer-legal a:hover {
-            color: var(--accent);
-        }
-
-        .footer-copyright {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .page-title { font-size: 2rem; }
             .content-section { padding: 120px 1.5rem 60px; }
-            .footer-content { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -220,65 +179,67 @@
     </nav>
 
     <section class="content-section">
-        <h1 class="page-title">Datenschutz<span>.</span></h1>
+        <h1 class="page-title">Datenschutzhinweise<span>.</span></h1>
+
+        <p class="intro-text">Wir, die Betreiber dieser Website, behandeln die personenbezogenen Daten, die infolge des Besuchs der Website verarbeitet werden, vertraulich und unter Beachtung der einschlägigen datenschutzrechtlichen Vorschriften.</p>
+        <p class="intro-text">Im Folgenden informieren wir über die Datenverarbeitungen im Zusammenhang mit der Nutzung unseres Angebots.</p>
 
         <div class="content-block">
             <h2>1. Allgemeine Informationen</h2>
-            <p>Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TMG).</p>
-            <p><strong>Verantwortlicher:</strong></p>
-            <p>orca. organizing company assets GmbH<br>
+            <p>Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind, z.B. Name, Adresse, E-Mail-Adresse.</p>
+            <p>Verantwortlich für die Verarbeitung personenbezogener Daten ist die:</p>
+            <p><strong>orca. organizing company assets GmbH</strong><br>
             Antonibergstraße 17<br>
-            86643 Rennertshofen<br>
-            Deutschland</p>
-            <p>E-Mail: <a href="mailto:contact@organizingcompanyassets.com">contact@organizingcompanyassets.com</a></p>
+            86643 Rennertshofen</p>
         </div>
 
         <div class="content-block">
             <h2>2. Ihre Rechte</h2>
-            <p>Ihnen stehen grundsätzlich folgende Rechte bezüglich Ihrer personenbezogenen Daten zu:</p>
+            <p>Sie haben gegenüber uns unter den jeweiligen gesetzlichen Voraussetzungen folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
             <ul>
-                <li><strong>Recht auf Auskunft</strong> – Sie können Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten verlangen.</li>
-                <li><strong>Recht auf Berichtigung oder Löschung</strong> – Sie können die Berichtigung unrichtiger Daten oder die Löschung Ihrer Daten verlangen.</li>
-                <li><strong>Recht auf Einschränkung der Verarbeitung</strong> – Sie können die Einschränkung der Verarbeitung Ihrer Daten verlangen.</li>
-                <li><strong>Recht auf Widerspruch gegen die Verarbeitung</strong> – Sie können der Verarbeitung Ihrer Daten widersprechen.</li>
-                <li><strong>Recht auf Datenübertragbarkeit</strong> – Sie können verlangen, dass wir Ihnen Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format übermitteln.</li>
+                <li>Recht auf Auskunft;</li>
+                <li>Recht auf Berichtigung oder Löschung;</li>
+                <li>Recht auf Einschränkung der Verarbeitung;</li>
+                <li>Recht auf Widerspruch gegen die Verarbeitung;</li>
+                <li>Recht auf Datenübertragbarkeit.</li>
             </ul>
-            <p>Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+            <p>Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.</p>
         </div>
 
         <div class="content-block">
-            <h2>3. Datenverarbeitung beim Webseitenbesuch</h2>
-            <p>Bei der rein informatorischen Nutzung unserer Website erheben wir automatisch technische Daten, die Ihr Browser an unseren Server übermittelt:</p>
+            <h2>3. Datenverarbeitung bei Besuch unserer Website</h2>
+            <p>Bei der bloß informatorischen Nutzung unserer Website, d.h. wenn Sie sich nicht registrieren oder uns anderweitig Informationen übermitteln, erheben wir nur die personenbezogenen Daten, die Ihr Browser an unseren Server übermittelt. Dies erfolgt, um Ihnen die Website anzuzeigen und die erforderliche Stabilität sowie Sicherheit zu gewährleisten (Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO) und betrifft die folgenden Daten:</p>
             <ul>
-                <li>IP-Adresse</li>
-                <li>Datum und Uhrzeit des Zugriffs</li>
-                <li>Referrer-URL (zuvor besuchte Seite)</li>
-                <li>HTTP-Statuscode</li>
-                <li>Browser- und Betriebssysteminformationen</li>
-                <li>Spracheinstellungen</li>
+                <li>IP-Adresse;</li>
+                <li>Datum und Uhrzeit der Serveranfrage;</li>
+                <li>Referrer-URL;</li>
+                <li>Zugriffsstatus/HTTP-Statuscode;</li>
+                <li>jeweils übertragene Datenmenge;</li>
+                <li>Website, von der die Anforderung kommt;</li>
+                <li>Browser;</li>
+                <li>Betriebssystem;</li>
+                <li>Sprache und Version der Browsersoftware.</li>
             </ul>
-            <p>Diese Daten werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO erhoben und dienen der Gewährleistung der Stabilität und Sicherheit unserer Website.</p>
-            <p>Unsere Website wird bei Squarespace gehostet. Mit diesem Anbieter besteht ein Auftragsverarbeitungsvertrag.</p>
-
-            <h3>Kontaktformular</h3>
-            <p>Wenn Sie unser Kontaktformular nutzen, werden die von Ihnen angegebenen Daten (z.B. E-Mail-Adresse, Name) zum Zweck der Bearbeitung Ihrer Anfrage verarbeitet. Diese Daten werden nur so lange gespeichert, wie es für die Bearbeitung Ihrer Anfrage erforderlich ist.</p>
+            <p>Diese Website wird von „Squarespace" gehostet, so dass die vorgenannten Daten auch an diesen Anbieter übermittelt werden. Wir haben eine Auftragsverarbeitungsvereinbarung mit „Squarespace" abgeschlossen. Weitere Informationen können dort abgerufen werden.</p>
+            <p>Bei einer Kontaktaufnahme mit uns per E-Mail oder über unser Kontaktformular werden die von Ihnen mitgeteilten Daten (Ihre E-Mail-Adresse sowie Ihr Vor- und Nachname, ggf. weitere freiwillige Angaben) von uns gespeichert, um Ihre Anfragen zu beantworten. Die in diesem Zusammenhang anfallenden Daten löschen wir, nachdem die Speicherung nicht mehr erforderlich ist, oder schränken die Verarbeitung ein, falls gesetzliche Aufbewahrungspflichten bestehen.</p>
         </div>
 
         <div class="content-block">
             <h2>4. Cookies</h2>
-            <p>Wir verwenden auf unserer Website ausschließlich <strong>zwingend erforderliche Cookies</strong>, die für die grundlegende Funktionalität und Sicherheit der Website notwendig sind. Diese Cookies dienen nicht zu Marketing- oder Tracking-Zwecken.</p>
-            <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bereitstellung einer funktionsfähigen Website).</p>
+            <p>Auf unserer Website nutzen wir Cookies. Bei Cookies handelt es sich um kleine Textdateien, die auf Ihrer Festplatte dem von Ihnen verwendeten Browser durch eine charakteristische Zeichenfolge zugeordnet und gespeichert werden und durch welche der Stelle, die das Cookie setzt, bestimmte Informationen zufließen. Cookies können keine Programme ausführen oder Viren auf Ihren Computer übertragen und daher keine Schäden anrichten. Sie dienen dazu, das Internetangebot insgesamt nutzerfreundlicher und effektiver, also für Sie angenehmer zu machen.</p>
+            <p>Cookies können Daten enthalten, die eine Wiedererkennung des genutzten Geräts möglich machen. Teilweise enthalten Cookies aber auch lediglich Informationen zu bestimmten Einstellungen, die nicht personenbeziehbar sind. Cookies können einen Nutzer aber nicht direkt identifizieren.</p>
+            <p>Man unterscheidet zwischen Session-Cookies, die wieder gelöscht werden, sobald Sie ihren Browser schließen und permanenten Cookies, die über die einzelne Sitzung hinaus gespeichert werden. Wir setzen ausschließlich Cookies, die zwingend erforderlich sind, um sich auf der Website zu bewegen, grundlegende Funktionen zu nutzen und die Sicherheit der Website zu gewährleisten; darin liegt unser berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO). Diese Cookies sammeln weder Informationen über Sie zu Marketingzwecken noch speichern sie, welche Websites Sie besucht haben.</p>
+            <p>Nähere Hinweise zu den einzelnen Cookies erhalten Sie von unserem Hosting-Provider.</p>
         </div>
 
         <div class="content-block">
             <h2>5. Datensicherheit</h2>
-            <p>Wir schützen Ihre Daten durch geeignete technische und organisatorische Maßnahmen. Für die Übertragung vertraulicher Daten nutzen wir eine SSL/TLS-Verschlüsselung, erkennbar am Schloss-Symbol in der Adressleiste Ihres Browsers.</p>
-            <p>Bitte beachten Sie, dass die Datenübertragung im Internet grundsätzlich Sicherheitslücken aufweisen kann. Ein lückenloser Schutz vor dem Zugriff durch Dritte ist nicht möglich.</p>
+            <p>Personenbezogene Daten werden durch uns mittels geeigneter technischer und organisatorischer Maßnahmen geschützt, um ein angemessenes Schutzniveau zu gewährleisten und die Persönlichkeitsrechte der betroffenen Personen zu wahren. Die getroffenen Maßnahmen dienen unter anderem der Vermeidung eines unerlaubten Zugriffs auf die durch uns genutzten technischen Einrichtungen sowie dem Schutz personenbezogener Daten vor unerlaubter Kenntnisnahme durch Dritte. Insbesondere nutzt diese Website aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Ihrer Kontaktanfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von "http://" auf "https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile. Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden. Dennoch weisen wir darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist insoweit nicht möglich.</p>
         </div>
 
         <div class="content-block">
-            <h2>6. Änderungen dieser Datenschutzhinweise</h2>
-            <p>Wir behalten uns vor, diese Datenschutzhinweise bei Bedarf anzupassen, um sie an geänderte rechtliche Rahmenbedingungen oder bei Änderungen unserer Dienste anzupassen. Wir empfehlen Ihnen, diese Seite regelmäßig zu besuchen.</p>
+            <h2>6. Aktualisierung der Datenschutzhinweise</h2>
+            <p>Da sich infolge gesetzlicher Änderungen oder neuer Funktionen im Rahmen unseres Angebots diese Datenschutzhinweise von Zeit zu Zeit ändern können, empfehlen wir Ihnen, diese regelmäßig abzurufen.</p>
         </div>
 
         <div class="update-info">
@@ -286,7 +247,7 @@
         </div>
     </section>
 
-            <footer class="footer" style="background: #0a0e1a; padding: 2rem; text-align: center;">
+    <footer class="footer" style="background: #0a0e1a; padding: 2rem; text-align: center;">
         <a href="impressum.html" style="color: white; text-decoration: none; margin: 0 1rem;">Impressum</a>
         <a href="datenschutz.html" style="color: white; text-decoration: none; margin: 0 1rem;">Datenschutz</a>
         <a href="kontakt.html" style="color: white; text-decoration: none; margin: 0 1rem;">Kontakt</a>
