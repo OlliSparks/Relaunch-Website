@@ -782,6 +782,64 @@
             margin-top: 3rem;
         }
 
+        /* ===== SUPPLIER TEASER ===== */
+        .supplier-teaser {
+            padding: 60px 2rem;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(28, 37, 83, 0.1) 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .supplier-teaser-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .supplier-teaser-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .supplier-teaser-text {
+            flex: 1;
+        }
+
+        .supplier-teaser-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+
+        .supplier-teaser-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .supplier-teaser-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .supplier-teaser-link:hover {
+            color: #fbbf24;
+        }
+
+        @media (max-width: 768px) {
+            .supplier-teaser-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
         /* ===== TECHNOLOGIE ===== */
         .technology {
             padding: 100px 2rem;
@@ -1409,6 +1467,20 @@
             </div>
             <div class="reference-cta">
                 <a href="erfolgsgeschichten.html" class="btn-secondary">Zur Erfolgsgeschichte →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supplier Teaser Section -->
+    <section class="supplier-teaser">
+        <div class="supplier-teaser-content">
+            <div class="supplier-teaser-icon">🔧</div>
+            <div class="supplier-teaser-text">
+                <h2 class="supplier-teaser-title">Sie sind Lieferant?</h2>
+                <p class="supplier-teaser-desc">
+                    Ihr OEM setzt auf orca – und das ist gut für Sie. Eine professionelle Plattform für Inventuren und Werkzeugprozesse, kostenlos für Sie, ohne IT-Aufwand. Im Normalfall ein Klick, bei Bedarf ein Foto – fertig.
+                </p>
+                <a href="lieferanten.html" class="supplier-teaser-link">Was das für Sie bedeutet →</a>
             </div>
         </div>
     </section>
