@@ -32,6 +32,11 @@
         .container { max-width: 1400px; margin: 0 auto; }
         .section-title { font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; color: #1a202c; }
         .section-subtitle { font-size: 1.2rem; color: #64748b; text-align: center; max-width: 900px; margin: 0 auto 3rem; line-height: 1.8; }
+        .section-text { font-size: 1.2rem; color: #64748b; text-align: center; max-width: 900px; margin: 0 auto; line-height: 1.8; }
+
+        .highlight-box { background: rgba(249, 115, 22, 0.1); border-left: 4px solid #f97316; padding: 1.5rem 2rem; margin: 2rem auto; border-radius: 0 12px 12px 0; max-width: 800px; }
+        .highlight-box p { font-size: 1.15rem; font-style: italic; color: #1a202c; margin: 0; line-height: 1.7; }
+        .highlight-box .quote-author { font-style: normal; font-weight: 600; color: #f97316; margin-top: 0.75rem; display: block; }
 
         .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         .expertise-card { text-align: center; padding: 2.5rem 2rem; background: white; border: 1px solid #e5e7eb; border-radius: 20px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,.05); }
@@ -111,11 +116,23 @@
         <p class="hero-subtitle">Von Praktikern für Praktiker – für eine effiziente Automobilindustrie</p>
     </div>
 
-    <!-- 2. Wer wir sind -->
+    <!-- 2. Wofür wir stehen -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Wofür wir stehen</h2>
+            <p class="section-text">Wir glauben, dass Werkzeugmanagement kein notwendiges Übel sein muss. Dass es einfacher, fairer und menschlicher geht – für alle Beteiligten. Deshalb bauen wir nicht einfach Software, sondern eine Plattform, die Menschen verbindet statt Prozesse zu verkomplizieren.</p>
+            <p class="section-text" style="margin-top: 1.5rem;">Unser Ziel: Ein Branchenstandard, der nicht von oben diktiert wird, sondern gemeinsam mit der Branche wächst.</p>
+        </div>
+    </section>
+
+    <!-- 3. Wer wir sind -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Wer wir sind</h2>
-            <p class="section-subtitle">orca entstand 2021 aus einer konkreten Herausforderung: Wie managt man hunderttausende Werkzeuge über Dutzende Länder und Tausende Unternehmen hinweg? Die Antwort: Eine Plattform, entwickelt von einem Team mit über 25 Jahren Erfahrung im Werkzeugmanagement bei OEMs und Lieferanten.</p>
+            <p class="section-subtitle">orca ist kein Konzernprojekt und kein Startup aus dem Lehrbuch. Wir sind ein kleines Team, das aus der Branche kommt und die Probleme aus eigener Erfahrung kennt. 2021 haben wir gesagt: Das muss besser gehen. Seitdem arbeiten wir jeden Tag daran – mit Leidenschaft, kurzen Wegen und offenen Türen.</p>
+            <div class="highlight-box">
+                <p>„Wir wollten nie ein anonymer Software-Anbieter sein. Sondern Partner, die mit anpacken – und die man anrufen kann, wenn's brennt."<span class="quote-author">— Burkhard Grosche, Gründer</span></p>
+            </div>
             <div class="expertise-grid">
                 <div class="expertise-card">
                     <div class="expertise-icon">🏭</div>
@@ -136,7 +153,7 @@
         </div>
     </section>
 
-    <!-- 3. Was uns antreibt -->
+    <!-- 4. Was uns antreibt -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Was uns antreibt</h2>
@@ -161,7 +178,15 @@
         </div>
     </section>
 
-    <!-- 4. Technologie -->
+    <!-- 5. Wie wir arbeiten -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Wie wir arbeiten</h2>
+            <p class="section-text">Bei uns gibt es keine anonymen Ticket-Systeme und keine Warteschleifen. Wenn Sie anrufen, sprechen Sie mit Menschen, die Ihre Herausforderungen verstehen – weil sie selbst dort gearbeitet haben. Wir hören zu, wir lernen dazu, und wir setzen um. Schnell, direkt, unkompliziert.</p>
+        </div>
+    </section>
+
+    <!-- 6. Technologie -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Technologie</h2>
@@ -179,7 +204,7 @@
         </div>
     </section>
 
-    <!-- 5. Das Unternehmen -->
+    <!-- 7. Das Unternehmen -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Das Unternehmen</h2>
@@ -196,7 +221,7 @@
         </div>
     </section>
 
-    <!-- 6. CTA -->
+    <!-- 8. CTA -->
     <section class="cta-section">
         <h2>Fragen? Lassen Sie uns sprechen.</h2>
         <p>Erfahren Sie, wie orca Ihr Werkzeugmanagement vereinfachen kann.</p>
