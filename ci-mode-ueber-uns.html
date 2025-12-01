@@ -16,7 +16,6 @@
         .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: #1C2553; }
         .orca-logo { width: 50px; height: 50px; }
         .logo-text { font-size: 1.3rem; font-weight: 600; }
-        /* Logo dot inherits text color */
         .nav-links { display: flex; gap: 2.5rem; align-items: center; }
         .nav-links a { color: #64748b; text-decoration: none; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: #1C2553; }
@@ -34,61 +33,56 @@
         .section-title { font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; color: #1C2553; }
         .section-subtitle { font-size: 1.2rem; color: #64748b; text-align: center; max-width: 900px; margin: 0 auto 3rem; line-height: 1.8; }
 
-        .mission-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 3rem; }
-        .mission-box { background: white; border: 1px solid #D2D2D2; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 15px rgba(0,0,0,.05); }
-        .mission-box h3 { font-size: 1.8rem; color: #5A2408; margin-bottom: 1rem; }
-        .mission-box p { font-size: 1.1rem; line-height: 1.8; color: #4a5568; }
-
-        .story-content { max-width: 900px; margin: 0 auto; }
-        .story-content p { font-size: 1.15rem; line-height: 1.9; color: #4a5568; margin-bottom: 1.5rem; }
-        .highlight-box { background: rgba(90, 36, 8, 0.1); border-left: 4px solid #5A2408; padding: 1.5rem 2rem; margin: 2rem 0; border-radius: 0 12px 12px 0; }
-        .highlight-box p { font-size: 1.2rem; font-weight: 600; color: #1C2553; margin: 0; }
-
         .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .expertise-card { text-align: center; padding: 2.5rem 2rem; background: white; border: 1px solid #D2D2D2; border-radius: 20px; transition: all 0.3s; }
-        .expertise-card:hover { transform: translateY(-5px); border-color: #5A2408; }
+        .expertise-card { text-align: center; padding: 2.5rem 2rem; background: white; border: 1px solid #D2D2D2; border-radius: 20px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,.05); }
+        .expertise-card:hover { transform: translateY(-5px); border-color: #5A2408; box-shadow: 0 8px 25px rgba(90,36,8,.15); }
         .expertise-icon { font-size: 3.5rem; margin-bottom: 1rem; }
         .expertise-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: #1C2553; }
         .expertise-card p { color: #64748b; line-height: 1.7; }
 
-        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .value-card { background: white; border: 1px solid #D2D2D2; border-radius: 16px; padding: 2rem; transition: all 0.3s; }
+        .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .value-card { background: white; border: 1px solid #D2D2D2; border-radius: 16px; padding: 2rem; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,.05); }
         .value-card:hover { border-color: #5A2408; }
         .value-card h4 { font-size: 1.3rem; color: #5A2408; margin-bottom: 0.75rem; }
         .value-card p { color: #64748b; font-size: 1rem; }
 
         .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-        .tech-item { background: white; border: 1px solid #D2D2D2; border-radius: 16px; padding: 2rem; }
+        .tech-item { background: white; border: 1px solid #D2D2D2; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,.05); }
         .tech-item h4 { font-size: 1.3rem; margin-bottom: 1rem; color: #5A2408; }
         .tech-item p { color: #64748b; line-height: 1.7; }
 
         .company-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-top: 3rem; }
-        .info-card { background: white; border: 1px solid #D2D2D2; border-radius: 16px; padding: 2rem; }
+        .info-card { background: white; border: 1px solid #D2D2D2; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,.05); }
         .info-card h4 { font-size: 1.2rem; margin-bottom: 1rem; color: #1C2553; }
         .info-card p { color: #64748b; line-height: 1.7; }
 
         .cta-section { padding: 6rem 2rem; background: #1C2553; text-align: center; }
         .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
         .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .cta-btn { display: inline-block; background: #5A2408; color: white; padding: 1rem 3rem; border-radius: 50px; font-weight: 600; text-decoration: none; font-size: 1.1rem; transition: transform 0.3s; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-btn { display: inline-block; background: #5A2408; color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; text-decoration: none; font-size: 1.1rem; transition: transform 0.3s; }
         .cta-btn:hover { transform: scale(1.05); }
+        .cta-btn-secondary { display: inline-block; background: transparent; border: 2px solid rgba(255,255,255,0.3); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; text-decoration: none; font-size: 1.1rem; transition: all 0.3s; }
+        .cta-btn-secondary:hover { border-color: #5A2408; background: rgba(90, 36, 8, 0.2); }
 
         .footer { background: #1C2553; padding: 4rem 2rem 2rem; }
-        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
-        .footer-brand .logo-text { margin-bottom: 1rem; color: white; }
-        .footer-desc { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
-        .footer-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: white; }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 0.5rem; }
-        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; }
-        .footer-links a:hover { color: #5A2408; }
-        .footer-bottom { max-width: 1400px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
 
-        @media (max-width: 1024px) { .mission-grid, .tech-grid, .company-info { grid-template-columns: 1fr; } .expertise-grid, .values-grid { grid-template-columns: repeat(2, 1fr); } .footer-content { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 2.5rem; } .expertise-grid, .values-grid { grid-template-columns: 1fr; } .footer-content { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; } .mode-switcher { bottom: 1rem; right: 1rem; } }
+        @media (max-width: 1024px) {
+            .tech-grid, .company-info { grid-template-columns: 1fr; }
+            .expertise-grid { grid-template-columns: repeat(3, 1fr); }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .expertise-grid, .values-grid { grid-template-columns: 1fr; }
+            .mode-switcher { bottom: 1rem; right: 1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
     </style>
 </head>
 <body>
+
     <div class="mode-switcher">
         <a href="ueber-uns.html" class="mode-btn dark" title="Dark Mode">🌙</a>
         <a href="light-mode-ueber-uns.html" class="mode-btn light" title="Light Mode">☀️</a>
@@ -107,40 +101,118 @@
                 <a href="ci-mode-erfolgsgeschichten.html">Erfolgsgeschichten</a>
                 <a href="ci-mode-support.html">Support</a>
                 <a href="ci-mode-ueber-uns.html" class="active">Über uns</a>
-                <a href="ci-mode-index.html#demo" class="nav-btn">Demo anfragen</a>
+                <a href="kontakt.html" class="nav-btn">Demo anfragen</a>
             </div>
         </div>
     </nav>
 
+    <!-- 1. Hero -->
     <div class="hero">
         <h1>Wir machen Werkzeugmanagement<br>zum <span class="gradient">Branchenstandard</span></h1>
-        <p class="hero-subtitle">Von Experten für Experten – gemeinsam für eine transparente Automobilindustrie</p>
+        <p class="hero-subtitle">Von Praktikern für Praktiker – für eine effiziente Automobilindustrie</p>
     </div>
 
-    <section class="section"><div class="container"><h2 class="section-title">Mission & Vision</h2><div class="mission-grid"><div class="mission-box"><h3>Unsere Mission</h3><p>Wir digitalisieren und automatisieren das Werkzeugmanagement in globalen Wertschöpfungsketten. Mit orca schaffen wir Transparenz, Compliance und Effizienz – über Unternehmensgrenzen hinweg, vom OEM bis zum n-tier Lieferanten.</p></div><div class="mission-box"><h3>Unsere Vision</h3><p>orca wird der Branchenstandard für Werkzeugmanagement in der Automobilindustrie. Nicht proprietär, sondern kollaborativ. Nicht komplex, sondern intuitiv. Nicht teuer, sondern fair für alle Beteiligten der Supply Chain.</p></div></div></div></section>
+    <!-- 2. Wer wir sind -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Wer wir sind</h2>
+            <p class="section-subtitle">orca entstand 2021 aus einer konkreten Herausforderung: Wie managt man hunderttausende Werkzeuge über Dutzende Länder und Tausende Unternehmen hinweg? Die Antwort: Eine Plattform, entwickelt von einem Team mit über 25 Jahren Erfahrung im Werkzeugmanagement bei OEMs und Lieferanten.</p>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">🏭</div>
+                    <h3>Branchenerfahrung</h3>
+                    <p>Wir kennen die Prozesse aus erster Hand – aus der Arbeit bei OEMs und Tier-1-Lieferanten. Keine Theorie, sondern gelebte Praxis.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🔗</div>
+                    <h3>Eine Plattform für alle</h3>
+                    <p>Mit orca braucht nicht jeder OEM eine eigene Lösung. Ein System, ein Standard – entwickelt in Zusammenarbeit mit der Branche.</p>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">📊</div>
+                    <h3>Gemeinsame Datenbasis</h3>
+                    <p>Eine Plattform, ein Datenmodell, alle Beteiligten. Vom OEM bis zum n-tier-Lieferanten, über den gesamten Lebenszyklus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="section"><div class="container"><h2 class="section-title">Die orca Story</h2><div class="story-content"><p>2021 in Rennertshofen gegründet, entstand orca aus einer konkreten Herausforderung der Automobilindustrie: Wie managed man hunderttausende Lieferantenwerkzeuge über Dutzende Länder und Tausende Unternehmen hinweg?</p><p>Die Antwort: Eine cloud-basierte Plattform, entwickelt von Branchenexperten mit über 25 Jahren kombinierter Erfahrung im Werkzeugmanagement, in Planung und Auftragsabwicklung bei OEMs und Lieferanten.</p><div class="highlight-box"><p>"Nicht theoretisches Wissen, sondern gelebte Praxis aus der Automobilindustrie."</p></div><p>Heute nutzen BMW und über 3.000 Unternehmen orca für über 200.000 Werkzeuge in 70 Ländern. Tendenz stark steigend.</p></div></div></section>
+    <!-- 3. Was uns antreibt -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Was uns antreibt</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h4>Kollaborativ</h4>
+                    <p>Nicht proprietär, sondern Branchenstandard. Offen für alle Beteiligten der Supply Chain.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Fair</h4>
+                    <p>Faire Preismodelle für OEMs, kostenlos für Lieferanten. Keine versteckten Kosten.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Zuverlässig</h4>
+                    <p>99,83% Erfolgsquote. Bewährt bei über 3.000 Unternehmen in 70 Ländern.</p>
+                </div>
+                <div class="value-card">
+                    <h4>Pragmatisch</h4>
+                    <p>Aus der Praxis für die Praxis. Keine Theorien, sondern Lösungen die funktionieren.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Was wir sind -->
-    <section class="section"><div class="container"><h2 class="section-title">Was wir sind.</h2><div class="expertise-grid"><div class="expertise-card"><h3>Expertenkreis.</h3><p>Mit einer kombinierten Erfahrung von 25 Jahren im Werkzeugbestandsmanagement, Planung und Bestellabwicklung von OEMs und Lieferanten.</p></div><div class="expertise-card"><h3>Prozesstankstelle.</h3><p>Warum erfindet eigentlich jeder OEM das Rad bei den Werkzeugen neu? Wenn es doch Standard-Prozesse im besten Sinne für alle geben könnte! Wir entwickeln diese in Zusammenarbeit mit unseren Kunden.</p></div><div class="expertise-card"><h3>Datenkarussell.</h3><p>Wir verbinden alle Prozessbeteiligten über eine flexible Cloud-Plattform auf Basis eines gemeinsamen Werkzeug-Datenmodells entlang des Lebenszyklus.</p></div></div></div></section>
+    <!-- 4. Technologie -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Technologie</h2>
+            <p class="section-subtitle">Moderne Technologie, die im Hintergrund bleibt – damit Sie sich auf Ihre Arbeit konzentrieren können.</p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Cloud-native & sicher</h4>
+                    <p>Skalierbar, immer verfügbar, automatisch aktuell. Ohne IT-Projekte Ihrerseits.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Intelligent automatisiert</h4>
+                    <p>Automatische Foto-Validierung, Nummern-Erkennung, Dubletten-Prüfung. Weniger manueller Aufwand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Was wir tun -->
-    <section class="section"><div class="container"><h2 class="section-title">Was wir tun.</h2><div class="expertise-grid"><div class="expertise-card"><h3>Einführen.</h3><p>Entlang des orca Standards Werkzeugdaten laden, Regeln einstellen, Vertragspartner informieren und unterstützen, usw. Mit einem orca Projektmanagement.</p></div><div class="expertise-card"><h3>Integrieren.</h3><p>In SAP und non-SAP Systeme auf Basis der orca.standards. Von der Anlagenbuchhaltung über Erlösbuchungen bis hin zur Anbindung inventurfähiger Tracker-Lösungen.</p></div><div class="expertise-card"><h3>Betreiben.</h3><p>Der beste Betrieb ist der, den keiner bemerkt. So wollen wir das auch weiterhin halten.</p></div></div></div></section>
+    <!-- 5. Das Unternehmen -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Das Unternehmen</h2>
+            <div class="company-info">
+                <div class="info-card">
+                    <h4>📍 Standort</h4>
+                    <p><strong>orca. organizing company assets GmbH</strong><br>Antonibergstraße 17<br>86643 Rennertshofen<br>Deutschland</p>
+                </div>
+                <div class="info-card">
+                    <h4>📋 Rechtliches</h4>
+                    <p>Handelsregister: HRB 10160<br>Registergericht: Amtsgericht Ingolstadt<br>USt-IdNr.: DE343734884<br>Gegründet: Mai 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="section"><div class="container"><h2 class="section-title">Circle of Experts</h2><p class="section-subtitle">Unsere Expertise entsteht aus der perfekten Kombination von Branchen-Know-how, Prozess-Verständnis und modernster Technologie</p><div class="expertise-grid"><div class="expertise-card"><div class="expertise-icon">🏭</div><h3>Automotive-Profis</h3><p>25+ Jahre kombinierte Erfahrung im Werkzeugmanagement bei OEMs und Tier-1 Lieferanten</p></div><div class="expertise-card"><div class="expertise-icon">⚙️</div><h3>Prozess-Expertise</h3><p>Tiefes Verständnis für ABL, Inventur, Verlagerung und Verschrottung aus der Praxis</p></div><div class="expertise-card"><div class="expertise-icon">💻</div><h3>Tech-Innovation</h3><p>Moderne Cloud-Architektur, KI-gestützte Automatisierung, GraphDB-Technologie</p></div></div></div></section>
+    <!-- 6. CTA -->
+    <section class="cta-section">
+        <h2>Fragen? Lassen Sie uns sprechen.</h2>
+        <p>Erfahren Sie, wie orca Ihr Werkzeugmanagement vereinfachen kann.</p>
+        <div class="cta-buttons">
+            <a href="kontakt.html" class="cta-btn">Demo anfragen</a>
+            <a href="kontakt.html" class="cta-btn-secondary">Kontakt aufnehmen</a>
+        </div>
+    </section>
 
-    <section class="section"><div class="container"><h2 class="section-title">Unsere Werte</h2><div class="values-grid"><div class="value-card"><h4>Kollaborativ</h4><p>Nicht proprietär, sondern Branchenstandard. n-tier ohne Zusatzkosten.</p></div><div class="value-card"><h4>Transparent</h4><p>Volle Sichtbarkeit über die gesamte Supply Chain für alle Beteiligten.</p></div><div class="value-card"><h4>Fair</h4><p>Faire Preismodelle für OEMs und Lieferanten. Keine versteckten Kosten.</p></div><div class="value-card"><h4>Innovativ</h4><p>KI, Automatisierung, GraphDB – Technologie die wirklich hilft.</p></div><div class="value-card"><h4>Zuverlässig</h4><p>99,83% Erfolgsquote. Bewährt bei BMW und tausenden Lieferanten.</p></div><div class="value-card"><h4>Pragmatisch</h4><p>Aus der Praxis für die Praxis. Keine Theorien, sondern Lösungen.</p></div></div></div></section>
-
-    <section class="section"><div class="container"><h2 class="section-title">Technologie & Partner</h2><p class="section-subtitle">Modernste Technologie, bewährte Partner – für eine zukunftssichere Lösung</p><div class="tech-grid"><div class="tech-item"><h4>Cloud-Native Architektur</h4><p>Skalierbar, sicher, verfügbar. Aufbau, Betrieb und Weiterentwicklung einer cloud-basierten Plattform für die Organisation physischer Wirtschaftsgüter in globalen Wertschöpfungsketten.</p></div><div class="tech-item"><h4>Fischer Sherlock GraphDB</h4><p>Die Datenmanagementplattform Sherlock bildet die technologische Basis. GraphDB-Technologie für Millionen Objekte und komplexe Verknüpfungen über die Supply Chain.</p></div><div class="tech-item"><h4>KI-gestützte Automatisierung</h4><p>Automatische Foto-Validierung, OCR-Erkennung, intelligente Dublettenprüfung. Signifikante Effizienzsteigerung durch KI.</p></div><div class="tech-item"><h4>API-First Approach</h4><p>REST-API für nahtlose Integration in ERP, PLM und weitere Systeme. Webhooks, Real-time Sync, Custom Connectors.</p></div></div></div></section>
-
-    <section class="section"><div class="container"><h2 class="section-title">Das Unternehmen</h2><div class="company-info"><div class="info-card"><h4>📍 Standort</h4><p><strong>orca. organizing company assets GmbH</strong><br>Antonibergstraße 17<br>86643 Rennertshofen<br>Deutschland</p></div><div class="info-card"><h4>📋 Rechtliches</h4><p>Handelsregister: HRB 10160<br>Registergericht: Amtsgericht Ingolstadt<br>USt-IdNr.: DE343734884<br>Gegründet: Mai 2021</p></div></div></div></section>
-
-    <section class="cta-section"><h2>Lassen Sie uns gemeinsam die Zukunft gestalten</h2><p>Werden Sie Teil des orca Ökosystems und profitieren Sie von der führenden Werkzeugmanagement-Plattform</p><a href="ci-mode-index.html#demo" class="cta-btn">Demo anfragen</a></section>
-
-                <footer class="footer" style="background: #0a0e1a; padding: 2rem; text-align: center;">
+    <!-- Footer -->
+    <footer class="footer" style="background: #0a0e1a; padding: 2rem; text-align: center;">
         <a href="impressum.html" style="color: white; text-decoration: none; margin: 0 1rem;">Impressum</a>
         <a href="datenschutz.html" style="color: white; text-decoration: none; margin: 0 1rem;">Datenschutz</a>
         <a href="kontakt.html" style="color: white; text-decoration: none; margin: 0 1rem;">Kontakt</a>
     </footer>
+
 </body>
 </html>
