@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutzungsbedingungen - orca. organizing company assets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1C2553;
+            --accent: #f97316;
+            --accent-dark: #ea580c;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #1C2553;
+            --text-secondary: #64748b;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .mode-switcher{position:fixed;bottom:2rem;right:2rem;z-index:9999;display:flex;gap:.5rem;background:rgba(255,255,255,.95);padding:.5rem;border-radius:50px;border:1px solid var(--border);backdrop-filter:blur(10px);box-shadow:0 4px 15px rgba(0,0,0,.1)}.mode-btn{width:40px;height:40px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}.mode-btn:hover{transform:scale(1.1)}.mode-btn.active{border-color:#f97316}.mode-btn.dark{background:#0a0e1a}.mode-btn.light{background:#fff;border:1px solid #e5e7eb}
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .content-section {
+            padding: 150px 2rem 100px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .page-title span {
+            color: var(--accent);
+        }
+
+        .stand {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .content-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .content-block h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .content-block h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .content-block p {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .content-block ul {
+            color: var(--text-secondary);
+            margin: 1rem 0 1rem 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .content-block ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content-block a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .content-block a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-title { font-size: 2rem; }
+            .content-section { padding: 120px 1.5rem 60px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="mode-switcher">
+        <a href="nutzungsbedingungen.html" class="mode-btn dark" title="Dark Mode">🌙</a>
+        <a href="light-mode-nutzungsbedingungen.html" class="mode-btn light active" title="Light Mode">☀️</a>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="light-mode-index.html">Home</a></li>
+                <li><a href="light-mode-prozesse.html">Prozesse</a></li>
+                <li><a href="light-mode-erfolgsgeschichten.html">Erfolgsgeschichten</a></li>
+                <li><a href="light-mode-ueber-uns.html">Über uns</a></li>
+                <li><a href="light-mode-support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h1 class="page-title">Nutzungsbedingungen<span>.</span></h1>
+
+        <p class="stand">Stand: 01.07.2021</p>
+
+        <div class="content-block">
+            <h2>1. Geltung</h2>
+            <p>1.1 Diese Allgemeinen Nutzungsbedingungen gelten für alle vertraglichen Beziehungen, in denen die orca. organizing company assets GmbH (im Folgenden: „orca GmbH") unter organizingcompanyassets.com (im Folgenden: „Plattform") cloud-basierte Anwendungen (im Folgenden: „Cloud Services") für ein anderes Unternehmen, eine andere öffentlich-rechtliche Körperschaft oder ein Sondervermögen (im Folgenden: „Kunde") zur Verfügung stellt. Die Allgemeinen Nutzungsbedingungen sind Grundlage für die Nutzung der Plattform und der Cloud Services durch den Kunden.</p>
+            <p>1.2 Entgegenstehende oder von diesen Nutzungsbedingungen abweichende Allgemeine Geschäftsbedingungen des Kunden finden keine Anwendung, auch wenn orca diesen nicht ausdrücklich widerspricht.</p>
+            <p>1.3 Sofern ergänzend externe Nutzungsbedingungen gelten, wie z.B. der BMW AG, werden diese dem Kunden während des Registrierungsprozesses angezeigt und sind von diesem gesondert zu bestätigen.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>2. Gegenstand unserer Leistungen</h2>
+            <p>2.1 Gegenstand der Leistungen der orca GmbH ist die Zurverfügungstellung des Zugangs zur Software orca der Fischer Information Technology AG, Radolfzell, (im Folgenden: „Software") über die Plattform als Software as a Service (SaaS) gemäß der aktuellen Produktbeschreibung für Eigentümer bzw. Nutzungsberechtigte der Werkzeuge und deren verbundener Unternehmen (im Folgenden: „Auftraggeber"), deren Vertragspartner sowie die Unterlieferanten der Vertragspartner (im Folgenden gemeinsam: „User").</p>
+            <p>2.2 Die Software beinhaltet Funktionen zum Werkzeugbestandsmanagement, um für Werkzeuge des Auftraggebers (im Folgenden: „Werkzeuge") Inventuren und weitere werkzeugbezogene Prozesse (wie Verlagerungen und Verwertungen) beantragen und durchführen zu können. User können mit der Software für diese Zwecke ihre werkzeugbezogene interne Organisation bezüglich Verantwortlichkeiten und Standorten abbilden, Unterlieferanten einladen, Aufträge für Werkzeuge zuordnen, diese verwalten und Rückmeldungen verarbeiten.</p>
+            <p>2.3 Der User bezieht die Software als Software Subscription bei der Fischer Information Technology AG. Für die Nutzung der Software gelten die Bedingungen des jeweiligen Lizenzvertrags über die Software Subscription.</p>
+            <p>2.4 Die Software wird über die von der orca GmbH betriebene Plattform zur Verfügung gestellt. Dem User wird ermöglicht, die auf den Servern der orca GmbH bzw. eines von der orca GmbH beauftragten Dienstleisters gespeicherte und ablaufende Software über eine Internetverbindung während der Laufzeit dieses Vertrags für eigene Zwecke zu nutzen und seine Daten mit ihrer Hilfe zu verarbeiten.</p>
+            <p>2.5 Die orca GmbH stellt dem User die Software in der jeweils vereinbarten Version am Routerausgang des Rechenzentrums, in dem der Server mit der Software steht, zur Nutzung bereit. Die Software, die für die Nutzung erforderliche Rechenleistung und der erforderliche Speicher- und Datenverarbeitungsplatz bei einem externen Cloud Betreiber werden von der orca GmbH bzw. einem von der orca GmbH beauftragten Dienstleister bereitgestellt. Die orca GmbH schuldet nicht die Herstellung und Aufrechterhaltung der Datenverbindung zwischen den IT-Systemen des Users und dem beschriebenen Übergabepunkt. Sie ist nicht verantwortlich für die Funktions- und Leistungsfähigkeit von Endgerät, Frontend und IT-Infrastruktur des Users.</p>
+            <p>2.6 Für die Bereitstellung der Cloud Services arbeitet die orca GmbH mit zertifizierten IT-Dienstleistern zusammen. Die orca GmbH stellt sicher, dass sie nur mit Subunternehmern zusammenarbeitet, die ihre Dienstleistungen nach dem neuesten Stand der Technik erbringen und die an gleichwertige Regeln der Vertraulichkeit und des Datenschutzes gebunden sind, wie die orca GmbH gegenüber den Usern.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>3. Nutzungsrechte</h2>
+            <p>3.1 Die orca GmbH räumt den Usern für die Dauer der Software Subscription ein einfaches, nicht übertragbares und nicht unterlizensierbares weltweites Nutzungsrecht für die in unter 2.2 aufgeführten Zwecke und Prozesse ein, die Plattform zu nutzen sowie die über die Plattform zur Verfügung gestellte Software gemäß den Bedingungen der Software Subscription zu nutzen. Das Nutzungsrecht schließt auch Benutzerdokumentationen und Supportseiten ein.</p>
+            <p>3.2 Die Lizenzgebühr für die Nutzung der Plattform ist in der Software-Lizenz enthalten, die die User mit der Fischer Information Technology AG bzw. bei Vertrieb der Software über einen Vertriebspartner mit diesem vereinbart hat.</p>
+            <p>3.3 Der Kunde kann autorisierten Nutzern gestatten, die Cloud Services im vertraglich vereinbarten Umfang zu nutzen. "Autorisierte Nutzer" sind definiert als Personen beim User oder seinen verbundenen Unternehmen, denen der User die Zugangsberechtigung zur Nutzung des Cloud-Service erteilt.</p>
+            <p>3.4 Der User ist nicht berechtigt, die Zugangsdaten zur Plattform Dritten zugänglich zu machen oder Zugangsdaten an Dritte weiterzugeben.</p>
+            <p>3.5 Sofern die User bzw. deren registrierte Nutzer die Plattform zu anderen Zwecken nutzen als in diesen Nutzungsbedingungen geregelt oder gegen diese verstoßen, ist die orca GmbH berechtigt, diese von der Nutzung der Plattform auszuschließen. Weitergehende Ansprüche, z.B. auf Schadenersatz, bleiben vorbehalten.</p>
+            <p>3.6 Dem Kunden ist bei der Nutzung der Cloud Services Folgendes untersagt: (a) die Cloud Services (soweit dies nicht nach zwingendem Recht erlaubt ist) ganz oder teilweise zu kopieren, übersetzen, disassemblieren, dekompilieren, zurückzuentwickeln oder anderweitig zu modifizieren oder abgeleitete Werke hiervon zu erstellen; die Dokumentation darf jedoch zur internen Nutzung im erforderlichen Umfang kopiert werden; (b) eine Nutzung des Cloud Service in einer Weise, die gegen anwendbares Recht verstößt, insbesondere Übermittlung von Informationen und Daten, die rechtswidrig sind oder Schutzrechte Dritter verletzen; sowie (c) den Betrieb oder die Sicherheit der Cloud Services zu gefährden oder zu umgehen.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>4. Pflichten der orca GmbH</h2>
+            <p>4.1 Die orca GmbH wird die Systemverfügbarkeit der Cloud Service aufrechterhalten.</p>
+            <p>4.2 Die orca GmbH ergreift und unterhält in Übereinstimmung mit den anwendbaren datenschutzrechtlichen Vorschriften angemessene technische und organisatorische Maßnahmen zum Schutz der von der orca GmbH im Rahmen der Cloud Services verarbeiteten personenbezogenen Daten, die in der dem User zur Verfügung gestellten Datenschutzerklärung beschrieben sind.</p>
+            <p>4.3 Die orca GmbH darf, wie nachfolgend beschrieben, Analysen erstellen, in denen technische Kundendaten und Informationen verwendet werden, die sich aus der Nutzung der Cloud Services durch den User ergeben (im Folgenden: „Analysen"). In den Analysen werden die Daten anonymisiert und aggregiert. Soweit nicht anderweitig vereinbart, werden personenbezogene Daten in den Kundendaten nur zur Erbringung der Cloud Services genutzt. Analysen dürfen für die folgenden Zwecke genutzt werden:</p>
+            <ul>
+                <li>(a) Produktverbesserung (insbesondere Produktmerkmale und –funktionen, Workflows und User Interfaces) und Entwicklung neuer Produkte und Services;</li>
+                <li>(b) Ressourcen- und Supportverbesserung;</li>
+                <li>(c) interne Bedarfsplanung;</li>
+                <li>(d) Training und Entwicklung von Machine Learning Algorithmen;</li>
+                <li>(e) Verbesserungen der Produktperformance;</li>
+                <li>(f) Überprüfung der Sicherheit und Datenintegrität;</li>
+                <li>(g) Identifizierung von Branchentrends und -entwicklungen;</li>
+                <li>(h) Erstellung von Indices und anonymes Benchmarking.</li>
+            </ul>
+            <p>4.4 Die User gewähren orca ein zweckgebundenes Nutzungsrecht an den von ihnen über die Plattform und Software verarbeiteten Daten, beschränkt auf:</p>
+            <ul>
+                <li>(a) Auswertungen zur Beantwortung von Behördenanfragen;</li>
+                <li>(b) anonymisierte, nicht personenbezogene, Auswertungen zu Prozessdurchführungen, Prozessstörungen, den Beziehungen der User zu den jeweiligen Werkzeugen und Standortinformationen;</li>
+                <li>(c) Analyse und Auswertung von bereitgestellten Fotos zu Zwecken der Datenvalidierung und Extraktion prozessrelevanter Informationen (z.B. Abgleich der Inventarnummern, Training von machine-learning Algorithmen zur Verbesserung der Datenvalidierung);</li>
+                <li>(d) Einsicht in und Zugriff auf die Werkzeugdaten durch Prozessbeteiligte mit berechtigtem Interesse, z.B. für Inventurergebnisse durch die Auftraggeber der Werkzeuge;</li>
+                <li>(e) automatisierte Auswertungen, aus denen Hinweise bzw. Tipps für die User generiert werden (z.B. Hinweise zu möglichen Prozessoptimierungen, anonymisierte Vergleiche, etc.).</li>
+            </ul>
+        </div>
+
+        <div class="content-block">
+            <h2>5. Pflichten des Users</h2>
+            <p>5.1 Der User ist für den Inhalt der von ihm über die Plattform verwalteten Daten verantwortlich. Der User gewährt der orca GmbH das nicht-ausschließliche Recht, Kundendaten ausschließlich und soweit erforderlich (i) zum Zweck der Erbringung der Cloud Services (einschließlich insbesondere der Erstellung von Backup-Kopien und der Durchführung von Penetrationstests) und des dazugehörigen Supports, sowie (ii) zur Überprüfung der Einhaltung der Regelungen nach Ziff. 4 durch den Kunden zu verwenden.</p>
+            <p>5.2 Der User erhebt, aktualisiert und bearbeitet alle in den über die Plattform und Software von ihm verwalteten Daten enthaltenen personenbezogenen Daten in Übereinstimmung mit dem jeweils anwendbaren Datenschutzrecht.</p>
+            <p>5.3 Der User unterhält angemessene Sicherheitsstandards für die Nutzung der Cloud Services durch die Autorisierten Nutzer. Der User wird ohne vorherige Zustimmung der orca GmbH keine Penetration Tests in den Cloud Service durchführen oder autorisieren. Der User ist allein dafür verantwortlich, die Eignung der Cloud Services für seine Geschäftsabläufe zu bewerten und alle anwendbaren rechtlichen Bestimmungen hinsichtlich der Kundendaten und der Nutzung der Cloud Services einzuhalten. Der User ist verpflichtet, bei der Erbringung des Cloud Services durch die orca GmbH im erforderlichen Umfang auf eigene Kosten mitzuwirken, indem er insbesondere über Infrastruktur- und Telekommunikationseinrichtungen zum Zugriff auf die Cloud Services verfügt. Die Erbringung der Mitwirkungsleistungen ist Voraussetzung für die ordnungsgemäße Erbringung der Leistungen durch die orca GmbH. Der Kunde trägt sämtliche Nachteile und Mehrkosten aus der Verletzung seiner Pflichten.</p>
+            <p>5.4 Während der Laufzeit der Cloud Services hat der User jederzeit die Möglichkeit, auf die von ihm über die Plattform und Software verwalteten Kundendaten zuzugreifen. Soweit nicht in diesen Nutzungsbedingungen abweichend geregelt, behält der User gegenüber der orca GmbH sämtliche Rechte an seinen Kundendaten. Der User kann seine Daten in einem Standardformat exportieren. Abruf und Export können technischen Beschränkungen und Voraussetzungen unterliegen. In diesem Fall werden sich die orca GmbH und der Kunde auf eine angemessene Methode zur Ermöglichung des Zugriffs des Kunden auf die Kundendaten verständigen. Vor Ablauf der Software Subscription kann der User verlangen, dass die orca GmbH dem Kunden die technische Möglichkeit gibt, seine Kundendaten aus den Cloud Services zu exportieren. Nach Vertragsende ist die orca GmbH berechtigt, die Kundendaten und Analysen ausschließlich für die in Ziff. 4.3. beschriebenen Zwecke weiter zu nutzen, es sei denn der Kunde widerspricht dieser Nutzung ausdrücklich bis zum Zeitpunkt der Vertragsbeendigung. Die aufbewahrten Daten unterliegen den vereinbarten Vertraulichkeitsregeln nach Ziff. 10.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>6. Gewährleistung; Rechte bei Mängeln</h2>
+            <p>6.1 Die orca GmbH gewährleistet für die Dauer der Software Subscription, dass die Cloud Services die vereinbarten Spezifikationen erfüllen und bei vertragsgemäßer Nutzung durch den User keine Rechte Dritter verletzen.</p>
+            <p>6.2 Die orca GmbH behebt Mängel an den Cloud Services, indem sie nach ihrer Wahl die Mängel beseitigt oder dem User einen neuen fehlerfreien Cloud Service zur Verfügung stellt. Eine Möglichkeit der Behebung von Mängeln besteht darin, dem Kunden einen angemessenen Weg aufzuzeigen, um die Auswirkungen des Mangels zu vermeiden. Bei Rechtsmängeln wird die orca GmbH nach ihrer Wahl (i) dem User das Recht zur vertragsgemäßen Nutzung der Cloud Services verschaffen oder (ii) die Cloud-Services ersetzen oder so ändern, dass der Vorwurf der Rechtsverletzung nicht mehr besteht, wodurch die vertragsgemäße Nutzung durch den User nicht unzumutbar beeinträchtigt wird.</p>
+            <p>6.3 Der User ist verpflichtet, die orca GmbH über jeden Mangel unverzüglich mit einer detaillierten Beschreibung des Grundes zu informieren.</p>
+            <p>6.4 Bei nicht vertragsgemäßer Leistung und bei ordnungsgemäß gerügten Mängeln ist die orca GmbH berechtigt, innerhalb einer angemessenen Frist zwei Nacherfüllungsversuche zu unternehmen. Schlagen beide Versuche fehl, stehen die Rechtsbehelfe zur Verfügung, wobei der Kunde die Rückgängigmachung des Vertrages (Rücktritt oder Schadensersatz statt der Leistung) nur verlangen kann, wenn es sich bei den Mängeln um Fehler handelt, die die Nutzung der Cloud Services verhindern oder wesentlich einschränken.</p>
+            <p>6.5 Die orca GmbH haftet nicht für Mängel und übernimmt keine Verpflichtung zum Support im Falle von Mängeln oder Fehlern, die ohne Verschulden der orca GmbH auftreten, insbesondere:</p>
+            <ul>
+                <li>(a) infolge unzulässiger Änderungen oder Anpassungen der Cloud Services durch den User;</li>
+                <li>(b) aufgrund von Drittsoftware, die auf den IT-Systemen des Users läuft;</li>
+                <li>(c) infolge einer unsachgemäßen oder unbefugten Nutzung der Cloud Services oder aufgrund einer nicht durch die Benutzerdokumentation der Software vorgesehenen Nutzung;</li>
+                <li>(d) infolge der Nutzung der Cloud Services in anderen als den in der Benutzerdokumentation der Software angegebenen Hardware- und Software-Umgebung.</li>
+            </ul>
+            <p>Support-Leistungen, die von der orca GmbH in den oben genannten Fällen erbracht werden, werden als separater Auftrag behandelt und dem User als Dienstleistung in Rechnung gestellt.</p>
+            <p>6.6 Gewährleistungsrechte, die sich aus Qualitätsmängeln ergeben, verjähren 12 Monate nach Bereitstellung der Cloud-Services.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>7. Haftung; Haftungsbeschränkung</h2>
+            <p>7.1 In allen Fällen vertraglicher und außervertraglicher Haftung leistet die orca GmbH Schadensersatz oder Ersatz vergeblicher Aufwendungen nur in dem nachfolgend bestimmten Umfang:</p>
+            <p>7.2 Die orca GmbH haftet bei Vorsatz in voller Höhe, bei grober Fahrlässigkeit und bei Fehlen einer Beschaffenheit, für die die orca GmbH eine Garantie übernommen hat, nur in Höhe des vorhersehbaren Schadens, der durch die verletzte Pflicht oder die Garantie verhindert werden sollte.</p>
+            <p>7.3 In allen anderen Fällen haftet die orca GmbH nur bei Verletzung einer wesentlichen Pflicht (Kardinalpflicht) und bis zu den in Ziff. 7.4 genannten Haftungsgrenzen. Die Verletzung einer Kardinalpflicht im Sinne dieser Ziff. 7.3 liegt vor bei Verletzung einer Pflicht, deren Erfüllung die ordnungsgemäße Durchführung des Vertrages erst ermöglicht oder deren Verletzung die Erreichung des Vertragszwecks gefährdet und auf deren Einhaltung der Kunde regelmäßig vertrauen darf.</p>
+            <p>7.4 Die Haftung ist in den Fällen von Abschnitt 7.3 beschränkt auf 50.000 EUR pro Schadensfall und insgesamt pro Vertragsjahr auf die Vergütung, die für die betreffenden Cloud Services in dem Vertragsjahr gezahlt wurde.</p>
+            <p>7.5 Die orca GmbH haftet nicht für mittelbare Schäden oder Folgeschäden, unabhängig von ihrer Rechtsgrundlage, einschließlich entgangenen Gewinns oder des Verlusts von Goodwill, für vergebliche Aufwendungen, die auf eine Fehlfunktion der Cloud Services zurückzuführen sind.</p>
+            <p>7.6 Der Einwand des Mitverschuldens (z. B. Verletzung der Pflichten des Kunden nach Ziff. 5) bleibt unberührt. Die Haftungsbegrenzungen gemäß Ziff. 7.3, 7.4 und 7.5 gelten nicht bei der Haftung für Personenschäden und bei der Haftung nach dem Produkthaftungsgesetz.</p>
+            <p>7.7 Für alle Ansprüche gegen die orca GmbH auf Schadensersatz oder Ersatz vergeblicher Aufwendungen bei vertraglicher und außervertraglicher Haftung gilt eine Verjährungsfrist von einem Jahr. Die Verjährungsfrist beginnt mit dem in § 199 Abs. 1 BGB bestimmten Zeitpunkt. Sie tritt spätestens mit Ablauf von fünf Jahren ab Entstehung des Anspruchs ein. Die Regelungen der Sätze 1 bis 3 dieser Ziff. 9.6 gelten nicht für die Haftung bei Vorsatz oder grober Fahrlässigkeit oder bei Personenschäden oder nach dem Produkthaftungsgesetz. Die abweichende Verjährungsfrist für Ansprüche wegen Sach- und Rechtsmängeln (Ziff. 6.6) bleibt von den Regelungen dieses Absatzes unberührt.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>8. Rechte Dritter</h2>
+            <p>8.1 Wenn ein Dritter Ansprüche aus Schutzrechten behauptet, die der Ausübung der vertraglich eingeräumten Nutzungsbefugnis an den Cloud Services entgegenstehen, so hat der User die orca GmbH unverzüglich schriftlich und umfassend hierüber zu informieren.</p>
+            <p>8.2 Stellt der User die Nutzung der Cloud Services aus Schadensminderungs- oder sonstigen wichtigen Gründen ein, ist er verpflichtet, den Dritten darauf hinzuweisen, dass mit der Nutzungseinstellung kein Anerkenntnis der behaupteten Schutzrechtsverletzung verbunden ist.</p>
+            <p>8.3 Der User wird eine gerichtliche Auseinandersetzung mit dem Dritten nur im Einvernehmen mit der orca GmbH führen oder die orca GmbH zur Führung der Auseinandersetzung ermächtigen. Dies gilt entsprechend, soweit ein Dritter Ansprüche gegenüber der orca GmbH behauptet, die auf Handlungen des Users, der Autorisierten Nutzer oder Drittanbieterzugriffe zurückzuführen sind.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>9. IP Rechte</h2>
+            <p>9.1 Der User darf die Plattform und die Software nur in dem Umfang nutzen, der vertraglich festgelegt ist. Soweit dem Kunden hieran nicht ausdrücklich Rechte eingeräumt werden, stehen alle Rechte an der Plattform der orca GmbH sowie alle Rechte an der Software der Fischer Information Technology AG zu, auch soweit diese durch Vorgaben oder Mitarbeit des User entstanden sind.</p>
+            <p>9.2 Sofern nicht abweichend vereinbart, stehen im Verhältnis zur orca GmbH dem User alle Rechte an und in Bezug auf die von ihm über die Plattform und die Software verwaltenden Kundendaten zu.</p>
+            <p>9.3 Die orca GmbH darf vom User zur Verfügung gestellte Marken nur zum Zweck der Erbringung der Cloud Services verwenden.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>10. Vertraulichkeit</h2>
+            <p>10.1 Die orca GmbH und der User verpflichten sich, alle vor und im Rahmen der Vertragserfüllung erlangten vertraulichen Informationen der jeweils anderen Partei zeitlich unbegrenzt so wie sie eigene vergleichbare vertrauliche Informationen schützen, mindestens jedoch mit angemessener Sorgfalt vertraulich zu behandeln. Eine Weitergabe an Dritte ist nur zulässig, soweit dies zur Ausübung von Rechten oder zur Vertragserfüllung notwendig ist und diese Personen im Wesentlichen vergleichbaren Vertraulichkeitspflichten wie nach diesen Nutzungsbedingungen unterliegen. Vervielfältigungen vertraulicher Informationen der jeweils anderen Partei müssen – soweit technisch möglich – alle Hinweise und Vermerke zu ihrem vertraulichen oder geheimen Charakter enthalten, die im Original enthalten sind.</p>
+            <p>10.2 Der vorstehende Abschnitt 10.1. gilt nicht für vertrauliche Informationen, die (a) vom Empfänger ohne Rückgriff auf die vertraulichen Informationen der offenlegenden Partei unabhängig entwickelt worden sind, (b) ohne Vertragsverletzung durch den Empfänger allgemein öffentlich zugänglich geworden sind oder rechtmäßig und ohne Pflicht zur Geheimhaltung von einem Dritten erhalten wurden, der berechtigt ist, diese Vertraulichen Informationen bereitzustellen, (c) dem Empfänger zum Zeitpunkt der Offenlegung ohne Einschränkungen bekannt waren oder (d) nach schriftlicher Zustimmung der offenlegenden Partei von den vorstehenden Regelungen freigestellt sind.</p>
+            <p>10.3 Die orca GmbH darf den Namen und das Logo des jeweiligen Users ohne dessen vorherige Zustimmung in öffentlichkeitswirksamen, Werbe- oder ähnlichen Aktivitäten nicht verwenden. Die orca GmbH ist jedoch befugt, den Namen des Kunden in Referenzkundenlisten oder im Rahmen der Marketingaktivitäten der orca GmbH (einschließlich Referenzen, Success Stories, in der Presse wiedergegebenen Kundenmeinungen) zu verwenden.</p>
+        </div>
+
+        <div class="content-block">
+            <h2>11. Schlussbestimmungen; anwendbares Recht; Gerichtsstand</h2>
+            <p>11.1 Diese Cloud Nutzungsbedingungen können in Bezug auf die Bereitstellung und Unterstützung der Cloud Services in Übereinstimmung mit den folgenden Sätzen geändert werden, vorausgesetzt, dass die Änderung keine Auswirkungen auf den Vertragsinhalt hat, der für die Gleichwertigkeit der Cloud Services und deren Vergütung zwischen den Parteien wesentlich ist, und vorausgesetzt, dass eine solche Änderung für den User zumutbar ist. Die orca GmbH wird den User über die Änderung der Cloud Nutzungsbedingungen in Textform (per E-Mail oder Fax) informieren. Widerspricht der User in diesem Fall nicht innerhalb von vier Wochen nach Zugang der Änderungsmitteilung ausdrücklich schriftlich, gilt die Änderung als erfolgt und ab diesem Zeitpunkt ist die geänderte Fassung der Cloud Nutzungsbedingungen für die bestehenden Verträge zwischen der orca GmbH und dem User verbindlich. Die orca GmbH wird in der Änderungsmitteilung auf diese Folge hinweisen.</p>
+            <p>11.2 Es gilt das Recht der Bundesrepublik Deutschland.</p>
+            <p>11.3 Gerichtsstand für sämtliche Streitigkeiten aus oder im Zusammenhang mit der Nutzung der Plattform ist München.</p>
+        </div>
+    </section>
+
+    <footer class="footer" style="background: #0a0e1a; padding: 2rem; text-align: center;">
+        <a href="impressum.html" style="color: white; text-decoration: none; margin: 0 1rem;">Impressum</a>
+        <a href="datenschutzhinweise.html" style="color: white; text-decoration: none; margin: 0 1rem;">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html" style="color: white; text-decoration: none; margin: 0 1rem;">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html" style="color: white; text-decoration: none; margin: 0 1rem;">Nutzungsbedingungen</a>
+        <a href="kontakt.html" style="color: white; text-decoration: none; margin: 0 1rem;">Kontakt</a>
+    </footer>
+</body>
+</html>
