@@ -758,4 +758,14 @@
             // Close all accordions in this panel
             const panel = header.closest('.process-panel');
             panel.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-            panel.querySelectorAll('.accordion-content').forEach(c => c.classLis
+            panel.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
+
+            // If it wasn't active, open it
+            if (!isActive) {
+                header.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
