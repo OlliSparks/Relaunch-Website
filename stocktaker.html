@@ -22,17 +22,17 @@
         .nav-links a.active { color: var(--accent); }
         .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
 
-        .content-section { padding: 120px 2rem 60px; max-width: 1200px; margin: 0 auto; }
+        .content-section { padding: 120px 2rem 60px; max-width: 1000px; margin: 0 auto; }
 
-        h3 { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+        h3 { font-size: 3rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-primary); }
 
-        p { margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.8; }
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.9; font-size: 1.25rem; }
         p strong { color: var(--text-primary); }
         p em { font-style: italic; }
 
-        ul { list-style: none; margin: 1rem 0 1.5rem 0; }
-        ul li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--text-secondary); }
-        ul li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        ul { list-style: none; margin: 1.5rem 0 2rem 0; }
+        ul li { padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--text-secondary); font-size: 1.25rem; }
+        ul li::before { content: '•'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
 
         .step-image {
             width: 100%;
@@ -46,10 +46,13 @@
         .info-box {
             background: var(--bg-alt);
             border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
             border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            font-size: 1.15rem;
         }
+        .info-box p { font-size: 1.15rem; }
 
         .spacer { height: 2rem; }
 
@@ -57,9 +60,13 @@
         .footer a { color: white; text-decoration: none; margin: 0 1rem; }
         .footer a:hover { color: var(--accent); }
 
+        a { color: var(--primary); }
+        a:hover { color: var(--accent); }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            h3 { font-size: 1.5rem; }
+            h3 { font-size: 2rem; }
+            p, ul li { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -132,7 +139,7 @@
         <p>3. Klicken Sie nun auf "Inventurauftrag" um den Inventurauftrag zu öffnen.</p>
         <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/d3c4c90c-c274-43e6-b09b-6c2aa25542d2/3_1.jpg" alt="Schritt 3" class="step-image">
 
-        <p>4. Wählen Sie ein Werkzeug aus der Liste aus. Anhand der Icons können Sie den aktuellen Bearbeitungsstand des Werkzeugs erkennen. Eine kurze Übersicht zu den Icons und deren Bedeutung finden Sie <a href="/s/Icons-Durchlauf-Werkzeug.pdf" target="_blank" style="color: var(--accent);">hier</a>.</p>
+        <p>4. Wählen Sie ein Werkzeug aus der Liste aus. Anhand der Icons können Sie den aktuellen Bearbeitungsstand des Werkzeugs erkennen. Eine kurze Übersicht zu den Icons und deren Bedeutung finden Sie <a href="https://ollisparks.github.io/Relaunch-Website/downloads/Icons-Durchlauf-Werkzeug.pdf" target="_blank">hier</a>.</p>
         <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/fec5c8f3-a2c8-465e-b81a-b6ebcb9fbb78/4.JPG" alt="Schritt 4" class="step-image">
 
         <p>5. Überprüfen Sie den Standort.</p>
