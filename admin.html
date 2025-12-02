@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support/Admin | Unternehmen effizient verwalten — orca. organizing company assets.</title>
+    <meta name="description" content="Organisieren Sie Unternehmensdaten effektiv mit Anleitungen zur Benutzer- und Standortverwaltung für Administratoren.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .content-section { padding: 120px 2rem 60px; max-width: 1000px; margin: 0 auto; }
+
+        h3 { font-size: 3rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-primary); }
+        h4 { font-size: 1.75rem; font-weight: 600; margin: 2.5rem 0 1.5rem; color: var(--text-primary); }
+
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.9; font-size: 1.25rem; }
+        p strong { color: var(--text-primary); }
+
+        ul { list-style: none; margin: 1.5rem 0 2rem 0; }
+        ul li { padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--text-secondary); font-size: 1.25rem; line-height: 1.8; }
+        ul li::before { content: '•'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        a { color: var(--primary); }
+        a:hover { color: var(--accent); }
+
+        .highlight { color: #f97316; }
+
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .spacer { height: 2rem; }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            h3 { font-size: 2rem; }
+            h4 { font-size: 1.5rem; }
+            p, ul li { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h3>Administrator (ITL).</h3>
+        <p><strong>Als Administrator verwalten und pflegen Sie die Daten im System auf Lieferantenseite.</strong></p>
+
+        <ul>
+            <li>Sie legen neue Benutzer, Standorte oder Sublieferanten Ihres Unternehmens im System an.</li>
+            <li>Sie überprüfen die Daten Ihres Unternehmens im System und korrigieren sie wenn etwas nicht stimmt.</li>
+        </ul>
+
+        <p><strong>In dieser Anleitung wird beschrieben wie Sie Benutzer und Standorte anlegen können.</strong></p>
+        <p><strong>Anleitungen zum Sublieferanten-Management finden Sie <a href="https://ollisparks.github.io/Relaunch-Website/subsuppliermanagement.html" target="_blank">hier</a>.</strong></p>
+
+        <p><span class="highlight"><strong>Wichtige Hinweise zur Nutzung von orca gemäß der Nutzungsbedingungen:</strong></span></p>
+
+        <ul>
+            <li>Die Rolle Administrator bzw. das Anlegen von Benutzern verpflichtet zum Einhalten von angemessenen Sicherheitsstandards und Verfahrensweisen gemäß der Nutzungsbedingungen, Ziffer 5 ("Pflichten des Users"), insbesondere 5.3.</li>
+            <li>Zu den angemessenen Standards gehört die regelmäßige (mindestens jährliche) Überprüfung der angelegten Benutzerkonten. Benutzerkonten, die nicht mehr benötigt werden bzw. deren Personen die zugehörige Rolle nicht mehr ausüben, sind zu deaktivieren. Sollten Umstände eintreten, die eine sofortige Deaktivierung erfordern, z.B. Weitergabe von Benutzerkonten, Hacking-Versuche, Verletzung der Vertraulichkeit, ist die Deaktivierung umgehend selbständig durchzuführen und die orca GmbH über den Umstand und die Deaktivierung in Kenntnis zu setzen.</li>
+            <li>Sollten sich Benutzerdaten ändern, sind diese zu aktualisieren, z.B. Namensänderungen. Bitte kontaktieren Sie den Support, wenn Daten geändert werden müssen, dies aber nicht möglich ist.</li>
+            <li>Alle Benutzer, die im <strong>BMW Partner Portal</strong> die Rolle "use_mytools" erhalten und damit die Rolle der "<strong>Werkzeugkoordinatoren</strong>" ausüben können, <strong>haben ebenfalls die Rolle Administrator (ITL)</strong> und unterliegen den o.g. Bestimmungen.</li>
+            <li>Die Deaktivierung von Benutzern ist in der Liste der Benutzer über das "Drei-Punkte-Menü" rechts zu jeden Benutzer möglich.</li>
+        </ul>
+
+        <hr>
+
+        <h4>1. Wie legen Sie Benutzer an?</h4>
+
+        <p>1.1. Klicken Sie auf „Unternehmen".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625147762318-VXKBJ7O0AH7MKD6DQ5QL/Admin_1.png" alt="Schritt 1.1" class="step-image">
+
+        <p>1.2. Wählen Sie das Unternehmen aus für das Sie einen Benutzer anlegen möchten.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625147815684-JKIIKZ8CJYF3YMWQRIX7/Admin_2.png" alt="Schritt 1.2" class="step-image">
+
+        <p>1.3. Klicken Sie auf „Benutzer".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625147925185-9NKVR5H6H7WXT01IN2GT/Admin_3.png" alt="Schritt 1.3" class="step-image">
+
+        <p>1.4. Klicken Sie auf das 3-Punkte-Menü und wählen Sie „Neuer Benutzer" aus.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625147990641-S4Y3OFD3PZPYSZ0V0D4N/Admin_4.png" alt="Schritt 1.4" class="step-image">
+
+        <p>1.5. Geben Sie die E-Mail-Adresse, den Vor- und Nachnamen ein und wählen Sie die Sprache des Benutzers aus.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149057885-BJBRLSANIX2LNIHV1LIH/Admin_5.png" alt="Schritt 1.5" class="step-image">
+
+        <p>1.6. Wählen Sie nun eine der Benutzergruppen für den Benutzer aus und fügen ihm damit bestimme Benutzerrechte zu. Die Benutzergruppen "IVL" und "ITL" gehören zum Werkzeugkoordinator, dieser kann damit alle Funktionen für Lieferanten im System ausführen, auch die der anderen Benutzergruppen (WVL und ID).</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149090984-A8WQ86DH04N8M1W2HUGZ/Admin_6.png" alt="Schritt 1.6" class="step-image">
+
+        <p>1.7. Wenn Sie einen Werkzeugverantwortlichen anlegen möchten, wählen Sie „WVL" aus. Ein Werkzeugverantwortlicher kann Inventuren selbst durchführen oder diese an Inventurdurchführer weiterleiten.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149159550-27Y47YLAU4O3OPKPW2GV/Admin_7.png" alt="Schritt 1.7" class="step-image">
+
+        <p>1.8. Wenn Sie einen Inventurdurchführer anlegen möchten, wähle Sie „ID" aus. Ein Inventurdurchführer kann nur Inventuren durchführen.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149197651-G5VARG88DKR0V1LQ0EC2/Admin_8.png" alt="Schritt 1.8" class="step-image">
+
+        <p>1.9. Um den Benutzer nun endgültig anzulegen, klicken Sie auf „Link versenden".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149230612-94LBUW3Q6DVGKOXEVAJK/Admin_9.png" alt="Schritt 1.9" class="step-image">
+
+        <p>1.10. Jetzt ist der neue Benutzer in der Liste der Benutzer sichtbar. Der versendete Registrierungslink hat eine Gültigkeit von 72 Std. Sollten diese abgelaufen sein, können Sie einen neuen erzeugen, wenn Sie das Passwort des Benutzers zurücksetzen. Dies können Sie beim jeweiligen Benutzer ganz rechts im Drei-Punkte-Menü (erscheint wenn Sie mit der Maus drüber gehen) machen.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149587194-3PPHY6UPUXXSWEIC7GM7/Admin_10.png" alt="Schritt 1.10" class="step-image">
+
+        <h4>2. Wie legen Sie neue Standorte für Ihr Unternehmen an?</h4>
+
+        <p><strong>Hinweis:</strong> Außenlager in denen Werkzeuge dauerhaft (mehr als drei Monate) lagern, werden ebenfalls als eigener Standort angesehen. Falls das Außenlager nicht als Standort schon vorhanden sein sollte, kann es hier als normaler Standort angelegt werden. Sofern das Außenlager innerhalb der Landesgrenzen des ursprünglichen Standorts liegt, bedarf es keiner gesonderten Abstimmung mit dem OEM.</p>
+
+        <p>2.1. Klicken Sie auf „Unternehmen".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149752022-JZCVUO5CRYA8ULYLKSAI/Admin_11.png" alt="Schritt 2.1" class="step-image">
+
+        <p>2.2. Wählen Sie das Unternehmen aus für das Sie einen neuen Standort anlegen möchten.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149788697-OFNDHOK4F8790B4D9ZK5/Admin_12.png" alt="Schritt 2.2" class="step-image">
+
+        <p>2.3. Klicken Sie auf „Standorte".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149837811-BTAIZI975LDI72UA9FV1/Admin_13.png" alt="Schritt 2.3" class="step-image">
+
+        <p>2.4. Klicken Sie auf das 3-Punkte-Menü und wählen „Neuer Standort" aus.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149865755-T92KGCUOQXB7ZS1NLE0Q/Admin_14.png" alt="Schritt 2.4" class="step-image">
+
+        <p>2.5. Geben Sie einen Namen/Beschreibung ein. Wählen Sie ein Land aus und geben Sie die Adresse des Standorts ein. Klicken Sie auf Speichern um den Standort anzulegen.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149900931-NL76LQ1D6COZDKQBSOEN/Admin_15.png" alt="Schritt 2.5" class="step-image">
+
+        <p>2.6. Jetzt ist der neue Standort in der Liste der Standorte sichtbar.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625149937762-77I28E4B5LAO7P7Y8WB2/Admin_16.png" alt="Schritt 2.6" class="step-image">
+
+        <h4>3. Wie verbessern Sie falsche Standortdaten?</h4>
+
+        <p>3.1. Legen Sie hierfür einen neuen Standort an, korrigieren Sie den Fehler und tragen bei der Beschreibung am Ende „Aktuell" und das Datum ein „TT.MM.JJJJ".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625671611881-M3CSBPRU2I7MDZXLK4PN/Stanort_andern_1.png" alt="Schritt 3.1" class="step-image">
+
+        <p>3.2. Ordnen Sie - wenn möglich - den Werkzeugen in Inventuraufträgen bereits den anderen, korrigierten, Standort zu.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1625671633285-FVVGUADW88PO1RLMBSJT/Standort_andern_2.png" alt="Schritt 3.2" class="step-image">
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>
