@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Fragen klären, jetzt! — orca. organizing company assets.</title>
+    <meta name="description" content="Finden Sie Antworten zu häufig gestellten Fragen rund um Prozesse, Lieferantenkoordinierung und Fehlerbehebung im orca-System.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .content-section { padding: 120px 2rem 60px; max-width: 1200px; margin: 0 auto; }
+
+        h3 { font-size: 3rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-primary); }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .faq-item {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .faq-answer p {
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .faq-answer a:hover {
+            color: var(--accent);
+        }
+
+        .cta-section {
+            background: var(--primary);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h4 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            h3 { font-size: 2rem; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .faq-question { font-size: 1.2rem; }
+            .faq-answer { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h3>Häufig gestellte Fragen</h3>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4 class="faq-question">Was sind meine ersten Schritte und welche Prozesse gibt es in orca?</h4>
+                <div class="faq-answer">
+                    <p>Eine Anleitung zu unseren Prozessen (wie z.B. der ABL) und Ihren Vorbereitungen finden Sie auf unserer <a href="onboarding.html">Onboarding-Seite.</a></p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Wieso kann ich den Standort des Sublieferanten nicht auswählen?</h4>
+                <div class="faq-answer">
+                    <p>Für Fertigungsmittel die beim Sublieferanten stehen, muss der Standort via Unterauftrag bestätigt werden. Eine genauere Anleitung hierzu und Informationen für alle notwendigen Voraussetzungen finden Sie hier (<a href="subsuppliermanagement.html">Link</a>).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Als Werkzeugkoordinator stelle ich fest, dass ein Werkzeug dem falschen Vertragspartner zugeordnet ist, was mache ich?</h4>
+                <div class="faq-answer">
+                    <p>Die Vertragspartnerzuordnung ist aus den Bestelldaten abgeleitet und kann von orca nicht geändert werden, Bitte wenden Sie sich an Ihren Facheinkäufer bzw. an das zuständige Inventurbüro (<a href="supportrequest.html">Support</a>).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Als Werkzeugkoordinator würde ich diese Rolle gerne für mehr als eine Lieferantennummer wahrnehmen, was mache ich?</h4>
+                <div class="faq-answer">
+                    <p>Um für mehrere Lieferantennummern als Werkzeugkoordinator zuständig sein zu können, muss ich als User meinen Zugang über das B2B Portal erhalten haben. In diesem Fall können Sie alle Lieferantennummern verwaltet, die bei Ihnen im B2B Account hinterlegt sind.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Wie erstelle ich als Werkzeugkoordinator einen neuen Registrierungslink, für eine von mir neu angelegten Benutzer/Rolle, wenn der alte Link abgelaufen ist?</h4>
+                <div class="faq-answer">
+                    <p>Ich gehe im System auf mein Unternehmen, suche den Benutzer aus und gehe rechts im Drei-Punkte-Menü auf "Passwort zurücksetzen". Nun erhält der jeweilige Benutzer eine E-Mail mit einem neuen Registrierungslink, dieser ist wieder 48 Std. lang gültig.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Wie lange ist ein Registrierungslink für einen neu angelegten Benutzer gültig?</h4>
+                <div class="faq-answer">
+                    <p>48 Stunden. Wenn dieses Zeitfenster abgelaufen ist muss ein neuer Link erzeugt werden.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Was mache ich wenn mein Registrierungslink abgelaufen ist?</h4>
+                <div class="faq-answer">
+                    <p>Wenn mein Registrierungslink abgelaufen ist, melde ich bei meinen Werkzeugskoordinator, dieser kann mir einen neuen Link erstellen.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Wieso kommt der Registrierungslink für neue Benutzer nicht an?</h4>
+                <div class="faq-answer">
+                    <p>Sollte der Registrierungslink nicht ankommen, überprüfen Sie bitte Ihren Spam-Ordner.</p>
+                    <p>Sollte die E-Mail mit dem Link auch nicht im Spam-Ordner zu finden sein, wenden sie sich bitte an die Person in Ihrem Unternehmen, die für das Blocken und Zulassen von E-Mail-Adressen zuständige ist und lassen Sie überprüfen ob die Adresse "accountmanagement@organizingcompanyassets.com" geblockt ist. Sollte dies der Fall sein, lassen Sie diese Adresse bitte freischalten.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Wie gehe ich mit Werkzeugen im Außenlager um?</h4>
+                <div class="faq-answer">
+                    <p>Bei Werkzeugen, die dauerhaft (mehr als drei Monate) in einem Außenlager lagern, wird das Außenlager als eigener Standort angesehen. Bitte geben Sie, bei der Bestätigung des Standortes, den Standort des Außenlagers an. Sollte dieses als Standort nicht zur Auswahl stehen, können Sie es als eigenen Standort (siehe <a href="admin.html">Anleitung des Administrators</a>) anlegen. Sofern sich das Außenlager innerhalb der Landesgrenzen des ursprünglichen Standortes des Werkzeugs befindet, muss die „Verlagerung" nicht gesondert mit dem OEM abgestimmt werden.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Warum kann ich meinen Inventur(unter)auftrag nicht zurückmelden?</h4>
+                <div class="faq-answer">
+                    <p>Um einen Inventur(unter)auftrag rückmelden zu können, müssen alle zu diesem Auftrag zugehörigen (und den darunter liegenden) Unteraufträge rückgemeldet sein.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Darf ich laut TISAX überhaupt mit dem Handy Fotos machen?</h4>
+                <div class="faq-answer">
+                    <p>TISAX verbietet nicht die Fotoinventur an sich. Je nach Schutzbedarf und Label (z.B. Prototypenfahrzeuge) müssen gewisse Regelungen zum Thema Fotografieren vorhanden sein. Ein generelles Verbot ist im ISA Katalog jedoch nicht enthalten.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Wie korrigiere ich einen Fehler bei einem Inventurauftrag?</h4>
+                <div class="faq-answer">
+                    <p>Inventuraufträge, die Sie noch nicht verschickt haben können Sie einfach bearbeiten.</p>
+                    <p>Sollten Sie den Inventurauftrag schon verschickt haben, ist die einzige Möglichkeit für eine Korrektur, dass Sie ihn Löschen. Bitte beachten Sie hierbei allerdings, dass alle bereits gesammelten und gespeicherten Informationen (z.B. Fotos) dabei verloren gehen.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Warum werden keine Geodaten beim iPhone in orca übernommen?</h4>
+                <div class="faq-answer">
+                    <p>Bitte stellen Sie sicher, das folgende Optionen auf dem Gerät eingestellt sind:</p>
+                    <p>- Navigieren Sie zu "Einstellungen" > "Datenschutz" > "Ortungsdienste" und stellen Sie sicher, dass Ortungsdienste aktiviert sind.</p>
+                    <p>- Scrollen Sie nach unten zur gewünschten App und wählen Sie "Kamera - beim Verwenden".</p>
+                    <p>- Öffnen Sie "Einstellungen" > "Kamera" > "Formate" - nehmen Sie "High Efficiency" (HEIC) raus und stellen Sie "Maximale Kompatibilität" (JPG) ein.</p>
+                    <p>Nehmen Sie die Bilder auf dem Gerät über die Kamera-App auf. Klicken Sie auf das "+" Symbol in orca, wählen hier "Fotomediathek" (nicht "Foto od. Video aufnehmen") und laden Sie die Bilder hoch.</p>
+                    <p>Es ist wichtig, dass die Fotos erst in der Mediathek abgelegt werden und dann hierüber hochgeladen werden, da nur auf diesem Weg die Geodaten in orca übermittelt werden.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Sind Fotos mit geografischem Standort zur Überprüfung des Standorts des Vermögenswerts in China nicht erlaubt?</h4>
+                <div class="faq-answer">
+                    <p>Sie enthalten keine persönlichen Informationen.</p>
+                    <p>Es ist unwahrscheinlich, dass sie als wichtige Daten eingestuft werden, da der Anwendungsfall nicht die Definition wichtiger Daten aus der Verordnung erfüllt.</p>
+                    <p>Basierend auf dem derzeitigen Standard zur Identifizierung wichtiger Daten ist es unwahrscheinlich, dass die EXIF-Daten gegen nationale und soziale Sicherheitsvorschriften verstoßen.</p>
+                    <p>Zusammenfassung: EXIF enthält keine persönlichen Informationen oder wichtige Daten, daher glauben wir, dass wir keine weitere CAC-Genehmigung benötigen und die geografische Standortvalidierung auch in China anwendbar ist.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Wie kann ich meine Filtereinstellungen so speichern, dass sie beim nächsten Login noch erhalten bleiben.</h4>
+                <div class="faq-answer">
+                    <p>Nach dem speichern der Filtereinstellungen, setzten Sie in Ihrem Browser die Seite so als Favorit. Nun können Sie über Ihre Browserfavoriten immer genau dort einsteigen wie Sie es wünschen.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Wie soll ich vorgehen wenn ich mehrere Lieferanten betreue?</h4>
+                <div class="faq-answer">
+                    <p>Wenn Sie mehr als einen Lieferanten betreuen, können Sie in den Listen und Ansichten auch nach Lieferanten filtern.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Brauche ich für Nutzungsrechte auch eine ABL</h4>
+                <div class="faq-answer">
+                    <p>Ja, bei Nutzungsrechten auf neue Grundwerkzeuge ist auch eine ABL notwendig. Die Art der Beschilderung ist im aktuellen Lieferantenleitfaden geregelt.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4 class="faq-question">Was passiert wenn ich ein Werkzeug in der ABL mit "Standort unbekannt" bestätige?</h4>
+                <div class="faq-answer">
+                    <p>Wenn das Werkzeug mit Standort „unbekannt" bestätigt wird, kann dieses nicht abgerechnet werden und wird für zukünftige Prozesse gesperrt (z. B. für diese Werkzeug wird keine Inventur mehr anfallen).</p>
+                    <p>Die Option ist dann auszuwählen, wenn das Werkzeug storniert wurde oder aus einem anderem Grund nicht mehr benötigt wird und nicht abgerechnet werden soll.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h4>Antwort nicht gefunden?</h4>
+        <a href="supportrequest.html" class="btn-secondary">Supportanfrage</a>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>
