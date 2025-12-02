@@ -27,6 +27,8 @@
             line-height: 1.6;
         }
 
+        .mode-switcher{position:fixed;bottom:2rem;right:2rem;z-index:9999;display:flex;gap:.5rem;background:rgba(0,0,0,.8);padding:.5rem;border-radius:50px;border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}.mode-btn{width:40px;height:40px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none}.mode-btn:hover{transform:scale(1.1)}.mode-btn.active{border-color:#f97316}.mode-btn.dark{background:#0a0e1a}.mode-btn.light{background:#fff}
+
         /* ===== NAVIGATION ===== */
         .nav {
             position: fixed;
@@ -89,7 +91,7 @@
         .page-title {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             color: var(--text-primary);
         }
 
@@ -101,6 +103,7 @@
             color: var(--text-secondary);
             font-size: 1.1rem;
             margin-bottom: 2rem;
+            line-height: 1.8;
         }
 
         .content-block {
@@ -118,23 +121,17 @@
             color: var(--text-secondary);
             margin-bottom: 0.75rem;
             font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         .content-block ul {
             color: var(--text-secondary);
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-            list-style: none;
+            margin: 1rem 0 1rem 1.5rem;
+            font-size: 1.1rem;
         }
 
         .content-block ul li {
             margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .content-block ul li::before {
-            content: "–";
-            margin-right: 0.5rem;
         }
 
         .content-block a {
@@ -146,12 +143,10 @@
             text-decoration: underline;
         }
 
-        .update-info {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
+        .stand {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 3rem;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -163,6 +158,11 @@
     </style>
 </head>
 <body>
+    <div class="mode-switcher">
+        <a href="datenschutzhinweise.html" class="mode-btn dark active" title="Dark Mode">🌙</a>
+        <a href="light-mode-datenschutzhinweise.html" class="mode-btn light" title="Light Mode">☀️</a>
+    </div>
+
     <nav class="nav">
         <div class="nav-content">
             <a href="index.html" class="logo">
@@ -182,6 +182,7 @@
         <h1 class="page-title">Datenschutzhinweise<span>.</span></h1>
 
         <p class="intro-text">Wir, die Betreiber dieser Website, behandeln die personenbezogenen Daten, die infolge des Besuchs der Website verarbeitet werden, vertraulich und unter Beachtung der einschlägigen datenschutzrechtlichen Vorschriften.</p>
+
         <p class="intro-text">Im Folgenden informieren wir über die Datenverarbeitungen im Zusammenhang mit der Nutzung unseres Angebots.</p>
 
         <div class="content-block">
@@ -220,7 +221,7 @@
                 <li>Betriebssystem;</li>
                 <li>Sprache und Version der Browsersoftware.</li>
             </ul>
-            <p>Diese Website wird von „Squarespace" gehostet, so dass die vorgenannten Daten auch an diesen Anbieter übermittelt werden. Wir haben eine Auftragsverarbeitungsvereinbarung mit „Squarespace" abgeschlossen. Weitere Informationen können dort abgerufen werden.</p>
+            <p>Diese Website wird von „Squarespace" gehostet, so dass die vorgenannten Daten auch an diesen Anbieter übermittelt werden. Wir haben eine Auftragsverarbeitungsvereinbarung mit „Squarespace" abgeschlossen. Weitere Informationen können hier abgerufen werden.</p>
             <p>Bei einer Kontaktaufnahme mit uns per E-Mail oder über unser Kontaktformular werden die von Ihnen mitgeteilten Daten (Ihre E-Mail-Adresse sowie Ihr Vor- und Nachname, ggf. weitere freiwillige Angaben) von uns gespeichert, um Ihre Anfragen zu beantworten. Die in diesem Zusammenhang anfallenden Daten löschen wir, nachdem die Speicherung nicht mehr erforderlich ist, oder schränken die Verarbeitung ein, falls gesetzliche Aufbewahrungspflichten bestehen.</p>
         </div>
 
@@ -229,7 +230,7 @@
             <p>Auf unserer Website nutzen wir Cookies. Bei Cookies handelt es sich um kleine Textdateien, die auf Ihrer Festplatte dem von Ihnen verwendeten Browser durch eine charakteristische Zeichenfolge zugeordnet und gespeichert werden und durch welche der Stelle, die das Cookie setzt, bestimmte Informationen zufließen. Cookies können keine Programme ausführen oder Viren auf Ihren Computer übertragen und daher keine Schäden anrichten. Sie dienen dazu, das Internetangebot insgesamt nutzerfreundlicher und effektiver, also für Sie angenehmer zu machen.</p>
             <p>Cookies können Daten enthalten, die eine Wiedererkennung des genutzten Geräts möglich machen. Teilweise enthalten Cookies aber auch lediglich Informationen zu bestimmten Einstellungen, die nicht personenbeziehbar sind. Cookies können einen Nutzer aber nicht direkt identifizieren.</p>
             <p>Man unterscheidet zwischen Session-Cookies, die wieder gelöscht werden, sobald Sie ihren Browser schließen und permanenten Cookies, die über die einzelne Sitzung hinaus gespeichert werden. Wir setzen ausschließlich Cookies, die zwingend erforderlich sind, um sich auf der Website zu bewegen, grundlegende Funktionen zu nutzen und die Sicherheit der Website zu gewährleisten; darin liegt unser berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO). Diese Cookies sammeln weder Informationen über Sie zu Marketingzwecken noch speichern sie, welche Websites Sie besucht haben.</p>
-            <p>Nähere Hinweise zu den einzelnen Cookies erhalten Sie von unserem Hosting-Provider.</p>
+            <p>Nähere Hinweise zu den einzelnen Cookies erhalten Sie hier von unserem Hosting-Provider.</p>
         </div>
 
         <div class="content-block">
@@ -242,9 +243,7 @@
             <p>Da sich infolge gesetzlicher Änderungen oder neuer Funktionen im Rahmen unseres Angebots diese Datenschutzhinweise von Zeit zu Zeit ändern können, empfehlen wir Ihnen, diese regelmäßig abzurufen.</p>
         </div>
 
-        <div class="update-info">
-            <p><strong>Stand:</strong> Juni 2021</p>
-        </div>
+        <p class="stand">Stand: Juni 2021</p>
     </section>
 
     <footer class="footer" style="background: #0a0e1a; padding: 2rem; text-align: center;">
