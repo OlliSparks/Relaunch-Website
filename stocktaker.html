@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support/Stocktaker — orca. organizing company assets.</title>
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .content-section { padding: 120px 2rem 60px; max-width: 1200px; margin: 0 auto; }
+
+        h3 { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+
+        p { margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.8; }
+        p strong { color: var(--text-primary); }
+        p em { font-style: italic; }
+
+        ul { list-style: none; margin: 1rem 0 1.5rem 0; }
+        ul li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--text-secondary); }
+        ul li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-box {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .spacer { height: 2rem; }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            h3 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h3>Inventurdurchführer.</h3>
+        <p><strong>Als Inventurdurchführer sind Sie verantwortlich, die komplette Inventur durchzuführen.</strong></p>
+        <p><strong><em>Schauen Sie in Ihre Inventuraufträge und prüfen Sie dort welche Inventur - Anforderungen gestellt werden.</em></strong></p>
+        <p><strong><em>Es ist mindestens ist die Bestätigung des Standorts und des Unternehmens erforderlich. Gegebenenfalls sind zusätzliche Belege (Bsp. Fotos) und Dokumentationen zu liefern. Dies erkennen Sie am jeweiligen Typ.</em></strong></p>
+
+        <ul>
+            <li><strong><em>Unternehmen & Standort</em></strong></li>
+        </ul>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/f446fe81-ea20-4b1c-bede-c7586974b931/TypOhneFotosDE+%282%29.jpg" alt="Typ ohne Fotos" class="step-image">
+
+        <ul>
+            <li><strong><em>Unternehmen & Standort, Fotos</em></strong></li>
+        </ul>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/90162541-1ca3-4bc2-80a3-e4805bc16f0d/InventurtypFotos.png" alt="Inventurtyp Fotos" class="step-image">
+
+        <ul>
+            <li><strong><em>Unternehmen & Standort, Fotos, Werkzeugdokumentation</em></strong></li>
+        </ul>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/ddc493f0-4256-43bd-b690-f4460d2790da/TypErg%C3%A4nzung.png" alt="Typ Ergänzung" class="step-image">
+
+        <div class="info-box">
+            <p><strong>Wichtiger Hinweis für Inventuren mit Fotos:</strong></p>
+            <p>die Fotos müssen mit Geodaten aufgenommen werden um dies zu gewährleisten, stellen Sie bitte sicher, dass die Ortungsdienste bzw. das Geotagging auf Ihrem Aufnahmegerät aktiviert sind.</p>
+
+            <p><strong>Bei Android Geräten:</strong></p>
+            <p><em>- Öffnen Sie die Kamera auf Ihrem Smartphone > klicken Sie auf das Zahnrad-Symbol > </em>wählen Sie im Menü die Option "Geotagging" oder "Standort" -> EIN.</p>
+
+            <p><strong>Bei Apple Produkten:</strong></p>
+            <p><em>- Navigieren Sie zu "Einstellungen" > "Datenschutz" > "Ortungsdienste" und stellen Sie sicher, dass Ortungsdienste aktiviert sind.</em></p>
+            <p><em>- Scrollen Sie nach unten zur gewünschten App und wählen Sie "Kamera - beim Verwenden".</em></p>
+            <p><em>- Öffnen Sie "Einstellungen" > "Kamera" > "Formate" - nehmen Sie "High Efficiency" (HEIC) raus und stellen Sie "Maximale Kompatibilität" (JPG) ein.</em></p>
+            <p><em>Nehmen Sie die Bilder auf dem Gerät über die Kamera-App auf. Klicken Sie auf das "+" Symbol in orca, wählen hier "Fotomediathek" (nicht "Foto od. Video aufnehmen") und laden Sie die Bilder hoch.</em></p>
+            <p><strong><em>Es ist wichtig, dass die Fotos erst in der Mediathek abgelegt werden und dann hierüber hochgeladen werden, da nur auf diesem Weg die Geodaten in orca übermittelt werden.</em></strong></p>
+        </div>
+
+        <div class="spacer"></div>
+
+        <p><strong>Hier wird beschrieben wie Sie einen Unterauftrag/eine Inventur durchführen.</strong></p>
+
+        <p>1. Klicken Sie auf Ihre „Benutzeraufgaben". Hier starten Sie alle Ihre Aufgaben im Inventurprozess und hier schließen Sie auch alle Aufgaben nach getaner Arbeit wieder ab. Bei neu eingetroffenen Aufgaben erscheint ein kleines rotes Symbol am Button.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/d4a8287c-3ec7-4107-97e7-79d35bd2d158/1.JPG" alt="Schritt 1" class="step-image">
+
+        <p>2. Wählen Sie die Aufgabe "Inventur durchführen" für einen bestimmten Inventurauftrag aus. Um eine bestimmte Aufgabe unter mehreren (wieder) zu finden ist auch eine Such- und Filterfunktion vorhanden.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1f92ee7a-0459-4aa7-9191-55cc3e6623d3/2.jpg" alt="Schritt 2" class="step-image">
+
+        <p>3. Klicken Sie nun auf "Inventurauftrag" um den Inventurauftrag zu öffnen.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/d3c4c90c-c274-43e6-b09b-6c2aa25542d2/3_1.jpg" alt="Schritt 3" class="step-image">
+
+        <p>4. Wählen Sie ein Werkzeug aus der Liste aus. Anhand der Icons können Sie den aktuellen Bearbeitungsstand des Werkzeugs erkennen. Eine kurze Übersicht zu den Icons und deren Bedeutung finden Sie <a href="/s/Icons-Durchlauf-Werkzeug.pdf" target="_blank" style="color: var(--accent);">hier</a>.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/fec5c8f3-a2c8-465e-b81a-b6ebcb9fbb78/4.JPG" alt="Schritt 4" class="step-image">
+
+        <p>5. Überprüfen Sie den Standort.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/21307751-dc4e-45a8-a981-d7073773dd8f/5.JPG" alt="Schritt 5" class="step-image">
+
+        <p>6.1. Wenn dieser stimmt wählen Sie „Ja, Unternehmen und Standort bestätigt" aus und klicken Sie auf „Bestätigen".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/d13c1958-86a9-452a-a898-d15611956e54/6.JPG" alt="Schritt 6.1" class="step-image">
+
+        <p>6.2. Wenn sich das Werkzeug an einem anderen Standort befindet, klicken Sie auf „Nein, sondern dort…", wählen Sie den neuen Standort aus und klicken Sie auf „Bestätigen".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/f874139f-e2c0-4274-a119-9a083fa18245/7.JPG" alt="Schritt 6.2" class="step-image">
+
+        <p>6.3. Wenn der Standort des Werkzeugs nicht bekannt ist, wählen Sie „Standort unbekannt" aus und klicken Sie auf „Bestätigen".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/49da9850-c52e-4663-8d8c-8effd424ecc0/8.JPG" alt="Schritt 6.3" class="step-image">
+
+        <p>7. Fotoaufnahmen - Machen Sie jeweils vom Inventarschild und von einer Gesamtansicht ein Foto und laden Sie diese mit dem Button mit dem Pluszeichen hoch. Wenn die Inventur auf einem mobilen Endgerät durchgeführt wird, können die Fotos auch direkt im Browser aufgenommen werden. Klicken Sie hierzu auf den Button mit dem Kamera-Symbol.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/2842ab1b-487d-49f2-a037-35e351f9ac63/9.JPG" alt="Schritt 7" class="step-image">
+
+        <p>8. Bitte beachten Sie folgende Anforderungen für die Fotoaufnahmen.</p>
+        <ul>
+            <li>Das Format der Fotos muss entweder JPG oder JPEG sein.</li>
+            <li>Die Auflösung muss mindestens 1024*768 sein.</li>
+            <li>Die Fotos müssen gut ausgeleuchtet sein, ohne Reflexionen und Spiegelungen.</li>
+            <li>Die Fotos müssen mit GPS-Koordinationen aufgenommen werden.</li>
+            <li>Die GPS-Daten müssen mit den im System als Standort-Adresse hinterlegten Daten übereinstimmen.</li>
+            <li>Wurde bei der Standortüberprüfung ein neuer Standort eingegeben, werden die Daten mit diesem abgeglichen.</li>
+            <li>Die Inventarnummer muss erkennbar sein und mit der im System übereinstimmen.</li>
+            <li>Jedes Foto darf nur einmal verwendet werden, es erfolgt ein Abgleich mit bestehenden Werkzeugbildern.</li>
+            <li>Die Fotos für die Inventur dürfen nicht älter als 6 Monate sein (Fotos für die ABL dürfen nicht älter als 60 Tage sein!).</li>
+        </ul>
+        <p>Diese Bedingungen werden automatisch vom System geprüft, wird eine oder mehrere der Bedingungen nicht erfüllt, wird dies als Meldung angezeigt. Wenn eine Bedingung nicht erfüllt werden kann, muss dies ausreichend begründet werden, andernfalls kann das Ergebnis nicht akzeptiert werden.</p>
+
+        <p>9. Klicken Sie nachdem die Bilder gespeichert wurden auf „Bestätigen".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/3f0515bd-d2f9-4ef8-8de3-7a03aa75b9f7/10.JPG" alt="Schritt 9" class="step-image">
+
+        <p>10. Nun kann noch ein Kommentar abgegeben und/oder ein Dokument angehängt werden. Klicken Sie anschließend auf „Fertigungsmittel abschließen".</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/cdb3e17f-44c0-492b-8d96-1ca75206e223/11.JPG" alt="Schritt 10" class="step-image">
+
+        <p>11. Wenn im Unterauftrag noch weitere Werkzeuge durch die Inventur laufen sollen, wiederholen Sie die Schritte 4 bis 10 bis alle bearbeitet sind.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/2e60994a-415b-41c5-8df8-f0437f8803d0/12.JPG" alt="Schritt 11" class="step-image">
+
+        <p>12. Wenn alle Werkzeuge eines Unterauftrags korrekt bearbeitet wurden, klicken Sie auf „Inventurauftrag rückmelden" um den abgeschlossenen Inventurauftrag zurück zu schicken.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/59a561e8-804e-48eb-bf0f-ec3d1b28f2af/13.JPG" alt="Schritt 12" class="step-image">
+
+        <p>13. Wenn der Unterauftrag rückgemeldet wurde, können Sie in den Benutzeraufgaben die "Aufgabe beenden". Damit ist der Prozess für einen Unterauftrauftrag abgeschlossen.</p>
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/835c47b3-6468-45f6-8cf0-7c8d804e6547/3_2.jpg" alt="Schritt 13" class="step-image">
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutz</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>
