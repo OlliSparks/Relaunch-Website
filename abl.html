@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding | Abnahmebereitschaftserklärung (ABL) — orca. organizing company assets.</title>
+    <meta name="description" content="Onboarding zur Abnahmebereitschaftserklärung (ABL) für Lieferanten. Schritt-für-Schritt Anleitung für die BMW Group SBM Kaufteile.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 2rem 60px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/126cc8c4-8ee3-4407-b685-4d5ac665c8e8/unsplash-image-fSsh4h4pZSU.jpg') center/cover no-repeat;
+        }
+        .hero-content { max-width: 1200px; text-align: left; color: white; }
+        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .hero p { font-size: 1.5rem; font-weight: 300; opacity: 0.9; }
+
+        /* Content Section */
+        .content-section { padding: 60px 2rem; max-width: 1200px; margin: 0 auto; }
+
+        h3 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; }
+        p a { color: var(--primary); text-decoration: none; }
+        p a:hover { color: var(--accent); }
+
+        .info-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .button-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(28, 37, 83, 0.3);
+            color: white;
+        }
+
+        .support-note {
+            background: var(--bg-alt);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+        .support-note p { margin-bottom: 0; }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            h3 { font-size: 1.5rem; }
+            p { font-size: 1rem; }
+            .button-row { flex-direction: column; }
+            .download-btn { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Abnahmebereitschaftserklärung für Lieferanten (ABL).</h1>
+            <p>Herzlich Willkommen zum orca Onboarding für die Abnahmebereitschaftserklärung (ABL).</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <h3>Ankündigung: Abnahmebereitschaftserklärung des Lieferanten ersetzt SBM Bestätigung bei SBM Kaufteilen der BMW Group.</h3>
+        <p>You can find an english version as a download down below</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1d911c87-5a05-4c44-a5b1-bf9bc9a663d8/Folie1.JPG" alt="ABL Folie 1" class="info-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/7cf90c77-e123-423f-9d4c-b85a6de83240/Folie2.JPG" alt="ABL Folie 2" class="info-image">
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/52219457-b0dd-4b60-af93-002b1c4ee546/Folie3.JPG" alt="ABL Folie 3" class="info-image">
+
+        <div class="button-row">
+            <a href="https://www.organizingcompanyassets.com/s/ABL_DE.pdf" class="download-btn" target="_blank">Download Deutsche Version</a>
+            <a href="https://www.organizingcompanyassets.com/s/ABL_EN.pdf" class="download-btn" target="_blank">Download English Version</a>
+        </div>
+
+        <div class="support-note">
+            <p>Für Supportanfragen schreiben Sie bitte an die <a href="mailto:MyTools.Inventory@bmwgroup.com?subject=Supportanfrage%20an%20das%20Inventurb%C3%BCro%20%2F%20Support%20request%20to%20the%20inventory%20office">MyTools.Inventory@bmwgroup.com</a></p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>

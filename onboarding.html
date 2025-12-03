@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboarding | Abnahmebereitschaftserklärung (ABL) — orca. organizing company assets.</title>
-    <meta name="description" content="Onboarding zur Abnahmebereitschaftserklärung (ABL) für Lieferanten. Schritt-für-Schritt Anleitung für die BMW Group SBM Kaufteile.">
+    <title>Onboarding | Effizient starten jetzt — orca. organizing company assets.</title>
+    <meta name="description" content="Erleichtern Sie die Implementierung mit unserem orca Onboarding für Lieferanten. Finden Sie alle notwendigen Prozesse und Informationen an einem Ort.">
     <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -31,40 +31,21 @@
             align-items: center;
             justify-content: center;
             padding: 120px 2rem 60px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/126cc8c4-8ee3-4407-b685-4d5ac665c8e8/unsplash-image-fSsh4h4pZSU.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/126cc8c4-8ee3-4407-b685-4d5ac665c8e8/unsplash-image-fSsh4h4pZSU.jpg') center/cover no-repeat;
         }
-        .hero-content { max-width: 1200px; text-align: left; color: white; }
-        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1.5rem; }
-        .hero p { font-size: 1.5rem; font-weight: 300; opacity: 0.9; }
+        .hero-content { max-width: 1200px; width: 100%; color: white; }
+        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero .subtitle { font-size: 1.5rem; font-weight: 300; opacity: 0.9; margin-bottom: 0.75rem; }
+        .hero .intro { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; }
 
-        /* Content Section */
-        .content-section { padding: 60px 2rem; max-width: 1200px; margin: 0 auto; }
-
-        h3 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
-        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; }
-        p a { color: var(--primary); text-decoration: none; }
-        p a:hover { color: var(--accent); }
-
-        .info-image {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .button-row {
+        .hero-buttons {
             display: flex;
-            gap: 1.5rem;
             flex-wrap: wrap;
-            margin: 2rem 0;
+            gap: 1rem;
+            align-items: center;
         }
-
-        .download-btn {
+        .hero-btn {
             display: inline-block;
-            background: var(--primary);
-            color: white;
             padding: 1rem 2rem;
             border-radius: 50px;
             font-weight: 600;
@@ -73,20 +54,59 @@
             font-family: 'Oswald', sans-serif;
             font-size: 1rem;
         }
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(28, 37, 83, 0.3);
+        .hero-btn-primary {
+            background: var(--primary);
             color: white;
         }
+        .hero-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
 
-        .support-note {
+        /* Content Section */
+        .content-section { padding: 60px 2rem; max-width: 1200px; margin: 0 auto; }
+
+        h3 { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+        h4 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-primary); }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem; }
+        p strong { color: var(--text-primary); }
+
+        ul { margin: 1rem 0 1.5rem 1.5rem; }
+        ul li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; }
+
+        a { color: var(--primary); text-decoration: underline; }
+        a:hover { color: var(--accent); }
+
+        .info-box {
             background: var(--bg-alt);
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid var(--border);
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
-        .support-note p { margin-bottom: 0; }
+        .info-box p { margin-bottom: 0.75rem; font-size: 1rem; }
+        .info-box p:last-child { margin-bottom: 0; }
+        .info-box em { font-style: italic; color: var(--text-secondary); }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
+        }
 
         .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
         .footer a { color: white; text-decoration: none; margin: 0 1rem; }
@@ -95,11 +115,13 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .two-column { grid-template-columns: 1fr; gap: 1.5rem; }
             h3 { font-size: 1.5rem; }
-            p { font-size: 1rem; }
-            .button-row { flex-direction: column; }
-            .download-btn { text-align: center; }
+            h4 { font-size: 1.25rem; }
+            p, ul li { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .hero-btn { text-align: center; }
         }
     </style>
 </head>
@@ -123,27 +145,67 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Abnahmebereitschaftserklärung für Lieferanten (ABL).</h1>
-            <p>Herzlich Willkommen zum orca Onboarding für die Abnahmebereitschaftserklärung (ABL).</p>
+            <h1>Onboarding für Lieferanten.</h1>
+            <p class="subtitle">Herzlich Willkommen zum orca Onboarding.</p>
+            <p class="intro">Hier finden Sie Ihre orca Prozesse:</p>
+
+            <div class="hero-buttons">
+                <a href="inventur2025.html" class="hero-btn hero-btn-primary" target="_blank">SBM Inventur (2025)</a>
+                <a href="abl.html" class="hero-btn hero-btn-secondary">Abnahmebereitschaftserklärung des Lieferanten (ABL)</a>
+                <a href="1-unterseite-verlagerung.html" class="hero-btn hero-btn-primary" target="_blank">SBM Verlagerung</a>
+            </div>
         </div>
     </section>
 
-    <!-- Content Section -->
+    <!-- Preparation Section -->
     <section class="content-section">
-        <h3>Ankündigung: Abnahmebereitschaftserklärung des Lieferanten ersetzt SBM Bestätigung bei SBM Kaufteilen der BMW Group.</h3>
-        <p>You can find an english version as a download down below</p>
+        <h3>Ihre Vorbereitung für alle Prozesse.</h3>
 
-        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1d911c87-5a05-4c44-a5b1-bf9bc9a663d8/Folie1.JPG" alt="ABL Folie 1" class="info-image">
-        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/7cf90c77-e123-423f-9d4c-b85a6de83240/Folie2.JPG" alt="ABL Folie 2" class="info-image">
-        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/52219457-b0dd-4b60-af93-002b1c4ee546/Folie3.JPG" alt="ABL Folie 3" class="info-image">
-
-        <div class="button-row">
-            <a href="https://www.organizingcompanyassets.com/s/ABL_DE.pdf" class="download-btn" target="_blank">Download Deutsche Version</a>
-            <a href="https://www.organizingcompanyassets.com/s/ABL_EN.pdf" class="download-btn" target="_blank">Download English Version</a>
+        <div class="two-column">
+            <div>
+                <h4>Verantwortlichkeit festlegen.</h4>
+            </div>
+            <div>
+                <p>Für alle Prozesse benötigen Sie einen Werkzeugkoordinator:</p>
+                <ul>
+                    <li><strong>Werkzeugkoordinator</strong> - steuert und verwaltet die gesamte Inventur und die Abnahmebereitschaftserklärung des Lieferanten</li>
+                </ul>
+                <p>Überlegen Sie, wer in Ihrem Unternehmen am Besten übernehmen kann. Sinnvoll wäre jemand der die gesamte Übersicht bzw. Zugang zu allen relevanten Informationen über die betroffenen Werkzeuge hat.</p>
+            </div>
         </div>
 
-        <div class="support-note">
-            <p>Für Supportanfragen schreiben Sie bitte an die <a href="mailto:MyTools.Inventory@bmwgroup.com?subject=Supportanfrage%20an%20das%20Inventurb%C3%BCro%20%2F%20Support%20request%20to%20the%20inventory%20office">MyTools.Inventory@bmwgroup.com</a></p>
+        <hr class="divider">
+
+        <div class="two-column">
+            <div>
+                <h4>Werkzeugkoordinator registrieren.</h4>
+            </div>
+            <div>
+                <p>Sobald Sie Ihren Werkzeugkoordinator benannt haben, legen Sie diesen bitte über das BMW B2B als solchen an. Dies kann durch Ihren BMW B2B Masteradministrator durchgeführt werden. Die benötigte Rolle findet sich im BMW B2B Portal unter Administration > B2B Rollenvergabe > Einkauf > MyTools.</p>
+                <p>Eine Anleitung für Master-Administratoren finden Sie <a href="https://www.organizingcompanyassets.com/s/myToolsorca-Anleitung-fur-Masteradministratoren-des-BMW-Partner-Portals.pdf" target="_blank">hier</a>.</p>
+                <p><strong>Hinweis</strong>: Den für Sie zuständigen Master-/Administrator können Sie im B2B Portal über die Funktion 'Administratoren-Suche' im Menü 'Hilfe' oder direkt auf der Startseite im B2B Portal unter 'Quicklinks' ermitteln.</p>
+                <p><strong>WICHTIG</strong>: Anschließend muss sich der Werkzeugkoordinator einmalig in orca anmelden, damit die Registrierung abgeschlossen ist und Inventuraufträge verschickt werden können. Dieser wird dann in orca unter Unternehmen > Benutzer mit den Benutzergruppen IVL, ITL angezeigt.</p>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="two-column">
+            <div>
+                <h4>Alles vorbereitet?</h4>
+            </div>
+            <div>
+                <p>Sobald Sie Ihren Werkzeugkoordinator benannt und registriert haben können Sie mit den Prozessen beginnen. Informationen hierzu finden Sie oben unter den Buttons "Inventur" und "Abnahmebereitschaftserklärung des Lieferanten (ABL)".</p>
+
+                <div class="info-box">
+                    <p><strong>Hinweis:</strong> Bei den Prozessen müssen Fotos mit Geoinformationen und weiteren Metadaten hochgeladen werden. Bei Apple Produkten sind diese häufig nicht von Anfang an aktiviert. Bitte stellen Sie sicher, dass folgende Optionen auf dem Aufnahmegerät eingestellt sind:</p>
+                    <p><em>- Navigieren Sie zu "Einstellungen" > "Datenschutz" > "Ortungsdienste" und stellen Sie sicher, dass Ortungsdienste aktiviert sind.</em></p>
+                    <p><em>- Scrollen Sie nach unten zur gewünschten App und wählen Sie "Kamera - beim Verwenden".</em></p>
+                    <p><em>- Öffnen Sie "Einstellungen" > "Kamera" > "Formate" - nehmen Sie "High Efficiency" (HEIC) raus und stellen Sie "Maximale Kompatibilität" (JPG) ein.</em></p>
+                    <p><em>Nehmen Sie die Bilder auf dem Gerät über die Kamera-App auf. Klicken Sie auf das "+" Symbol in orca, wählen hier "Fotomediathek" (nicht "Foto od. Video aufnehmen") und laden Sie die Bilder hoch.</em></p>
+                    <p><strong><em>Es ist wichtig, dass die Fotos erst in der Mediathek abgelegt werden und dann hierüber hochgeladen werden, da nur auf diesem Weg die Geodaten in orca übermittelt werden.</em></strong></p>
+                </div>
+            </div>
         </div>
     </section>
 
