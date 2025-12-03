@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support/Sublieferantenmanagement | Standorte und Sublieferanten verwalten — orca. organizing company assets.</title>
+    <meta name="description" content="Verwalten Sie Sublieferanten und Standorte effizient. Anleitungen für OEM, 1st tier und 2nd tier Lieferanten im Werkzeugmanagement.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .hero-section {
+            padding: 140px 2rem 80px;
+            background: linear-gradient(135deg, rgba(28, 37, 83, 0.9) 0%, rgba(28, 37, 83, 0.85) 100%), url('https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1658139358424-K81N7V0EOY906N52025F/GettyImages-504226648.jpg') center/cover;
+            text-align: center;
+            color: white;
+        }
+        .hero-section h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+
+        .content-section { padding: 60px 2rem; max-width: 1200px; margin: 0 auto; }
+
+        h3 { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+        h4 { font-size: 1.5rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--text-primary); }
+
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.9; font-size: 1.1rem; }
+
+        a { color: var(--primary); }
+        a:hover { color: var(--accent); }
+
+        .accordion-container { margin: 2rem 0; }
+        .accordion-item { border-bottom: 1px solid var(--border); }
+        .accordion-item:first-child { border-top: 1px solid var(--border); }
+        .accordion-header {
+            padding: 1.25rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .accordion-header:hover { color: var(--accent); }
+        .accordion-icon {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background: var(--text-primary);
+            transition: transform 0.3s;
+        }
+        .accordion-icon::before { width: 100%; height: 2px; top: 50%; left: 0; transform: translateY(-50%); }
+        .accordion-icon::after { width: 2px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+        .accordion-item.active .accordion-icon::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .accordion-item.active .accordion-content { max-height: 1000px; padding-bottom: 1.5rem; }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .scenario-card {
+            background: var(--bg-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .scenario-card h4 { margin-top: 0; font-size: 1.25rem; }
+        .scenario-card p { font-size: 1rem; margin-bottom: 1rem; }
+        .scenario-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .scenario-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(28, 37, 83, 0.3); color: white; }
+
+        .explanation-section {
+            background: var(--bg-alt);
+            padding: 60px 2rem;
+            margin: 40px 0;
+        }
+        .explanation-content { max-width: 1200px; margin: 0 auto; }
+
+        .diagram-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .diagram-caption {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .process-section {
+            padding: 60px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .section-divider {
+            height: 4px;
+            background: var(--primary);
+            max-width: 100px;
+            margin: 0 0 2rem 0;
+        }
+
+        .anchor-target { scroll-margin-top: 100px; }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-section h1 { font-size: 2rem; }
+            h3 { font-size: 1.75rem; }
+            .process-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .scenario-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <h1>Sublieferanten- und Standortmanagement.</h1>
+    </section>
+
+    <section class="content-section">
+        <h3>Die Vorteile.</h3>
+        <div class="accordion-container">
+            <div class="accordion-item active">
+                <div class="accordion-header">
+                    <span>Für den OEM (Auftraggeber).</span>
+                    <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <p>Zur korrekten Lokalisierung eines Fertigungsmittels gehört zwingend der Standort als Adresse, aber auch das Unternehmen, bei dessen Standortadresse das Fertigungsmittel sich physikalisch befindet ("Betreiber"). Der Betreiber ist Gegenstand der Rechnungsprüfung und späterer steuerlicher Prüfungen.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Für den 1st tier (Vertragspartner).</span>
+                    <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <p>Aufträge können in orca an den Sublieferanten verteilt und Rückmeldungen konsolidiert werden. Damit erfolgen die Inventur, die Abnahmebereitschaftserklärung und nachfolgende Prozesse dort, wo das Werkzeug im Einsatz ist ("Betreiber"). Die korrekte Zuordnung zum Betreiber und den Standort des Betreibers für u.a. die erfolgreiche Abrechnung der Werkzeuge wird im Prozess sichergestellt, sofern die Sublieferanten und Standorte beim Sublieferanten und die Standorte beim eigenen Unternehmen gepflegt sind.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Für den 2nd tier (Sublieferant).</span>
+                    <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                    <p>Aufträge des 1st tier können direkt in orca bearbeitet und erledigt werden. Die Erfüllung der Anforderungen des OEM ist damit zügig und verlässlich möglich (z.B. werden hochgeladene Fotos ohne email Pingpong überprüft). orca ist und bleibt für alle Lieferanten kostenfrei. Und jeder Lieferant kann sein Unternehmen auf orca selbst einrichten und verwalten. Bei Lieferanten mit wenigen Standorten geht das in Minuten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="explanation-section">
+        <div class="explanation-content">
+            <h3>Unternehmen, Sublieferanten und Standorte erklärt.</h3>
+
+            <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/b27804b7-6dec-441f-8d94-8ed48e739c49/Bildschirmfoto+2022-08-04+um+11.18.09.png" alt="Unternehmen als Lieferanten und Sublieferanten" class="diagram-image">
+            <p class="diagram-caption"><strong>Jedes Unternehmen (im Beispiel A) kann Unternehmen (im Beispiel B, C, D) als Sublieferanten in orca benennen.</strong> Unternehmen sind die rechtlichen Einheiten ("Firma"), z.B. "Superplastic LLC" oder "Schmidt & Söhne GmbH".</p>
+
+            <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/99355594-5c5c-472f-a239-29a73d23b9de/Bildschirmfoto+2022-08-04+um+11.19.12.png" alt="Standorte eines Unternehmens" class="diagram-image">
+            <p class="diagram-caption"><strong>Jedes Unternehmen (hier B) definiert seine Standorte,</strong> an denen Fertigungsmittel im Einsatz oder gelagert sind (Fertigungsstätte 1, Lagerhalle 2, usw.), mit Adresse und Geolokalisierung (geo. Länge, geo. Breite).</p>
+
+            <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/4673e72d-3b44-4021-b9ff-8f65643b4e9f/Bildschirmfoto+2022-08-04+um+11.21.59.png" alt="Fertigungsmittel Zuordnung" class="diagram-image">
+            <p class="diagram-caption"><strong>Ein Fertigungsmittel wird über orca Prozesse eindeutig dem Unternehmen und den Standort des Unternehmens zugeordnet,</strong> an dem es sich befindet. Beispielsweise hier bei B als Sublieferant an seinem Standort 2. B wäre der "Betreiber" des Fertigungsmittels.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <p>Jeder Lieferant kann entscheiden, wie seine Sublieferanten eingebunden werden. Sublieferanten werden vom Werkzeugkoordinator direkt in orca angelegt oder bestehende Lieferanten als Sublieferanten benannt. Standorte des jeweiligen Unternehmens werden ebenfalls von Werkzeugkoordinatoren gepflegt, je nach Szenario durch Werkzeugkoordinatoren des Lieferanten oder des Sublieferanten.</p>
+
+        <div class="scenario-grid">
+            <div class="scenario-card">
+                <h4>Standardprozess: Sublieferanten hinzuholen.</h4>
+                <p>Wählen Sie dieses Szenario, wenn der Sublieferant z.B. viele Fertigungsmittel hat, mehrere Standorte, etc., sich daher für alle Beteiligten ein Onboarding lohnt.</p>
+                <a href="#onboarding-subsupplier" class="scenario-btn">Wie geht das?</a>
+            </div>
+            <div class="scenario-card">
+                <h4>Alternativprozess: Sublieferanten vertreten.</h4>
+                <p>Wählen Sie dieses Szenario, wenn es "kleine" Lieferanten sind, wenige Werkzeuge, etc. Das Vorgehen eignet sich auch für einen Interimsprozess, bevor der Sublieferant übernimmt.</p>
+                <a href="#standin-subsupplier" class="scenario-btn">Wie geht das?</a>
+            </div>
+            <div class="scenario-card">
+                <h4>Kein Sublieferant, nur ein neuer Standort bei meinem Unternehmen.</h4>
+                <p>Wenn nur Standorte des eigenen Unternehmens fehlen, keine Sublieferanten.</p>
+                <a href="#locations" class="scenario-btn">Wie geht das?</a>
+            </div>
+            <div class="scenario-card">
+                <h4>Weiteres rund um Sublieferanten und Standorte.</h4>
+                <p>Antworten in den FAQ.</p>
+                <a href="faq.html" class="scenario-btn">FAQ</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="onboarding-subsupplier" class="anchor-target process-section">
+        <div class="process-grid">
+            <div>
+                <div class="section-divider"></div>
+                <h3>Sublieferanten hinzuholen.</h3>
+            </div>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Lieferant: Ansprechpartner beim Sublieferanten kontaktieren.</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Der Ansprechpartner ist idealerweise der zukünftige Werkzeugkoordinator des Sublieferanten.</p>
+                        <p>Falls der Sublieferant schon auf orca sein sollte, fragen Sie bei Ihrem Ansprechpartner die genaue Firmenbezeichnung und Adresse an. Sie können damit den Lieferanten im nächsten Schritt als Sublieferant benennen.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Lieferant: Sublieferant in orca anlegen.</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Mindestens benötigt werden der genaue Unternehmensname (Firma) und die Unternehmensadresse.</p>
+                        <p>Wo? Bei Unternehmen → eigenes Unternehmen anklicken → Tab Lieferanten → drei Punkt Menu rechts → neuer Lieferant</p>
+                        <p>Eine Klickanleitung zum Download erhalten Sie <a href="https://www.organizingcompanyassets.com/s/Wie-lege-ich-einen-Sublieferanten-an.pdf" target="_blank">hier</a>.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Lieferant: Werkzeugkoordinator beim Sublieferant einladen.</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Mindestens benötigt werden Vorname, Nachname und email-Adresse des zukünftigen Werkzeugkoordinators.</p>
+                        <p>Wo? Bei Unternehmen → den Sublieferanten suchen bzw. anklicken → Tab Benutzer → drei Punkt Menu rechts → neuer Benutzer</p>
+                        <p>Eine Klickanleitung zum Download erhalten Sie <a href="https://www.organizingcompanyassets.com/s/Wie-lege-ich-einen-Nutzer-beim-Sublieferanten-an.pdf" target="_blank">hier</a>.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Sublieferant: Erstmalig einloggen.</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Auf den Link in der Einladungsmail klicken und die Registrierung abschließen.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Sublieferant: Standorte pflegen.</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Der Werkzeugkoordinator des Sublieferanten pflegt die Sublieferanten-Standorte. Benötigt werden eine Standortadresse (Strasse, PLZ, Land) und eine Bezeichnung des Standortes, um diesen selbst sicher zu identifizieren (z.B. "Zentrale").</p>
+                        <p>Wo? Bei Unternehmen → das eigene Unternehmen anklicken → Tab Standorte → drei Punkt Menu rechts → neuer Standort</p>
+                        <p>Eine Klickanleitung zum Download erhalten Sie <a href="https://www.organizingcompanyassets.com/s/Wie-lege-ich-einen-Standort-an-sezd.pdf" target="_blank">hier</a>.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Sublieferant: Ggf. weitere Personen anlegen.</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>z.B. Vertreter, Werkzeugverantwortliche der Standorte oder Inventurdurchführer.</p>
+                        <p>Wo? Bei Unternehmen → das eigene Unternehmen anklicken → Tab Benutzer → drei Punkt Menu rechts → neuer Benutzer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="standin-subsupplier" class="anchor-target process-section">
+        <div class="process-grid">
+            <div>
+                <div class="section-divider"></div>
+                <h3>Sublieferanten vertreten.</h3>
+            </div>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Lieferant: Sublieferant anlegen.</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Mindestens benötigt werden der genaue Unternehmensname (Firma) und die Unternehmensadresse.</p>
+                        <p>Wo? Bei Unternehmen → eigenes Unternehmen anklicken → Tab Lieferanten → drei Punkt Menu rechts → neuer Lieferant</p>
+                        <p>Wichtig auch: Am Schluss des Dialogs "neuer Lieferant" (ggf. scrollen), auch die Rolle "IVL" anhaken.</p>
+                        <p>Eine Klickanleitung zum Download erhalten Sie <a href="https://www.organizingcompanyassets.com/s/Wie-lege-ich-einen-Sublieferanten-an.pdf" target="_blank">hier</a>.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Lieferant: Standorte des Sublieferanten pflegen</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Der Werkzeugkoordinator des Sublieferanten pflegt normalerweise die Sublieferanten-Standorte. In diesem Szenario macht das der Werkzeugkoordinator des Lieferanten. Benötigt werden eine Standortadresse (Strasse, PLZ, Land) und eine Bezeichnung des Standortes, um diesen selbst sicher zu identifizieren (z.B. "Zentrale").</p>
+                        <p>Wo? Bei Unternehmen → den Sublieferanten suchen bzw. anklicken → Tab Standorte → drei Punkt Menu rechts → neuer Standort</p>
+                        <p>Eine Klickanleitung zum Download erhalten Sie <a href="https://www.organizingcompanyassets.com/s/Wie-lege-ich-einen-Standort-beim-Sublieferanten-an.pdf" target="_blank">hier</a>.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Lieferant: Unternehmen und Standort des Sublieferanten bestätigen</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Für Fertigungsmittel, die auf den Sublieferanten laufen sollen, beim bestätigen des Standorts in der ABL auf "Nein, sondern dort…" und dann bei "Unternehmen auswählen" den zuvor angelegten Sublieferanten und bei "Standort auswählen" den Standort des Sublieferanten auswählen. Die restlichen Schritte der ABL ausführen und am Schluss diese Rückmelden.</p>
+                        <p>Eine Anleitung finden Sie hier: <a href="https://www.organizingcompanyassets.com/s/Wie-bestatige-ich-Unternehmen-und-Standort-des-Sublieferanten.pdf" target="_blank">Deutsch</a> | <a href="https://www.organizingcompanyassets.com/s/How-do-I-confirm-company-and-location-of-a-subsupplier.pdf" target="_blank">Englisch</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="locations" class="anchor-target process-section">
+        <div class="process-grid">
+            <div>
+                <div class="section-divider"></div>
+                <h3>Standorte für das eigene Unternehmen pflegen.</h3>
+            </div>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Standorte pflegen</span>
+                        <div class="accordion-icon"></div>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Der Werkzeugkoordinator pflegt die Standorte für sein Unternehmen. Benötigt werden eine Standortadresse (Strasse, PLZ, Land) und eine Bezeichnung des Standortes, um diesen selbst sicher zu identifizieren (z.B. "Zentrale").</p>
+                        <p>Wo? Bei Unternehmen → eigenes Unternehmen anklicken → Tab Standorte → drei Punkt Menu rechts → neuer Standort</p>
+                        <p>Falls Sie kein Werkzeugkoordinator sind, melden Sie sich bitte bei Ihrem zuständigen Koordinator.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
