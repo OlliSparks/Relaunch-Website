@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support/Werkzeugkoordinator Inventur | Inventurauftrag durchführen — orca. organizing company assets.</title>
+    <meta name="description" content="Anleitung für Werkzeugkoordinatoren zur Durchführung von Inventuraufträgen. Unteraufträge erstellen, verteilen und rückmelden.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .content-section { padding: 120px 2rem 60px; max-width: 1200px; margin: 0 auto; }
+
+        h3 { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+        h3.subtitle { font-size: 2.5rem; font-weight: 400; margin-bottom: 2rem; }
+
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.9; font-size: 1.1rem; }
+        p strong { color: var(--text-primary); }
+
+        ul { list-style: none; margin: 1.5rem 0 2rem 0; }
+        ul li { padding: 0.75rem 0; padding-left: 2rem; position: relative; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; }
+        ul li::before { content: '•'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+        a { color: var(--primary); }
+        a:hover { color: var(--accent); }
+
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            h3 { font-size: 2rem; }
+            h3.subtitle { font-size: 1.5rem; }
+            p, ul li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h3><strong>Inventur</strong></h3>
+        <h3 class="subtitle">Werkzeugkoordinator.</h3>
+
+        <p><strong>Als Werkzeugkoordinator steuern und verwalten Sie die Fertigungsmittel-Inventur in ihrem Hause und sind Ansprechpartner für BMW bzw. das Inventurbüro.</strong></p>
+
+        <ul>
+            <li>Sie nehmen Inventuraufträge in Empfang.</li>
+            <li>Hieraus schnüren Sie Unteraufträge und verteilen sie auf andere Personen, Standorte und Sublieferanten weiter.</li>
+            <li>Hierfür müssen das Unternehmen und die Person vorher im System angelegt worden sein <a href="admin.html">(Für die Anleitung klicken Sie „hier")</a>.</li>
+            <li>Sie haben die Möglichkeit die Inventurdurchführung auch selbst zu erledigen. Den Quickguide zum download finden Sie <a href="https://static1.squarespace.com/static/6033b0424da2f359a63062b9/t/61237b7bf20b113b3578ad87/1629715323949/Quick_Guide_Inventory_1.0.pdf" target="_blank">hier</a>.</li>
+            <li>Nachdem die Inventur lieferantenseitig durchgeführt wurde, sammeln Sie alle Ergebnisse ein und prüfen sie auf Vollständigkeit und Korrektheit.</li>
+            <li>Wenn alles passt, melden Sie das Ergebnis an BMW bzw. das Inventurbüro zurück.</li>
+        </ul>
+
+        <p><strong>In dieser Anleitung wird beschrieben wie Sie einen neuen Inventurauftrag im System durchführen und rückmelden.</strong></p>
+
+        <p>Um eine Übersicht über den Status eines Inventurauftrags zu erhalten, können Sie sich immer an den Icons orientieren, eine Anleitung zum Download finden Sie <a href="s/Icons-Durchlauf-IA.pptx">hier.</a></p>
+
+        <p>1. Klicken Sie auf Ihre „Benutzeraufgaben". Hier starten Sie alle Ihre Aufgaben im Inventurprozess und hier schließen Sie auch alle Aufgaben nach getaner Arbeit wieder ab. Bei neu eingetroffenen Aufgaben erscheint ein kleines rotes Symbol am Button.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875172819-IH3MIM363VFZTZKSLEZB/WK1.png" alt="Benutzeraufgaben öffnen" class="step-image">
+
+        <p>2. Wählen Sie die Aufgabe "Inventur durchführen" für einen bestimmten Inventurauftrag aus. Um eine bestimmte Aufgabe unter mehreren (wieder) zu finden ist auch eine Such- und Filterfunktion vorhanden.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875328808-7RFR8VH318OFWRH20YI0/WK2.png" alt="Aufgabe Inventur durchführen auswählen" class="step-image">
+
+        <p>3. Klicken Sie nun auf "Inventory" um den Inventurauftrag zu öffnen.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875359737-S5RCAKVFFQS25I9ONMCT/WK3.png" alt="Inventory öffnen" class="step-image">
+
+        <p>4. Nun kann die Inventur entweder selbst durchgeführt werden, <a href="stocktaker.html">(Für die Anleitung klicken Sie „hier"),</a> oder ein Unterauftrag erstellt und weitergeleitet werden. Wählen Sie hierzu „Unteraufträge" aus und klicken im Drei-Punkte-Menü auf „Neuer Unterauftrag".</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631621112182-F52KRP7HXOT0GDG4DH0G/WK5.png" alt="Unterauftrag erstellen" class="step-image">
+
+        <p>5. Benennen Sie den Unterauftrag und weisen ihm ein Unternehmen und einen Empfänger zu. Klicken Sie auf „Anlegen und Fertigungsmittel hinzufügen". Achtung, Unternehmen und Empfänger müssen vorher angelegt worden sein <a href="admin.html">(Für die Anleitung klicken Sie „hier").</a></p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631621150613-3F374YH5Y1QGJZY4GJAD/WK6.png" alt="Unterauftrag benennen" class="step-image">
+
+        <p>6. Wählen Sie die Werkzeuge aus, welche zu diesem Unterauftrag hinzugefügt werden sollen und klicken Sie auf „Hinzufügen".</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631621194424-JN0QDWI7V6O92B4HUINP/WK7.png" alt="Werkzeuge hinzufügen" class="step-image">
+
+        <p>7. Klicken Sie auf den Reiter „Unteraufträge" und auf das Drei-Punkte-Menü des zu versendenden Unterauftrags. Wählen sie hier „Inventurauftrag senden" um ihn abzuschicken.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631621218429-KGKERYJD9EJ37U0F0E2W/WK8.png" alt="Inventurauftrag senden" class="step-image">
+
+        <p>8. Wenn der Unterauftrag bearbeitet und zurückgesendet wurde, erhalten Sie eine neue Benutzeraufgabe, der Button mit den "Benutzeraufgaben" ist wieder rot markiert. Klicken Sie Ihn erneut an und wählen die Aufgabe "Rückmeldung des Inventur-Unterauftrags prüfen" aus.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875425715-YGFA4TE2VVJ5M85F0XC6/WK9.png" alt="Rückmeldung prüfen" class="step-image">
+
+        <p>9. Wählen sie wieder "Inventory" aus, um zum Unterauftrag zu gelangen.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875462835-0K81HKAKXNK4CKUHGQ3B/WK10.png" alt="Inventory auswählen" class="step-image">
+
+        <p>10. Jetzt prüfen Sie das Ergebnis. Sollten Sie nicht zufrieden sein, können Sie den Unterauftrag "Zur Korrektur senden". Hierzu öffnen Sie bitte vorher die Werkzeuge, die für Sie nicht gepasst haben.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875499629-6749UWTRXLP1HZ05IXBC/WK11.png" alt="Ergebnis prüfen" class="step-image">
+
+        <p>11. Um zu verdeutlichen welche Werkzeuge nicht in Ordnung sind, öffnen Sie diese und wählen Sie dort "Ergebnis ablehnen" aus. Wenn sie mit dem gesamten Ergebnis zufrieden sind klicken Sie bei jedem Werkzeug auf "Ergebnis Akzeptieren".</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631621620194-ASX3W2GRR01Y4R3V9HBT/WK12.png" alt="Ergebnis akzeptieren oder ablehnen" class="step-image">
+
+        <p>12. Sollte der Standort nicht gestimmt haben, muss vor dem „Ergebnis akzeptieren" eine "Begründung" zum veränderten Standort ausgewählt werden.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631621664771-UOF07BLONW1U7YWLS3YU/WK13.png" alt="Begründung auswählen" class="step-image">
+
+        <p>13. Wenn Sie mit der Prüfung fertig sind gehen Sie einen Schritt zurück und klicken Sie auf "Aufgabe beenden". Die Aufgabe wird in Ihrer Aufgabenliste "abgehakt" und erscheint mit einem grünen Haken nur noch bei den erledigten Aufgaben.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875541550-1FDWNTN20C4L1OI7GIC2/WK14.png" alt="Aufgabe beenden" class="step-image">
+
+        <p>14. Sollten Sie den Unterauftrag in Korrektur gegeben haben, müssen Sie warten bis Sie ihn erneut erhalten. Sollten Sie mit dem Ergebnis zufrieden gewesen sein, kehren Sie über die Benutzeraufgabe "Inventur durchführen" zum ursprünglichen Inventurauftrag zurück.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875576026-KDR60QHPVLEA6XJT25WC/WK16.png" alt="Zurück zum Inventurauftrag" class="step-image">
+
+        <p>15. Wenn alle Ergebnisse geprüft und akzeptiert sind, können Sie den gesamten Inventurauftrag an den ursprünglichen Ersteller rückmelden. Bitte beachten Sie auch, dass eine Rückmeldung nur möglich ist, wenn alle zu diesem Auftrag zugehörigen Unteraufträge (vom jeweiligen zugewiesenen Benutzer des Unterauftrags) rückgemeldet sind.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875623180-LA1JQ1D8P0FQLI7GRYBF/WK18.png" alt="Inventurauftrag rückmelden" class="step-image">
+
+        <p>16. Wenn der Inventurauftrag rückgemeldet wurde, können Sie in den Benutzeraufgaben die "Aufgabe beenden". Damit ist der Prozess für einen Inventurauftrag abgeschlossen.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1631875659789-UP3XX4JFI0H762OSB6EV/WK19.png" alt="Prozess abgeschlossen" class="step-image">
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>
