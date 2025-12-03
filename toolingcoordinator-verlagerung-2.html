@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support/Verlagerung Durchführung | Genehmigten Antrag durchführen — orca. organizing company assets.</title>
+    <meta name="description" content="Schritt-für-Schritt Anleitung für Werkzeugkoordinatoren zur Durchführung eines genehmigten Verlagerungsantrags (Relocation) in MyTools@orca.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .content-section { padding: 120px 2rem 60px; max-width: 1200px; margin: 0 auto; }
+
+        h3 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+        h3.subtitle { font-size: 2rem; font-weight: 400; color: var(--text-primary); margin-bottom: 1.5rem; }
+
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.9; font-size: 1.15rem; }
+        p strong { color: var(--text-primary); }
+
+        .step-title { font-size: 1.75rem; font-weight: 600; margin: 3rem 0 1.5rem; color: var(--text-primary); }
+
+        ul.toc { list-style: none; margin: 2rem 0; padding: 0; }
+        ul.toc li { padding: 0.5rem 0; }
+        ul.toc li a { color: var(--primary); text-decoration: none; font-size: 1.15rem; }
+        ul.toc li a:hover { color: var(--accent); }
+
+        a { color: var(--primary); }
+        a:hover { color: var(--accent); }
+
+        .warning-box {
+            background: #fff7ed;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning-box p { margin-bottom: 0.5rem; color: var(--text-primary); }
+        .warning-box p:last-child { margin-bottom: 0; }
+
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-container {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-sidebar {
+            flex: 0 0 300px;
+            background: var(--bg-alt);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .step-sidebar p { font-size: 1rem; margin-bottom: 1rem; }
+        .step-sidebar p:last-child { margin-bottom: 0; }
+
+        .spacer { height: 2rem; }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            h3 { font-size: 1.75rem; }
+            h3.subtitle { font-size: 1.5rem; }
+            p { font-size: 1rem; }
+            .step-container { flex-direction: column; }
+            .step-sidebar { flex: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h3>Verlagerung des Lieferanten (Relocation) - Durchführung.</h3>
+        <h3 class="subtitle">Werkzeugkoordinator.</h3>
+
+        <p><strong>Rolle, Verantwortung des Werkzeugkoordinators und Voraussetzungen für eine Verlagerung sind <a href="relocation.html">hier</a> beschrieben.</strong></p>
+
+        <p><strong>In dieser Anleitung wird erklärt, wie Sie einen genehmigten Verlagerungsantrag im System durchführen.</strong></p>
+
+        <div class="warning-box">
+            <p><strong>Hinweis!</strong> Wenn ein Standort korrigiert werden soll, welcher in der Abnahmebereitschaftserklärung (ABL) falsch bestätigt wurde, sollte nicht der Verlagerungsprozess verwendet werden. Bitte wenden Sie sich für solche Änderungen an unseren <a href="supportrequest.html">Support</a>.</p>
+        </div>
+
+        <ul class="toc">
+            <li><a href="#schritt-1">Schritt 1: Genehmigten Antrag suchen</a></li>
+            <li><a href="#schritt-2">Schritt 2: Genehmigten Antrag öffnen</a></li>
+            <li><a href="#schritt-3">Schritt 3: Verlagerungsauftrag erstellen</a></li>
+            <li><a href="#schritt-4">Schritt 4: Auftrag benennen, Daten hinzufügen und zuweisen</a></li>
+            <li><a href="#schritt-5">Schritt 5: Fertigungsmittel zum Auftrag hinzufügen</a></li>
+            <li><a href="#schritt-6">Schritt 6: Auftrag versenden</a></li>
+            <li><a href="#schritt-7">Schritt 7: Durchführung der Verlagerung dokumentieren</a></li>
+        </ul>
+
+        <!-- Schritt 1 -->
+        <h4 class="step-title" id="schritt-1">Schritt 1: Genehmigten Antrag suchen</h4>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/99a105a2-5e23-4e32-bee9-4d4ef02863c5/Bild1.png" alt="Schritt 1 - Benutzeraufgaben" class="step-image">
+
+        <p>Sobald eine Verlagerungsantrag genehmigt wurde, erhalten Sie eine Benachrichtigung über Ihre Benutzeraufgaben.</p>
+        <p>Suchen Sie die betreffende Benutzeraufgabe raus und öffnen Sie diese.</p>
+
+        <!-- Schritt 2 -->
+        <h4 class="step-title" id="schritt-2">Schritt 2: Genehmigten Antrag öffnen</h4>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/6fd3e253-ae15-447e-b073-bdadac1ede8f/Bild2.png" alt="Schritt 2 - Antrag öffnen" class="step-image">
+
+        <p>Klicken Sie auf die Verlinkung "Verlagerung", um den genehmigten Antrag zu öffnen.</p>
+
+        <!-- Schritt 3 -->
+        <h4 class="step-title" id="schritt-3">Schritt 3: Verlagerungsauftrag erstellen</h4>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/74ad681c-c9e0-4544-82f4-29e6079fd1fa/Bild3.png" alt="Schritt 3 - Auftrag erstellen" class="step-image">
+
+        <p>Um die Verlagerung dokumentieren zu können, müssen Sie erst einen Verlagerungsantrag erstellen.</p>
+        <p>Klicken Sie hierzu erst auf "<strong>Verlagerungsaufträge</strong>" und anschließend auf "<strong>Neuer Verlagerungsantrag</strong>".</p>
+
+        <!-- Schritt 4 -->
+        <h4 class="step-title" id="schritt-4">Schritt 4: Auftrag benennen, Daten hinzufügen und zuweisen</h4>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/bcde1c6d-7bff-48f7-8c34-b172034853f5/Bild4.png" alt="Schritt 4 - Auftrag benennen" class="step-image">
+
+        <p>Geben Sie dem Auftrag einen distinkten Auftragsnamen, geben Sie den Verladetermin und Ankunftstermin an und weisen Sie den Auftrag einem Empfänger zu.</p>
+        <p>Klicken Sie anschließend auf "<strong>Anlegen und Fertigungsmittel hinzufügen</strong>".</p>
+
+        <!-- Schritt 5 -->
+        <h4 class="step-title" id="schritt-5">Schritt 5: Fertigungsmittel zum Auftrag hinzufügen</h4>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/669a8eb3-29bc-4d8d-837c-6107f0ab191a/Bild5.png" alt="Schritt 5 - Fertigungsmittel hinzufügen" class="step-image">
+
+        <p>Wählen Sie die relevanten Fertigungsmittel aus und klicken Sie auf "<strong>Zu Antrag hinzufügen</strong>".</p>
+
+        <div class="warning-box">
+            <p>Bitte beachten Sie, dass alle Fertigungsmittel in diesem Antrag auch den gleichen Verlade- und Ankunftstermin haben wie der Auftrag selbst. Sollten Fertigungsmittel unterschiedliche Verlade- und/oder Ankunftstermine haben, erstellen Sie bitte jeweils einen eigenen Auftrag mit den korrekten Daten.</p>
+        </div>
+
+        <!-- Schritt 6 -->
+        <h4 class="step-title" id="schritt-6">Schritt 6: Auftrag versenden</h4>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/7f63c7f1-8f4f-4555-a28d-37dadcda1e88/Bild6.png" alt="Schritt 6 - Auftrag versenden" class="step-image">
+
+        <p>Um den Auftrag an den ausgewählten Empfänger zu versenden klicken Sie erneut auf "<strong>Verlagerungsaufträge</strong>" und im <strong>Drei-Punkte-Menü</strong> des jeweiligen Auftrags auf "<strong>An Empfänger versenden</strong>".</p>
+        <p>Sollten Sie die Durchführung der Verlagerung selbst dokumentieren wollen, benötigen Sie hierfür Werkzeugkoordinatoren-Rechte (IVL) bei dem Empfängerunternehmen.</p>
+
+        <!-- Schritt 7 -->
+        <h4 class="step-title" id="schritt-7">Schritt 7: Durchführung der Verlagerung dokumentieren</h4>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/6b3be8b1-9d30-4639-bd68-85c2a4e12aca/Bild7.png" alt="Schritt 7 - Dokumentation" class="step-image">
+
+        <p>Erstellen Sie die Dokumentation der Fertigungsmittel, in dem Sie den Standort bestätigen und zwei Fotos hochladen. Hierbei gelten die gleichen Anforderungen wie bei einer <a href="toolingcoordinator-abl.html">ABL</a> (z.B. Fotos mit Geodaten).</p>
+
+        <p>Geben Sie das <strong>Verlagerungsabschlussdatum</strong> an. In das Feld <strong>zwingend</strong> das <strong>Datum der Ankunft der Fertigungsmittel</strong> am <strong>Zielstandort</strong> eingeben. Dieses Datum muss ebenfalls <strong>identisch auf der Gelangensbestätigung vermerkt</strong> sein.</p>
+
+        <p>Das System erzeugt ein mit dem Datum <strong>korrekt vorausgefülltes Formular der Gelangensbestätigung</strong> bei Dokumente. Bitte dort runterladen, stempeln und unterzeichnen, scannen und als gescanntes Dokument 1 mit dem CMR Frachtbrief als separates Dokument 2 hochladen.</p>
+
+        <div class="warning-box">
+            <p><strong>Wichtig!</strong> Bitte melden Sie zum Abschluss den Verlagerungsauftrag zurück, ansonsten kann die Verlagerung nicht abgeschlossen und rechtzeitig steuerlich gemeldet werden.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>
