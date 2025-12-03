@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding | Inventur 2025 — orca. organizing company assets.</title>
+    <meta name="description" content="Onboarding zur Inventur 2025 der SBM Kaufteile für die BMW Group. Eckdaten, Zeitplan und nächste Schritte.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 2rem 60px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/126cc8c4-8ee3-4407-b685-4d5ac665c8e8/unsplash-image-fSsh4h4pZSU.jpg') center/cover no-repeat;
+        }
+        .hero-content { max-width: 1200px; text-align: left; color: white; }
+        .hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero h3 { font-size: 1.5rem; font-weight: 400; opacity: 0.9; }
+
+        /* Content Section */
+        .content-section { padding: 60px 2rem; max-width: 1200px; margin: 0 auto; }
+
+        /* Accordion Section */
+        .accordion-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .accordion-section h2 { font-size: 2rem; font-weight: 700; color: var(--text-primary); }
+
+        .accordion { border-top: 1px solid var(--border); }
+        .accordion-item { border-bottom: 1px solid var(--border); }
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-align: left;
+        }
+        .accordion-header:hover { color: var(--accent); }
+        .accordion-icon {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background: var(--text-primary);
+            transition: transform 0.3s;
+        }
+        .accordion-icon::before {
+            width: 100%;
+            height: 1px;
+            top: 50%;
+            left: 0;
+        }
+        .accordion-icon::after {
+            width: 1px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+        }
+        .accordion-item.active .accordion-icon::after { transform: rotate(90deg); }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .accordion-content-inner {
+            padding-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        .accordion-content-inner ul {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+        .accordion-content-inner li {
+            margin-bottom: 0.5rem;
+        }
+        .accordion-content-inner strong { color: var(--text-primary); }
+
+        /* Next Steps Section */
+        .next-steps-section {
+            background: var(--bg-alt);
+            padding: 60px 2rem;
+            margin-top: 40px;
+        }
+        .next-steps-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .next-steps-content h2 { font-size: 2rem; font-weight: 700; color: var(--text-primary); }
+        .next-steps-text h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .next-steps-text h3:not(:first-child) { margin-top: 1.5rem; }
+
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .action-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+        }
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(28, 37, 83, 0.3);
+            color: white;
+        }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .hero h3 { font-size: 1.1rem; }
+            .accordion-section { grid-template-columns: 1fr; gap: 1.5rem; }
+            .next-steps-content { grid-template-columns: 1fr; gap: 1.5rem; }
+            .button-grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Inventur 2025.</h1>
+            <h3>Herzlich Willkommen zum orca Onboarding für die Inventur der SBM Kaufteile in 2025.</h3>
+        </div>
+    </section>
+
+    <!-- Eckdaten Section -->
+    <section class="content-section">
+        <div class="accordion-section">
+            <div>
+                <h2>Eckdaten</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Umfang</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Die BMW Group führt die <strong>Inventur</strong> in 2025 für <strong>ausgewählte</strong> SBM durch:</p>
+                            <ul>
+                                <li>Inventuren für alle SBM ohne eine Abnahmebereitschaftserklärung, aber mit Bestätigung in der eBestellung bis 2022, die bisher nicht in einer Inventur waren.</li>
+                                <li>Revalidierung Inventurergebnisse mit Fälligkeit aus 2021.</li>
+                                <li>Revalidierung SBM Spartanburg.</li>
+                                <li>Abarbeitung noch relevanter offener und laufender Inventuren.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Zeitplan</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Die Inventuraufträge werden <strong>ab dem 14.07.2025</strong> eingestellt. BMW erwartet vollständige Rückmeldungen zum konkret angegebenen Fälligkeitsdatum, generell ist eine Bearbeitung bis September 2025 geplant.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Inventuranforderungen ("Fotos")</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p><strong>Fotoerfordernis</strong> aus lokalen gesetzlichen Gründen generell für SBM der <strong>BMW SLP, S.A. DE C.V. ("San Luis Potosi" oder "Mexiko")</strong>, für die anderen Gesellschaften nur auf spezielle Anforderung hin (Inventurtyp mit Fotos).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>Ausnahmen</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>SBM der BMW South Africa (pty) ltd ("Rosslyn") sind <strong>nicht für die Inventur 2025 geplant.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps Section -->
+    <section class="next-steps-section">
+        <div class="next-steps-content">
+            <div>
+                <h2>Nächste Schritte</h2>
+            </div>
+            <div class="next-steps-text">
+                <h3>Arbeitsfähigkeit sicherstellen: mindestens ein Werkzeugkoordinator für MyTools bis 01.07. aktiv.</h3>
+                <h3>Fertigungsmitteltabelle nutzen: Inventuraufträge sichten und dem richtigen Bearbeiter zuordnen.</h3>
+                <h3>Fristgerechte Abarbeitung sicherstellen: Insbesondere bei Inventuren mit Fotoerfordernis. Mengengerüst beachten!</h3>
+
+                <div class="button-grid">
+                    <a href="inventur-quick-guide.html" class="action-btn" target="_blank">Quick guide</a>
+                    <a href="videos-inventur.html" class="action-btn" target="_blank">Videos</a>
+                    <a href="reporting.html" class="action-btn" target="_blank">Fertigungsmitteltabelle</a>
+                    <a href="tipps.html" class="action-btn" target="_blank">Tipps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const content = button.nextElementSibling;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items (optional - remove for multi-open)
+                // document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                //     otherItem.classList.remove('active');
+                //     otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                // });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    item.classList.remove('active');
+                    content.style.maxHeight = null;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
