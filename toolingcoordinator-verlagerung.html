@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support/Verlagerung | Verlagerungsantrag erstellen — orca. organizing company assets.</title>
+    <meta name="description" content="Schritt-für-Schritt Anleitung für Werkzeugkoordinatoren zur Erstellung eines Verlagerungsantrags (Relocation) in MyTools@orca.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .content-section { padding: 120px 2rem 60px; max-width: 1200px; margin: 0 auto; }
+
+        h3 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary); }
+        h3.subtitle { font-size: 2rem; font-weight: 400; color: var(--text-primary); margin-bottom: 1.5rem; }
+
+        p { margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.9; font-size: 1.15rem; }
+        p strong { color: var(--text-primary); }
+
+        .section-title { font-size: 1.5rem; font-weight: 600; margin: 2.5rem 0 1.5rem; color: var(--text-primary); }
+
+        ol { list-style: decimal; margin: 1.5rem 0 2rem 1.5rem; }
+        ol li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.15rem; line-height: 1.8; }
+
+        a { color: var(--primary); }
+        a:hover { color: var(--accent); }
+
+        .warning-box {
+            background: #fff7ed;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warning-box p { margin-bottom: 0; color: var(--text-primary); }
+
+        .step-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .status-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .spacer { height: 2rem; }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            h3 { font-size: 1.75rem; }
+            h3.subtitle { font-size: 1.5rem; }
+            p, ol li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <h3>Verlagerung des Lieferanten (Relocation) - Antrag.</h3>
+        <h3 class="subtitle">Werkzeugkoordinator.</h3>
+
+        <p><strong>Rolle, Verantwortung des Werkzeugkoordinators und Voraussetzungen für eine Verlagerung sind <a href="relocation.html">hier</a> beschrieben.</strong></p>
+
+        <p><strong>In dieser Anleitung wird erklärt, wie Sie einen neuen Verlagerungsantrag im System erstellen.</strong></p>
+
+        <div class="warning-box">
+            <p><strong>Hinweis!</strong></p>
+            <p>Wenn ein Standort korrigiert werden soll, welcher in der Abnahmebereitschaftserklärung (ABL) falsch bestätigt wurde, ist kein Verlagerungsantrag zu erstellen. Bitte wenden Sie sich für solche Änderungen an unser <a href="supportrequest.html">Support</a>.</p>
+        </div>
+
+        <p class="section-title">Verlagerungsantrag anlegen</p>
+
+        <ol>
+            <li>Im Bereich "Fertigungsmittel" wählen Sie "Neue Verlagerung".</li>
+        </ol>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/f6a0a606-6b67-4aa5-898f-a6dca5750152/1.png" alt="Schritt 1 - Neue Verlagerung" class="step-image">
+
+        <p>2. Wählen Sie das Unternehmen, Land und Stadt des Fertigungsmittelstandorts und klicken Sie auf "Filter".</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/8eff1d40-eaf3-4a8a-bcfc-5c7b5939e945/2.png" alt="Schritt 2 - Filter setzen" class="step-image">
+
+        <p>3. Nun werden alle Fertigungsmittel angezeigt, die an dem gefilterten Standort stehen. Wählen Sie die gewünschten Fertigungsmittel aus und drücken Sie auf "Verlagerungsantrag anlegen".</p>
+        <p>Hinweis: Sie können auch weiter filtern, z.B. nach Projekt.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/514cb4b6-5cff-4709-a609-a1af53aaceed/3.png" alt="Schritt 3 - Fertigungsmittel auswählen" class="step-image">
+
+        <p>4. Benennen Sie die Verlagerung und legen Sie diese an.</p>
+        <p>Hinweis: Benennen Sie die Verlagerungsanträge so, dass alle Beteiligten beim OEM und ggf. beim Sublieferanten diesen verstehen.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/28f50217-f05c-4cde-8397-23f2d25ba57e/4.png" alt="Schritt 4 - Verlagerung benennen" class="step-image">
+
+        <p>5. Die Verlagerung wird direkt im Bereich "Planung" geöffnet; Zielunternehmen, Zielstandort und das Datum, wann die Verlagerung abgeschlossen sein soll, müssen angegeben werden. Drücken Sie im Anschluss auf "Prüfen".</p>
+
+        <p>Drei Prüfungen werden im System durchgeführt:</p>
+        <ol>
+            <li><strong>Prozess</strong> - die prozessualen Voraussetzungen für den Antrag liegen vor, das bedeutet, eine ABL oder Inventur muss im Vorfeld durchlaufen worden sein.</li>
+            <li><strong>Dokumentation</strong> - verlagerungsrelevante Daten müssen eingetragen werden: Abmaße, Gewicht und Zolltarifnummer.</li>
+            <li><strong>Steuer</strong> - steuerliche Zulässigkeit wird überprüft.</li>
+        </ol>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/68d4be75-4cb5-4dc6-b573-56aafaa9168b/6.png" alt="Schritt 5 - Prüfungen" class="step-image">
+
+        <p>6. Sollten nicht alle Werkzeugangaben vorhanden sein, müssen diese ergänzt werden, damit der Antrag erstellt werden kann. Bitte im Feld unten klicken, damit das Fenster zum Ausfüllen auftaucht.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/9ad1199d-f37f-4021-86fc-9a449276d302/7.png" alt="Schritt 6 - Angaben ergänzen" class="step-image">
+
+        <p>7. Folgende Eigenschaften des Fertigungsmittels sind zu ergänzen: Gewicht, Höhe, Breite, Länge und die Zolltarifnummer. Zolltarifnummern sind über <a href="https://www.zolltarifnummern.de" target="_blank">zolltarifnummern.de</a> recherchierbar, ein Beispiel für eine Nummer ist die 82073090 für Presswerkzeuge. Klicken Sie auf "Speichern".</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/7c593ae9-4114-4fa8-bbe7-b2f47c6ef7ee/9.png" alt="Schritt 7 - Eigenschaften ergänzen" class="step-image">
+
+        <p>8. Wenn im Auftrag noch weitere Fertigungsmittel durch die Verlagerung laufen sollen, wiederholen Sie, wenn nötig, den Schritt zur Ergänzung der Angaben. Sobald erledigt, drücken Sie erneut auf "Prüfen", so dass die Daten validiert werden. Folgende Meldung wird angezeigt: "Kategorisierung der Positionen erfolgreich abgeschlossen", dies bedeutet, dass die Prüfungen durchgeführt werden konnten und der Prüfungsstatus aktualisiert wurde.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/ce316fb5-c2bb-4e04-aeea-077ebfdafefa/10.png" alt="Schritt 8 - Kategorisierung abgeschlossen" class="step-image">
+
+        <p>9. Zusätzlich zu der Werkzeugdokumentation-Prüfung wird bei der <strong>Steuerprüfung</strong> in MyTools@orca ermittelt, ob eine Verlagerung aktuell zulässig, aktuell nicht zulässig oder verboten ist.</p>
+
+        <div class="warning-box">
+            <p><strong>Wichtig!</strong> Bitte stellen Sie den Antrag auch bei einem nicht grünen Ergebnis soweit nicht schon von vornherein eine Alternative besteht.</p>
+            <p>Bei einem roten oder schwarzen Ergebnis werden OEMs seitige Prüfungsprozesse ausgelöst.</p>
+            <p>Hinweis: Dies gilt auch für grau, falls der Fall auftauchen sollte.</p>
+        </div>
+
+        <p>A. <strong>Grün</strong> heißt, die Verlagerung ist steuerrechtlich aktuell zulässig. Eine Genehmigung wird aus steuerlicher Sicht nach Antragstellung automatisiert erteilt.</p>
+        <p>Beispiele für die BMW AG: innerhalb eines Landes, zwischen Ländern außerhalb der EU, in die EU rein oder aus EU raus.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/941322a1-937e-4075-900c-568eef848bdd/gr%C3%BCn.png" alt="Status Grün" class="status-image">
+
+        <p>B. <strong>Rot</strong> heißt, die Verlagerung ist steuerrechtlich aktuell nicht zulässig. Antrag wird zur Lösungsfindung an die Steuerabteilung geschickt und die Lösung mit Einkäufer und Lieferant abgestimmt.</p>
+        <p>Beispiel für die BMW AG: zwischen bestimmten EU-Ländern.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/39f886a0-7f01-4912-891f-68b437085e20/rot.png" alt="Status Rot" class="status-image">
+
+        <p>C. <strong>Schwarz</strong> heißt, die Verlagerung ist aus rechtlichen Gründen untersagt und darf nicht durchgeführt werden.</p>
+        <p>Beispiel für die BMW AG: nach China rein oder raus.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/b25a592b-9a6f-412d-94e2-e793f2cca3ce/schwarz.png" alt="Status Schwarz" class="status-image">
+
+        <p>10. Der Verlagerungsantrag kann nun beantragt werden.</p>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/393fe719-e57d-4425-b60e-de5ab67b99f1/11.png" alt="Schritt 10 - Antrag stellen" class="step-image">
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>
