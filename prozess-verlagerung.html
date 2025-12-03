@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prozesse/Verlagerung | Fertigungsmittel verlagern — orca. organizing company assets.</title>
+    <meta name="description" content="Mit dem Verlagerungsprozess auf orca werden Verlagerungen von Fertigungsmitteln beantragt, geprüft, genehmigt und die Durchführung dokumentiert.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .hero-section { padding: 120px 2rem 60px; max-width: 1400px; margin: 0 auto; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .hero-content h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .hero-content p { color: var(--text-secondary); font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; }
+
+        .hero-image { position: relative; }
+        .hero-image img { width: 100%; border-radius: 20px 20px 0 0; }
+        .image-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(28, 37, 83, 0.8)); padding: 2rem; border-radius: 0 0 20px 20px; }
+        .image-overlay h3 { color: white; font-size: 1.5rem; font-weight: 600; }
+
+        .content-section { padding: 60px 2rem; max-width: 1400px; margin: 0 auto; }
+
+        /* Accordion Styles */
+        .accordion { border-top: 1px solid var(--border); margin-top: 2rem; }
+        .accordion-item { border-bottom: 1px solid var(--border); }
+        .accordion-header { width: 100%; background: none; border: none; padding: 1.25rem 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Oswald', sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--text-primary); text-align: left; }
+        .accordion-header:hover { color: var(--accent); }
+        .accordion-icon { width: 20px; height: 20px; position: relative; flex-shrink: 0; }
+        .accordion-icon::before, .accordion-icon::after { content: ''; position: absolute; background: var(--text-primary); transition: transform 0.3s; }
+        .accordion-icon::before { width: 100%; height: 1px; top: 50%; left: 0; }
+        .accordion-icon::after { width: 1px; height: 100%; left: 50%; top: 0; }
+        .accordion-item.active .accordion-icon::after { transform: rotate(90deg); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-content-inner { padding: 0 0 1.5rem 0; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; }
+        .accordion-content-inner ol, .accordion-content-inner ul { margin: 1rem 0 1rem 1.5rem; }
+        .accordion-content-inner li { margin-bottom: 0.75rem; }
+
+        /* Video Section */
+        .video-section { padding: 60px 2rem; max-width: 1400px; margin: 0 auto; }
+        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .video-item { }
+        .video-placeholder { background: var(--bg-alt); border-radius: 12px; padding: 3rem; text-align: center; border: 1px solid var(--border); margin-bottom: 1rem; }
+        .video-placeholder p { color: var(--text-secondary); font-size: 1rem; }
+        .video-caption { color: var(--text-secondary); font-size: 1rem; }
+
+        /* BMW Section */
+        .bmw-section { padding: 60px 2rem; max-width: 1400px; margin: 0 auto; }
+        .bmw-header { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+        .bmw-logo { width: 60px; height: 60px; border-radius: 50%; }
+        .bmw-header h3 { font-size: 1.75rem; font-weight: 600; color: var(--text-primary); }
+
+        .process-image { width: 100%; max-width: 800px; margin: 2rem 0; border-radius: 12px; }
+        .ampel-image { max-width: 400px; margin: 2rem 0; }
+
+        .btn-container { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 2rem 0; }
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(28, 37, 83, 0.3); color: white; }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { color: var(--accent); }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-grid, .video-grid { grid-template-columns: 1fr; }
+            .hero-content h2 { font-size: 1.75rem; }
+            .bmw-header { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html" class="active">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h2><strong>Verlagerungen</strong> von Fertigungsmitteln.</h2>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Grundlagen</span>
+                            <span class="accordion-icon"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>Verlagerungen von Fertigungsmitteln sind nicht nur eine technisch-organisatorische Herausforderung, sondern auch steuerlich relevant.</p>
+                                <p>orca prüft Verlagerungsanträge automatisch auf steuerliche Zulässigkeit. Auch Verlagerungsansinnen können vorgeprüft werden. Die weitere steuerliche Behandlung erfolgt im Rahmen eines Prüfungsworkflows in Zusammenarbeit mit den Steuerfachstellen des OEM.</p>
+                                <p>Die Genehmigung oder Ablehnung des Verlagerungsantrages mit ggf. Alternativen zur Verlagerung ist ausschlaggebend für die nachfolgende Verlagerungsdurchführung.</p>
+                                <p>Verlagerungen werden vom Vertragspartner bzw. Sublieferanten in orca zur Durchführung geplant, auch Tranchen bzw. Teilverlagerungen sind hier möglich. Der Abschluss der Verlagerung wird in orca dokumentiert. orca erzeugt notwendige Dokumente (wie eine pro-forma Rechnung) automatisch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Prozessablauf</span>
+                            <span class="accordion-icon"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <ol>
+                                    <li>Vertragspartner stellt Verlagerungsantrag mit den betroffenen Fertigungsmitteln.</li>
+                                    <li>Werkzeugverantwortlicher beim OEM organisiert die interne Genehmigung. Über orca werden Steuerfachstellen eingebunden.</li>
+                                    <li>Werkzeugverantwortlicher beim OEM genehmigt oder lehnt ab, mit Begründung und ggf. alternativer Vorgehensweise.</li>
+                                    <li>Vertragspartner wird über die Genehmigung informiert und plant die Durchführung in Zusammenarbeit mit ggf. Sublieferanten (zukünftiger Betreiber der Fertigungsmittel).</li>
+                                    <li>Zukünftiger Betreiber der Fertigungsmittel dokumentiert die Durchführung der Verlagerung (Foto-check in am Zielort) und Gelangensbestätigung.</li>
+                                    <li>Jede abgeschlossene Verlagerungstranche wird automatisch mit einer pro-forma Rechnung dokumentiert und in den Systemen des OEM verarbeitet.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Rollen und Verantwortlichkeiten</span>
+                            <span class="accordion-icon"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>Am Verlagerungsprozess sind beteiligt:</p>
+                                <ul>
+                                    <li><strong><a href="assetcoordinator.html">Werkzeugkoordinator</a> des Vertragspartners:</strong> Beantragung von Verlagerungen und gegenüber dem OEM verantwortlich für die Durchführung, Herstellen der prozessualen Voraussetzungen (z.B. vorher Inventur durchführen).</li>
+                                    <li><strong>Werkzeugverantwortlicher des OEM:</strong> Prüfung von Verlagerungsanträgen, interne Organisation der Genehmigung und Vereinbarung von alternativen Lösungen im Fall einer Ablehnung.</li>
+                                    <li><strong>Steuerfachstellen des OEM:</strong> Prüfung aus steuerlicher Sicht, Ermitteln von alternativen Vorgehensweisen.</li>
+                                    <li><strong>Zukünftiger Betreiber:</strong> Dokumentation des Eintreffens der Fertigungsmittel ("Check-in").</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/983a5b25-47d7-4d9d-a3bd-608eccbdb757/unsplash-image-f4bfvVXKZP8.jpg" alt="Unterwasseraufnahme mit bläulichem Lichtspiel">
+                <div class="image-overlay">
+                    <h3>Verlagerung</h3>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 1.1rem;">Mit dem Verlagerungsprozess auf orca werden Verlagerungen von Fertigungsmitteln beantragt, geprüft, genehmigt und die Durchführung dokumentiert.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="video-grid">
+            <div class="video-item">
+                <div class="video-placeholder">
+                    <p>Video: Verlagerungsprozess erklärt (DE)</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Dauer: ca. 3:37 Min.</p>
+                </div>
+                <p class="video-caption">Verlagerungsprozess erklärt (DE).</p>
+            </div>
+            <div class="video-item">
+                <div class="video-placeholder">
+                    <p>Video: Relocation explained (EN)</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Duration: approx. 3:18 min.</p>
+                </div>
+                <p class="video-caption">Relocation explained (EN).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bmw-section">
+        <div class="bmw-header">
+            <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1626680417032-RLHDSA3V79S0CGN7XPTK/BMW+Logo+hochauflo%CC%88send.png" alt="BMW Logo" class="bmw-logo">
+            <h3>Verlagerung bei der BMW Group</h3>
+        </div>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Eckpunkte</span>
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Ab dem 03.05.2023 sind alle zukünftigen und noch nicht an BMW kommunizierten Verlagerungen von SBM über MyTools/orca zu beantragen.</p>
+                        <p>Die Genehmigung der Verlagerung der SBM Kaufteile erfolgt ausschließlich über MyTools/orca, und zwar für alle betroffenen abgerechneten Fertigungsmittel, die in MyTools/orca aufgeführt sind, unabhängig von einer anderweitig erteilten generellen Verlagerungserlaubnis (über das Zustimmungsschreiben Verlagerung bzw. "approval letter relocation").</p>
+                        <p>Unangemeldete oder abweichend von einer Genehmigung durchgeführte Verlagerungen begründen ggf. Schadenersatzansprüche und das Risiko für BMW und den Lieferanten, in Strafverfahren involviert zu werden.</p>
+                        <p>Sind von der Verlagerung weitere Fertigungsmittel bzw. Produktions- und Auslieferungsstandorte in Gänze betroffen, so teilt der Lieferant dies dem Facheinkauf unabhängig von MyTools/orca mit.</p>
+                        <p>Der Verlagerungsprozess für SBM wird in zwei Abschnitten eingeführt:</p>
+                        <ul>
+                            <li>Abschnitt 1: Beantragung der Verlagerung bis zur Gesamtgenehmigung, Einführung ab 03.05.2023.</li>
+                            <li>Abschnitt 2: Durchführung genehmigter Verlagerungen, ab 01.07.2023.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Hinweise für Lieferanten</span>
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Bitte melden Sie Verlagerungen möglichst frühzeitig an, mindestens sechs Monate bei einem negativen Vorprüfungsergebnis.</p>
+                        <p><strong>Bitte beachten Sie:</strong> Ein Verlagerungsantrag benötigt</p>
+                        <ul>
+                            <li>einen <strong>bestätigten</strong> Status der Fertigungsmittel in orca, durch eine ABL oder Inventur.</li>
+                            <li>Fertigungsmittel mit einer Rechnungsbuchung.</li>
+                            <li>vollständige Fertigungsmittelangaben: Maße, Gewicht und (neu für Verlagerung) <strong>Zolltarifnummer</strong>. Zolltarifnummern sind über <a href="https://www.zolltarifnummern.de" target="_blank">zolltarifnummern.de</a> recherchierbar, ein Beispiel für eine Nummer ist die 82073010 für Presswerkzeuge zur Metallbearbeitung (Bereich 8207).</li>
+                        </ul>
+                        <p>Bitte wenden Sie sich an das Inventurbüro bzw. den orca support für Inventuren bei betroffenen Fertigungsmitteln.</p>
+                        <p>Der Status des Verlagerungsantrages ist in MyTools/orca für Sie ersichtlich.</p>
+                        <p>Bitte beachten Sie die Begründung und ggf. zusätzliche Maßnahmen bei einer Ablehnung. Es kann durchaus sein, dass zwar die Verlagerung der Fertigungsmittel im steuerlichen Sinne nicht möglich ist, das gesamte Vorhaben aber durchführbar ist, nur unter anderen Bedingungen (z.B. Neukauf).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>Hinweise für Facheinkäufer</span>
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Für den Verlagerungsprozess werden BMW intern Dialogveranstaltungen angeboten. Nähere Informationen, Anleitungen, Videos, etc. finden Sie auf der <strong>MyTools Homepage.</strong></p>
+                        <p>Ab dem 03.05.2023 ist in LiNuM die steuerliche Vorprüfung auch für Resourcing-Vorgänge umgesetzt. Die Einbindung der Steuerfachstellen erfolgt weiterhin über die intern bekannten Adressen.</p>
+                        <p>Bitte beachten Sie, dass LiNuM relevante Verlagerungen nicht ohne Verknüpfung zum LiNuM Vorgang in MyTools durchgeführt werden dürfen. Diese Verknüpfung ist vom Facheinkäufer herzustellen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/a1768cd0-e929-41fc-a5ed-87dc07e9c284/Verlagerung+Prozess+DE.png" alt="Verlagerung Prozess Diagramm" class="process-image">
+
+        <div class="btn-container">
+            <a href="assetcoordinator.html" class="btn-primary" target="_blank">Klickanleitung Verlagerung (für Lieferanten)</a>
+            <a href="supportrelocationexecution.html" class="btn-primary" target="_blank">Liefernachweis (Gelangensbestätigung)</a>
+        </div>
+
+        <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/78da8f79-572e-4d5c-b49f-d84112679215/Ampel+steuerliche+Vorpu%CC%88fung+DE.png" alt="Ampel steuerliche Vorprüfung" class="ampel-image">
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const content = button.nextElementSibling;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items in the same accordion
+                const accordion = item.parentElement;
+                accordion.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
