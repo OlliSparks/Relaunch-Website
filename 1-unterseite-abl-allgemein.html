@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abnahmebereitschaftserklärung (ABL) — orca. organizing company assets.</title>
+    <meta name="description" content="Die Abnahmebereitschaftserklärung als Beginn des Fertigungsmittellebenslaufs auf orca. ABL-Prozess für Lieferanten und OEMs.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .hero { padding: 140px 2rem 60px; text-align: center; background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%); }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero p { color: var(--text-secondary); font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+        .content-section { padding: 60px 2rem; max-width: 1200px; margin: 0 auto; }
+
+        .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-bottom: 4rem; }
+        .info-card { background: var(--bg-alt); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); }
+        .info-card h3 { font-size: 1.25rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem; }
+        .info-card p { color: var(--text-secondary); font-size: 1rem; line-height: 1.8; }
+
+        .highlight-box { background: linear-gradient(135deg, var(--primary) 0%, #2a3a7d 100%); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin: 3rem 0; }
+        .highlight-box h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+        .highlight-box p { font-size: 1.1rem; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+
+        .bmw-reference { background: var(--bg-alt); padding: 2rem; border-radius: 16px; border-left: 4px solid var(--accent); margin-top: 2rem; }
+        .bmw-reference h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .bmw-reference p { color: var(--text-secondary); font-size: 1rem; }
+
+        .cta-section { text-align: center; margin-top: 3rem; }
+        .cta-btn { display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3); }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; margin-top: 4rem; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 968px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html" class="active">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Die Abnahmebereitschaftserklärung als Beginn des Fertigungsmittellebenslaufs auf orca.</h1>
+        <p>Die ABL initiiert den Abnahme- und Zahlungsprozess für Lieferantenwerkzeuge zwischen Vertragspartner und OEM.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Grundlagen</h3>
+                <p>Lieferantenwerkzeuge sind formgebende Fertigungsmittel im Besitz des Lieferanten, aber typischerweise im Eigentum des Herstellers des Endproduktes. Die ABL initiiert den Abnahme- und Zahlungsprozess. Der Lieferant stellt Belege bereit wie Fotos, Geokoordinaten, Betreiberfirmen und Abmessungen.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Prozess</h3>
+                <p>Die Abnahmebereitschaftserklärung des Lieferanten wird vom Lieferanten initiiert und komplettiert. Erklärungen durchlaufen automatisierte Prüfung beim OEM. Mit Akzeptanz ist eine Abnahmevoraussetzung erfüllt. Details finden sich in der Anleitung.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Rollen</h3>
+                <p>Der Werkzeugkoordinator auf Lieferantenseite steuert die ABL. Der Facheinkäufer beim OEM prüft Sonderfälle und gibt Erklärungen frei.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h2>Abnahmebereitschaftserklärung des Lieferanten (ABL)</h2>
+            <p>Die ABL ist eine Voraussetzung für die geprüfte und abgesicherte Abnahme der Fertigungsmittel durch den Auftraggeber. Sie dokumentiert Existenz, Standort und Zustand der Werkzeuge digital und nachvollziehbar.</p>
+        </div>
+
+        <div class="bmw-reference">
+            <h3>BMW Group Referenz</h3>
+            <p>Der ABL-Prozess bei BMW Group ersetzt den bisherigen RMT- bzw. eBestellungsprozess. Die digitale Abnahmebereitschaftserklärung über orca ermöglicht eine effizientere und transparentere Abwicklung für alle Beteiligten.</p>
+        </div>
+
+        <div class="cta-section">
+            <a href="toolingcoordinator-abl.html" class="cta-btn">Zur ABL-Anleitung</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>

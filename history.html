@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lieferantenwerkzeuge - Hintergrund — orca. organizing company assets.</title>
+    <meta name="description" content="Lieferantenwerkzeuge - eine besondere Herausforderung. 700.000 Werkzeuge in der deutschen Automobilindustrie effizient verwalten.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .hero { padding: 140px 2rem 60px; text-align: center; background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%); }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero p { color: var(--text-secondary); font-size: 1.2rem; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+
+        .content-section { padding: 60px 2rem; max-width: 1200px; margin: 0 auto; }
+
+        .facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4rem; }
+        .fact-card { background: var(--bg-alt); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); text-align: center; }
+        .fact-number { font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
+        .fact-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .fact-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        .characteristics-section { margin: 3rem 0; }
+        .characteristics-section h2 { font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2rem; text-align: center; }
+        .char-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .char-card { background: white; padding: 1.5rem 2rem; border-radius: 12px; border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 1rem; }
+        .char-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .char-icon span { color: white; font-size: 1.2rem; }
+        .char-content h4 { font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.25rem; }
+        .char-content p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        .challenge-box { background: linear-gradient(135deg, var(--primary) 0%, #2a3a7d 100%); color: white; padding: 3rem; border-radius: 20px; text-align: center; margin: 3rem 0; }
+        .challenge-box h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+        .challenge-box p { font-size: 1.1rem; opacity: 0.9; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+
+        .solution-section { text-align: center; margin-top: 3rem; padding: 2rem; background: var(--bg-alt); border-radius: 16px; }
+        .solution-section h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1rem; }
+        .solution-section p { color: var(--text-secondary); font-size: 1.05rem; max-width: 700px; margin: 0 auto; }
+
+        .cta-section { text-align: center; margin-top: 3rem; }
+        .cta-btn { display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3); }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; margin-top: 4rem; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 968px) {
+            .facts-grid { grid-template-columns: 1fr; }
+            .char-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero p { font-size: 1rem; }
+            .fact-number { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html" class="active">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Lieferantenwerkzeuge - eine besondere Herausforderung</h1>
+        <p>Lieferantenwerkzeuge sind formgebende Fertigungsmittel im Besitz des Lieferanten, aber typischerweise im Eigentum des OEM. Diese Werkzeuge werden individuell für modellspezifische Teile gefertigt und repräsentieren eine erhebliche Kapitalinvestition - etwa 5-10% der Beschaffungskosten in automobilen Lieferketten.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="facts-grid">
+            <div class="fact-card">
+                <div class="fact-number">700.000</div>
+                <h3>Werkzeuge</h3>
+                <p>existieren in den Inventaren der deutschen Automobilindustrie</p>
+            </div>
+            <div class="fact-card">
+                <div class="fact-number">70+</div>
+                <h3>Länder</h3>
+                <p>mit verteilten Werkzeugstandorten weltweit</p>
+            </div>
+            <div class="fact-card">
+                <div class="fact-number">4.000</div>
+                <h3>Lieferanten</h3>
+                <p>mit über 20.000 Produktionsstandorten</p>
+            </div>
+        </div>
+
+        <div class="characteristics-section">
+            <h2>Eigenschaften von Lieferantenwerkzeugen</h2>
+            <div class="char-grid">
+                <div class="char-card">
+                    <div class="char-icon"><span>🌍</span></div>
+                    <div class="char-content">
+                        <h4>Globale Verteilung</h4>
+                        <p>Präsent in über 70 Ländern bei 4.000 Lieferanten mit 20.000 Produktionsstandorten</p>
+                    </div>
+                </div>
+                <div class="char-card">
+                    <div class="char-icon"><span>🔗</span></div>
+                    <div class="char-content">
+                        <h4>Supply Chain Präsenz</h4>
+                        <p>Bei First-Tier-Lieferanten und gelegentlich auf Second- und Third-Tier-Ebene</p>
+                    </div>
+                </div>
+                <div class="char-card">
+                    <div class="char-icon"><span>💰</span></div>
+                    <div class="char-content">
+                        <h4>Hoher Wert</h4>
+                        <p>Können je nach Technologie sechsstellige Anschaffungskosten erreichen</p>
+                    </div>
+                </div>
+                <div class="char-card">
+                    <div class="char-icon"><span>🔧</span></div>
+                    <div class="char-content">
+                        <h4>Individuelle Fertigung</h4>
+                        <p>Individuell produziert, selten in Serie gefertigt</p>
+                    </div>
+                </div>
+                <div class="char-card">
+                    <div class="char-icon"><span>👥</span></div>
+                    <div class="char-content">
+                        <h4>Mehrere Stakeholder</h4>
+                        <p>Eigentümer, Vertragspartner, Betreiber und Hersteller involviert</p>
+                    </div>
+                </div>
+                <div class="char-card">
+                    <div class="char-icon"><span>📊</span></div>
+                    <div class="char-content">
+                        <h4>Hohe Komplexität</h4>
+                        <p>Steuerliche Verpflichtungen variieren je nach Standort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="challenge-box">
+            <h2>Die Kernherausforderung</h2>
+            <p>Traditionelle Methoden wie Excel-Tabellen erweisen sich als unzureichend für die Inventur-Compliance. Steuerliche Verpflichtungen variieren je nach Standort, und die Entsorgung erfordert das Verständnis lokaler Vorschriften neben vertraglichen Beziehungen.</p>
+        </div>
+
+        <div class="solution-section">
+            <h3>Die Lösung: orca</h3>
+            <p>orca wurde gegründet, um diese Herausforderungen durch standardisiertes Inventarmanagement für OEMs und Lieferanten zu adressieren - digital, transparent und effizient.</p>
+        </div>
+
+        <div class="cta-section">
+            <a href="kontakt.html" class="cta-btn">Kontaktieren Sie uns</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,965 @@
+================================================================================
+TEXTAUSZUG - ORCA RELAUNCH WEBSITE (DARK MODE)
+================================================================================
+Erstellt am: 04.12.2025
+Zweck: Inhaltlicher Check und Textaenderungen
+================================================================================
+
+
+================================================================================
+SEITE 1: INDEX.HTML (Startseite)
+================================================================================
+
+[NAVIGATION]
+- orca. organizing company assets (Logo)
+- Start
+- Prozesse
+- Erfolgsgeschichten
+- Support
+- Ueber uns
+- Demo anfragen (Button)
+
+--------------------------------------------------------------------------------
+
+[HERO-BEREICH]
+
+Titel: Werkzeug-Management der Zukunft.
+
+Untertitel:
+Die Plattform fuer Ihre Lieferantenwerkzeuge in der Automobilindustrie.
+orca verbindet OEMs und Lieferanten weltweit - fuer Inventuren, Verlagerungen
+und den gesamten Lebenszyklus Ihrer Fertigungsmittel.
+
+Badges:
+- KI-gestuetzt
+- API-basiert
+- Mobil
+
+Buttons:
+- Film ansehen
+- Demo anfragen
+
+Video-Label: orca in 2 Minuten erklaert
+
+--------------------------------------------------------------------------------
+
+[KERNPROZESSE]
+
+Label: Kernprozesse
+Titel: Der komplette Lebenszyklus
+
+Untertitel:
+Von der Abnahme bis zur Verschrottung - orca begleitet Ihre Fertigungsmittel
+durch alle Phasen mit digitalisierten, effizienten Prozessen.
+
+Prozess 01 - ABL:
+Die Abnahmebereitschaftserklaerung als Beginn des Fertigungsmittel-Lebenszyklus.
+Validierte Fotos und Dokumentation fuer maximale Compliance.
+
+Prozess 02 - Inventur:
+Effiziente Inventuren von Fertigungsmitteln - remote oder vor Ort.
+Ueber alle Standorte und Unterlieferanten hinweg.
+
+Prozess 03 - Vertragspartnerwechsel:
+Wenn Werkzeuge den Vertragspartner wechseln.
+Strukturiert uebergeben mit lueckenloser Dokumentation.
+
+Prozess 04 - Verlagerung:
+Weltweite Verlagerungen anmelden, pruefen und durchfuehren.
+Regelbasiert und automatisch compliant.
+
+Prozess 05 - Verschrottung:
+Ende des Lebenszyklus strukturiert abwickeln.
+Mit allen Beteiligten und vollstaendiger Dokumentation.
+
+Link: Alle Prozesse entdecken
+
+--------------------------------------------------------------------------------
+
+[VORTEILE - WAS ORCA AUSZEICHNET]
+
+Label: Vorteile
+Titel: Was orca auszeichnet
+
+1. Flexible Prozesstiefe
+Je nach Anforderung und OEM werden Prozesse unterschiedlich tief durchlaufen.
+Von der einfachen Bestandsbestaetigung per Haken bis zur Vollinventur mit Foto-Nachweisen.
+
+2. Rollen und Verantwortlichkeiten
+Jedes Unternehmen kann Rollen und Verantwortlichkeiten so zuweisen, dass die
+Werkzeuge der eigenen Organisation entsprechend verankert sind. Vom Konzern bis zum einzelnen Standort.
+
+3. Sub-Lieferanten kostenlos
+Jedes Unternehmen kann Sub-Lieferanten auf die Plattform holen. Werkzeuge koennen
+weitergeleitet werden - der Sub hat alle Features, die er braucht, ohne Gebuehren.
+
+4. Mobil ohne App
+orca funktioniert auf allen Mobilgeraeten, ohne separate Apps. Fotos und Checks
+koennen direkt am Werkzeug aufgenommen werden.
+
+5. Need-to-know Prinzip
+Die Lieferantenkette wird nur so weit angezeigt, wie es zur Durchfuehrung der
+Prozesse erforderlich ist. Jeder sieht die Informationen zum Werkzeug und kann seine eigenen ergaenzen.
+
+6. Eigene Nummernsysteme
+Nuetzlich fuer Unternehmen, die mit der OEM-Inventarnummer wenig anfangen koennen.
+BM-Nummern, FM-Nummern und dergleichen fuer Betrieb und Instandhaltung nutzen.
+
+7. Automatische Validierung
+Nachweise werden automatisch validiert, Fotos analysiert, Inventarnummern ausgelesen
+und verglichen, Doppelungschecks ausgefuehrt - alles automatisch.
+
+8. Automatischer Steuerberater
+Vorhaben wie Verlagerungen werden automatisch auf Zulaessigkeit und Durchfuehrbarkeit
+beurteilt. Die Regelwerke sind durch die Fachabteilungen einstellbar.
+
+--------------------------------------------------------------------------------
+
+[HERAUSFORDERUNG UND LOESUNG]
+
+Die Herausforderung:
+- Lieferantenwerkzeuge im Wert von Milliarden Euro - verteilt auf tausende Standorte weltweit
+- Inventuren mit Excel, E-Mail und Telefon? Ineffizient und fehleranfaellig
+- Keine Transparenz ueber die komplette Supply Chain bis zum n-Tier
+- Compliance-Risiken bei Verlagerungen ohne Dokumentation
+- Wirtschaftspruefer fordern belastbare Nachweise
+
+Die Loesung: orca
+- Eine Plattform fuer alle Beteiligten - OEMs, Vertragspartner, Betreiber, Werkzeughersteller
+- Digitale, automatisierte und regelbasierte Prozesse
+- Echtzeit-Transparenz ueber die gesamte Lieferkette
+- KI-gestuetzte Validierung von Fotos und Nachweisen
+- Audit-sichere Dokumentation fuer Compliance
+
+--------------------------------------------------------------------------------
+
+[MEHRWERT FUER ALLE BETEILIGTEN]
+
+Label: Vorteile
+Titel: Mehrwert fuer alle Beteiligten
+Untertitel: orca schafft Effizienz und Transparenz - fuer OEMs und Lieferanten gleichermassen.
+
+Fuer OEMs:
+- Vollstaendige Transparenz ueber alle Werkzeuge in der Supply Chain
+- Automatisierte Compliance-Pruefungen nach laenderspezifischen Regelwerken
+- KI-gestuetzte Validierung von Fotos, Inventarnummern und Nachweisen
+- API-basierte Integration in SAP, Oracle und bestehende Systeme
+- Audit-sichere Dokumentation fuer Wirtschaftspruefer
+
+Fuer Lieferanten:
+- Einfache mobile Nutzung auf allen Geraeten - ohne separate App
+- Sublieferanten kostenlos auf die Plattform einbinden
+- Eigene Nummernsysteme (BM, FM) parallel zur OEM-Inventarnummer
+- Automatische Dokumentenerstellung fuer Zoll und Steuerbehoerden
+- Weniger Aufwand durch digitalisierte, gefuehrte Prozesse
+
+--------------------------------------------------------------------------------
+
+[BMW REFERENZ]
+
+Badge: Premium-Kunde
+Titel: BMW Group vertraut auf orca
+
+Zitat:
+BMW hat sich fuer orca als die spezialisierte Plattform fuer werkzeugbezogene
+Prozesse in globalen Wertschoepfungsketten entschieden und begleitet orca als Premium-Customer.
+
+Statistiken:
+- 200.000+ Werkzeuge im Scope
+- 3.000+ Unternehmen
+- 70+ Laender weltweit
+- 99,83% Inventurerfolg
+
+Link: Zur Erfolgsgeschichte
+
+--------------------------------------------------------------------------------
+
+[LIEFERANTEN-TEASER]
+
+Titel: Sie sind Lieferant?
+
+Text:
+Ihr OEM setzt auf orca - und das ist gut fuer Sie. Eine professionelle Plattform
+fuer Inventuren und Werkzeugprozesse, kostenlos fuer Sie, ohne IT-Aufwand.
+Im Normalfall ein Klick, bei Bedarf ein Foto - fertig.
+
+Link: Was das fuer Sie bedeutet
+
+--------------------------------------------------------------------------------
+
+[TECHNOLOGIE]
+
+Label: Technologie
+Titel: Bereit fuer die Zukunft
+Untertitel: Modernste Technologie fuer die Anforderungen der Automobilindustrie von morgen.
+
+- API-basiert: Nahtlose Integration in bestehende Systeme
+- Mobil: Alle Geraete, keine App noetig
+- KI-gestuetzt: Automatische Validierung und Analyse
+- Cloud-native: Skalierbar und sicher
+
+--------------------------------------------------------------------------------
+
+[CTA-BEREICH]
+
+Titel: Bereit, Ihr Werkzeugmanagement zu digitalisieren?
+
+Text:
+Lassen Sie uns gemeinsam besprechen, wie orca Ihre Prozesse
+effizienter und transparenter machen kann.
+
+Buttons:
+- Demo anfragen
+- Kontakt aufnehmen
+
+--------------------------------------------------------------------------------
+
+[FOOTER]
+- Impressum
+- Datenschutzhinweise
+- Datenschutzerklaerung
+- Nutzungsbedingungen
+- Kontakt
+
+
+================================================================================
+SEITE 2: LIEFERANTEN.HTML (Fuer Lieferanten)
+================================================================================
+
+[HERO-BEREICH]
+
+Label: Fuer Lieferanten
+
+Titel: So einfach kann Inventur sein - wenn Ihr OEM auf orca setzt.
+
+Untertitel:
+Eine professionelle Plattform, die Ihr OEM bezahlt. Sie nutzen sie einfach -
+ohne Kosten, ohne IT-Projekt, ohne Chaos.
+
+--------------------------------------------------------------------------------
+
+[WAS ORCA FUER SIE BEDEUTET]
+
+Titel: Was orca fuer Sie bedeutet
+
+1. Kostenlos fuer Sie
+Ihr OEM uebernimmt die Kosten fuer die Plattform. Sie brauchen keine Budgetfreigabe,
+keinen Genehmigungsprozess. Einfach loslegen.
+
+2. Keine Huerden
+orca laeuft im Browser - auf dem PC, Tablet oder Smartphone.
+Keine Software-Installation, kein IT-Projekt, keine Schulung noetig.
+
+3. So wenig Aufwand wie moeglich
+Im Normalfall: Ein Klick, fertig. Bei Bedarf: Foto als Nachweis.
+Automatische Pruefung sagt Ihnen sofort, ob alles passt - kein Nacharbeiten, keine Rueckfragen.
+
+4. Wird staendig besser
+orca ist eine SaaS-Loesung: Sie arbeiten immer mit der aktuellen Version, ohne Updates Ihrerseits.
+Und Ihr Feedback fliesst direkt in die Weiterentwicklung.
+
+--------------------------------------------------------------------------------
+
+[STIMMEN AUS DER PRAXIS]
+
+Titel: Stimmen aus der Praxis
+
+Zitat 1:
+Frueher habe ich fuer jede Inventur Excel-Listen hin- und hergeschickt.
+Jetzt oeffne ich den Link, klicke durch - fertig. Das spart mir jedes Mal Stunden.
+- Werkzeugverantwortlicher, Tier-1-Lieferant
+
+Zitat 2:
+Ich hatte Sorge, dass wieder ein kompliziertes System kommt. Aber orca laeuft einfach im Browser.
+Mein Werkstattleiter macht die Inventur jetzt direkt am Werkzeug mit dem Handy.
+- Betriebsleiter, Kunststofftechnik
+
+Zitat 3:
+Endlich weiss ich sofort, ob meine Eingaben passen. Keine Rueckfragen mehr,
+keine E-Mails mit Foto unscharf. Das System sagt mir direkt, was fehlt.
+- Sachbearbeiterin Fertigungsmittel, Werkzeugbau
+
+--------------------------------------------------------------------------------
+
+[IN DREI SCHRITTEN ERLEDIGT]
+
+Titel: In drei Schritten erledigt
+
+Schritt 1: Anfrage erhalten
+Ihr OEM startet einen Prozess - Sie werden benachrichtigt.
+
+Schritt 2: Im Browser oeffnen
+Kein Login-Chaos: Ein Link, Ihre Aufgaben auf einen Blick.
+
+Schritt 3: Erledigen - fertig
+Ein Klick oder ein Foto. Die Plattform prueft automatisch. Kein Hin und Her.
+
+--------------------------------------------------------------------------------
+
+[CTA-BEREICH]
+
+Titel: Fragen zu orca?
+
+Text:
+Sie nutzen orca bereits und haben Feedback? Oder moechten wissen,
+wie die Plattform genau funktioniert? Wir helfen gerne.
+
+Buttons:
+- Hilfe und FAQ
+- Kontakt aufnehmen
+
+
+================================================================================
+SEITE 3: PROZESSE.HTML
+================================================================================
+
+[HERO-BEREICH]
+
+Label: Der komplette Lebenszyklus
+
+Titel: Alle Prozesse. Eine Plattform.
+
+Untertitel:
+Von der Abnahme bis zur Verschrottung - orca begleitet Ihre Fertigungsmittel
+durch alle Phasen mit digitalisierten, effizienten Prozessen.
+
+--------------------------------------------------------------------------------
+
+[LEBENSZYKLUS-UEBERSICHT]
+
+1. ABL - 2. Inventur - 3. Vertragspartnerwechsel - 4. Verlagerung - 5. Verschrottung
+
+--------------------------------------------------------------------------------
+
+[PROZESS 01: ABL]
+
+Label: Prozess 01
+Titel: Abnahmebereitschaftserklaerung (ABL)
+
+Beschreibung:
+Die Abnahmebereitschaftserklaerung des Lieferanten (ABL) ist eine Voraussetzung
+fuer die gepruefte und abgesicherte Abnahme der Fertigungsmittel durch den
+Auftraggeber. Nachweise, validierte Fotos und Dokumentation minimieren das
+Compliance-Risiko und bilden die Basis fuer nachfolgende Prozesse des
+Bestandsmanagements.
+
+Key Features:
+- Verifizierte und abgesicherte Abnahme
+- Validierte Fotos mit Geo-Daten und Zeitstempel
+- Automatische Pruefung der Inventarnummer
+- Basis fuer alle nachfolgenden Prozesse
+
+--------------------------------------------------------------------------------
+
+[PROZESS 02: INVENTUR]
+
+Label: Prozess 02
+Titel: Inventur
+
+Beschreibung:
+Mit der Inventur bestaetigt der Vertragspartner und alle Beteiligten in der
+Supply Chain, dass die Fertigungsmittel existieren und sich an den erwarteten
+Standorten und Unternehmen befinden. Das Ergebnis entspricht einer Inventur
+eigener Fertigungsmittel - nur ueber mehrere Beteiligte und eine Vielzahl
+von Standorten.
+
+Key Features:
+- Bestandsbestaetigung ueber die gesamte Supply Chain
+- Remote-Inventur mit validierten Fotos moeglich
+- Automatische Doppelungschecks und Plausibilitaetspruefung
+- Vom 1st-Tier bis zum n-Tier durchgaengig
+
+--------------------------------------------------------------------------------
+
+[PROZESS 03: VERTRAGSPARTNERWECHSEL]
+
+Label: Prozess 03
+Titel: Vertragspartnerwechsel
+
+Beschreibung:
+Wenn Werkzeuge den Vertragspartner wechseln, muss die Uebergabe sauber
+dokumentiert werden. orca stellt sicher, dass alle Beteiligten - abgebender
+und uebernehmender Vertragspartner sowie der Auftraggeber - den Prozess
+transparent und nachvollziehbar durchlaufen.
+
+Key Features:
+- Strukturierter Uebergabeprozess
+- Dokumentierte Bestaetigung aller Beteiligten
+- Automatische Aktualisierung der Zustaendigkeiten
+- Lueckenlose Historie des Werkzeugs
+
+--------------------------------------------------------------------------------
+
+[PROZESS 04: VERLAGERUNG]
+
+Label: Prozess 04
+Titel: Verlagerung
+
+Beschreibung:
+Mit der Verlagerung wird der Standort des Fertigungsmittels auf Antrag des
+Vertragspartners geaendert. Dies erfolgt nach umfassender Pruefung verschiedener
+Kriterien und Genehmigung. Der Vertragspartner dokumentiert die Verlagerung
+in orca.
+
+Key Features:
+- Anmeldung, Pruefung und Durchfuehrung weltweit
+- Regelbasierte Compliance-Pruefung
+- Automatische Dokumentenerstellung
+- Genehmigungsworkflows mit allen Beteiligten
+- Automatische Compliance-Pruefung (Laenderspezifische Regelwerke, Umsatzsteuer, Zoll)
+- Dokumente fuer Zoll- und Steuerbehoerden
+
+--------------------------------------------------------------------------------
+
+[PROZESS 05: VERSCHROTTUNG]
+
+Label: Prozess 05
+Titel: Verschrottung
+
+Beschreibung:
+Am Ende des Lebenszyklus wird das Fertigungsmittel auf Antrag freigestellt.
+Der Antrag wird unter verschiedenen Aspekten geprueft, z.B. Langzeitversorgung
+und Erloespotenzial, und verarbeitet.
+
+Key Features:
+- Koordinierter Prozess mit allen Beteiligten
+- Pruefung von Langzeitversorgung
+- Bewertung des Erloespotenzials
+- Compliance-konforme Ausbuchung
+- Verifizierte Nachweise der Verschrottung
+- Dokumentation fuer Wirtschaftspruefer
+
+
+================================================================================
+SEITE 4: ERFOLGSGESCHICHTEN.HTML
+================================================================================
+
+[HERO-BEREICH]
+
+Label: Case Study
+Titel: BMW Group Erfolgsgeschichte
+
+Untertitel:
+Wie die BMW Group mit orca vollstaendige Transparenz ueber 200.000+
+Lieferantenwerkzeuge in 70+ Laendern erreicht hat.
+
+--------------------------------------------------------------------------------
+
+[STATISTIKEN]
+
+- 200.000+ Werkzeuge verwaltet
+- 3.000+ Unternehmen angebunden
+- 70+ Laender weltweit
+- 99,83% Inventurquote
+
+--------------------------------------------------------------------------------
+
+[TIMELINE - DIE REISE MIT BMW MYTOOLS]
+
+Titel: Die Reise mit BMW MyTools
+Untertitel: Von der ersten Inventur bis zur vollstaendig integrierten Plattform -
+ein Meilenstein nach dem anderen.
+
+2021 - Projektstart und Pilotphase:
+Start des Projekts BMW MyTools mit der SBM Kaufteile Inventur.
+Erfolgreiche Pilotphase an den Standorten BMW Motoren Steyr und Oxford -
+der Grundstein fuer eine transformative Partnerschaft.
+Badge: Pilot erfolgreich
+
+2022 - Einfuehrung ABL, Verlagerung und Vertragspartnerwechsel:
+Erweiterung der Plattform um drei zentrale Prozesse: Die
+Abnahmebereitschaftserklaerung (ABL) ermoeglicht nun die verifizierte
+Werkzeugabnahme. Der Verlagerungsprozess gewaehrleistet weltweite
+Compliance bei Werkzeugbewegungen. Der Vertragspartnerwechsel
+dokumentiert Uebergaben zwischen Lieferanten lueckenlos.
+Badge: 3 neue Prozesse
+
+2023 - Vollstaendiger Rollout BMW AG:
+Abschluss des Rollouts fuer den gesamten Hauptbestand der BMW AG.
+Die Plattform ist nun vollstaendig operativ - vom 1st-Tier bis zum
+n-Tier Lieferanten durchgaengig integriert.
+Badge: 100% Rollout
+
+2024 - Verschrottung und Abschluss Inventur:
+Der Verschrottungsprozess komplettiert den Werkzeug-Lebenszyklus auf
+der Plattform. Gleichzeitig wird die erste vollstaendige Inventurrunde
+erfolgreich abgeschlossen - mit einer beeindruckenden Quote von 99,83%.
+Jedes Werkzeug ist nun dokumentiert und nachverfolgbar.
+Badge: Lebenszyklus komplett
+
+2025 - Eigenstaendige Inventur durch OEM:
+Ein bedeutender Meilenstein: Die BMW Group fuehrt die Inventur nun
+eigenstaendig durch - ohne externe Unterstuetzung. Die Prozesse sind so
+etabliert und das Team so geschult, dass der OEM die volle Kontrolle
+uebernimmt. orca dient als zuverlaessige Technologieplattform im Hintergrund.
+Badge: OEM-Autonomie
+
+2026 - Einfuehrung Regelinventur (Zukunft):
+Die naechste Evolution: Regelbasierte und KI-gestuetzte Inventur.
+Intelligente Algorithmen analysieren Risikofaktoren und priorisieren
+Werkzeuge fuer die Pruefung. Lieferanten erhalten flexible
+Anpassungsmoeglichkeiten fuer ihre spezifischen Beduerfnisse.
+Das System lernt kontinuierlich und optimiert die Inventurzyklen automatisch.
+Badge: KI-gesteuert
+
+--------------------------------------------------------------------------------
+
+[PARTNER]
+
+Label: Gemeinsam zum Erfolg
+Titel: Partner im Projekt
+
+Untertitel:
+Eine erfolgreiche Transformation braucht starke Partner. Gemeinsam mit
+fuehrenden Beratungs- und Technologieunternehmen haben wir BMW MyTools
+zum Leben erweckt.
+
+1. Sulzer GmbH
+Rolle: Prozess- und IT-Beratung
+Beschreibung: Strategische Beratung fuer die Prozessgestaltung und
+IT-Integration in die bestehende BMW-Systemlandschaft.
+
+2. conaya
+Rolle: System-Integration
+Beschreibung: Entwicklung und Integration mit SAP-Systemen und weiteren
+OEM-spezifischen Schnittstellen.
+
+3. Fischer
+Rolle: Entwicklung und Betrieb
+Beschreibung: Technische Umsetzung, kontinuierliche Weiterentwicklung
+und zuverlaessiger Betrieb der Plattform.
+
+--------------------------------------------------------------------------------
+
+[CTA-BEREICH]
+
+Titel: Ihre Erfolgsgeschichte beginnt hier
+Untertitel: Erfahren Sie, wie orca auch Ihre Werkzeugprozesse transformieren kann.
+Button: Demo anfragen
+
+
+================================================================================
+SEITE 5: UEBER-UNS.HTML (Ueber uns)
+================================================================================
+
+[HERO-BEREICH]
+
+Titel: Wir machen Werkzeugmanagement zum Branchenstandard
+Untertitel: Von Praktikern fuer Praktiker - fuer eine effiziente Automobilindustrie
+
+--------------------------------------------------------------------------------
+
+[WOFUER WIR STEHEN]
+
+Titel: Wofuer wir stehen
+
+Text:
+Wir glauben, dass Werkzeugmanagement kein notwendiges Uebel sein muss.
+Dass es einfacher, fairer und menschlicher geht - fuer alle Beteiligten.
+Deshalb bauen wir nicht einfach Software, sondern eine Plattform,
+die Menschen verbindet statt Prozesse zu verkomplizieren.
+
+Unser Ziel: Ein Branchenstandard, der nicht von oben diktiert wird,
+sondern gemeinsam mit der Branche waechst.
+
+--------------------------------------------------------------------------------
+
+[WER WIR SIND]
+
+Titel: Wer wir sind
+
+Text:
+orca ist kein Konzernprojekt und kein Startup aus dem Lehrbuch.
+Wir sind ein kleines Team, das aus der Branche kommt und die Probleme
+aus eigener Erfahrung kennt. 2021 haben wir gesagt: Das muss besser gehen.
+Seitdem arbeiten wir jeden Tag daran - mit Leidenschaft, kurzen Wegen
+und offenen Tueren.
+
+Zitat:
+Wir wollten nie ein anonymer Software-Anbieter sein. Sondern Partner,
+die mit anpacken - und die man anrufen kann, wenns brennt.
+- Burkhard Grosche, Gruender
+
+Expertise-Karten:
+
+1. Branchenerfahrung
+Wir kennen die Prozesse aus erster Hand - aus der Arbeit bei OEMs und
+Tier-1-Lieferanten. Keine Theorie, sondern gelebte Praxis.
+
+2. Eine Plattform fuer alle
+Mit orca braucht nicht jeder OEM eine eigene Loesung. Ein System,
+ein Standard - entwickelt in Zusammenarbeit mit der Branche.
+
+3. Gemeinsame Datenbasis
+Eine Plattform, ein Datenmodell, alle Beteiligten. Vom OEM bis zum
+n-tier-Lieferanten, ueber den gesamten Lebenszyklus.
+
+--------------------------------------------------------------------------------
+
+[WAS UNS ANTREIBT]
+
+Titel: Was uns antreibt
+
+1. Kollaborativ
+Nicht proprietaer, sondern Branchenstandard. Offen fuer alle Beteiligten
+der Supply Chain.
+
+2. Fair
+Faire Preismodelle fuer OEMs, kostenlos fuer Lieferanten. Keine versteckten Kosten.
+
+3. Zuverlaessig
+99,83% Erfolgsquote. Bewaehrt bei ueber 3.000 Unternehmen in 70 Laendern.
+
+4. Pragmatisch
+Aus der Praxis fuer die Praxis. Keine Theorien, sondern Loesungen die funktionieren.
+
+--------------------------------------------------------------------------------
+
+[WIE WIR ARBEITEN]
+
+Titel: Wie wir arbeiten
+
+Text:
+Bei uns gibt es keine anonymen Ticket-Systeme und keine Warteschleifen.
+Wenn Sie anrufen, sprechen Sie mit Menschen, die Ihre Herausforderungen
+verstehen - weil sie selbst dort gearbeitet haben. Wir hoeren zu, wir lernen
+dazu, und wir setzen um. Schnell, direkt, unkompliziert.
+
+--------------------------------------------------------------------------------
+
+[TECHNOLOGIE]
+
+Titel: Technologie
+Untertitel: Moderne Technologie, die im Hintergrund bleibt - damit Sie sich
+auf Ihre Arbeit konzentrieren koennen.
+
+1. Cloud-native und sicher
+Skalierbar, immer verfuegbar, automatisch aktuell. Ohne IT-Projekte Ihrerseits.
+
+2. Intelligent automatisiert
+Automatische Foto-Validierung, Nummern-Erkennung, Dubletten-Pruefung.
+Weniger manueller Aufwand.
+
+--------------------------------------------------------------------------------
+
+[DAS UNTERNEHMEN]
+
+Titel: Das Unternehmen
+
+Standort:
+orca. organizing company assets GmbH
+Antonibergstrasse 17
+86643 Rennertshofen
+Deutschland
+
+Rechtliches:
+Handelsregister: HRB 10160
+Registergericht: Amtsgericht Ingolstadt
+USt-IdNr.: DE343734884
+Gegruendet: Mai 2021
+
+--------------------------------------------------------------------------------
+
+[CTA-BEREICH]
+
+Titel: Fragen? Lassen Sie uns sprechen.
+Text: Erfahren Sie, wie orca Ihr Werkzeugmanagement vereinfachen kann.
+
+Buttons:
+- Demo anfragen
+- Kontakt aufnehmen
+
+
+================================================================================
+SEITE 6: SUPPORT.HTML
+================================================================================
+
+[HERO-BEREICH]
+
+Label: Hilfe und Anleitungen
+Titel: Support Center
+Untertitel: Alle Informationen, Anleitungen und Ressourcen fuer die
+erfolgreiche Nutzung von orca.
+
+--------------------------------------------------------------------------------
+
+[PROZESS-TABS]
+
+- ABL
+- Inventur
+- Vertragspartnerwechsel
+- Verlagerung
+- Verschrottung
+
+--------------------------------------------------------------------------------
+
+[ABL - SUPPORT]
+
+Titel: Abnahmebereitschaftserklaerung (ABL)
+
+Intro:
+Die Abnahmebereitschaftserklaerung des Lieferanten (ABL) ist eine
+Voraussetzung fuer die gepruefte und abgesicherte Abnahme der
+Fertigungsmittel durch den Auftraggeber. Nachweise, validierte Fotos
+und Dokumentation minimieren das Compliance-Risiko und bilden die
+Basis fuer nachfolgende Prozesse des Bestandsmanagements.
+
+FAQ: Was ist die ABL?
+Die Abnahmebereitschaftserklaerung (ABL) markiert den Beginn des
+Fertigungsmittellebenslaufs auf orca. Sie ersetzt bei SBM Kaufteilen
+der BMW Group die bisherige SBM Bestaetigung.
+- Verifizierte und abgesicherte Abnahme durch den Auftraggeber
+- Validierte Fotos mit Geo-Daten und Zeitstempel
+- Automatische Pruefung der Inventarnummer
+- Basis fuer alle nachfolgenden Prozesse
+
+FAQ: Voraussetzungen und Vorbereitung
+Bevor Sie mit der ABL beginnen, stellen Sie sicher:
+- Werkzeugkoordinator ist im BMW B2B Portal angelegt
+- Registrierung in orca ist abgeschlossen
+- Mobilgeraet mit Kamera ist verfuegbar
+- Geo-Daten und Kamerazugriff sind aktiviert
+- Fotoaufloesung mindestens 1024x768
+
+FAQ: Schritt-fuer-Schritt Anleitung
+So fuehren Sie die ABL erfolgreich durch:
+- Melden Sie sich in orca an
+- Navigieren Sie zum ABL-Bereich
+- Waehlen Sie das entsprechende Werkzeug aus
+- Fotografieren Sie das Inventarschild
+- Fotografieren Sie das Gesamtwerkzeug
+- Pruefen Sie die automatische Validierung
+- Bestaetigen Sie die ABL
+
+Video-Anleitung: Video folgt in Kuerze...
+
+Ressourcen:
+- ABL Onboarding (Detaillierte Anleitung fuer Lieferanten)
+- Quick Guide Download (PDF-Anleitung zum Ausdrucken)
+- FAQ ABL (Haeufig gestellte Fragen)
+
+--------------------------------------------------------------------------------
+
+[INVENTUR - SUPPORT]
+
+Titel: Inventur
+
+Intro:
+Mit der Inventur bestaetigt der Vertragspartner und alle Beteiligten
+in der Supply Chain, dass die Fertigungsmittel existieren und sich
+an den erwarteten Standorten und Unternehmen befinden.
+
+FAQ: Was ist die Inventur in orca?
+Die Inventur in orca ermoeglicht eine effiziente Bestandsaufnahme ueber
+die gesamte Lieferkette - remote oder vor Ort.
+- Bestandsbestaetigung ueber die gesamte Supply Chain
+- Remote-Inventur mit validierten Fotos moeglich
+- Automatische Doppelungschecks und Plausibilitaetspruefung
+- Vom 1st-Tier bis zum n-Tier durchgaengig
+
+FAQ: Inventurplan und Zeitrahmen
+Die Inventur wird in Wellen durchgefuehrt. Ihr persoenlicher Zeitplan
+richtet sich nach Ihrer BMW Lieferantennummer.
+- Inventurauftraege werden automatisch zugestellt
+- In der Regel 4 Wochen Zeit zur Durchfuehrung
+- Zeitplan im Inventurplan einsehbar
+- Erinnerungen werden automatisch versendet
+
+FAQ: Durchfuehrung der Inventur
+Fuer die Durchfuehrung der Inventur werden zwei Fotos pro Werkzeug benoetigt:
+- Foto vom Inventarschild (Werkzeugkennung)
+- Foto vom Gesamtwerkzeug
+- Fotos muessen Geo-Daten enthalten
+- Mindestaufloesung: 1024x768
+- Automatische Validierung und Pruefung
+
+Ressourcen:
+- Inventur Onboarding (BMW AG Lieferanten-Onboarding)
+- Quick Guide Inventur (Anleitung fuer Inventurdurchfuehrer)
+- FAQ Inventur (Haeufig gestellte Fragen)
+
+--------------------------------------------------------------------------------
+
+[VERTRAGSPARTNERWECHSEL - SUPPORT]
+
+Titel: Vertragspartnerwechsel
+
+Intro:
+Wenn Werkzeuge den Vertragspartner wechseln, muss die Uebergabe sauber
+dokumentiert werden.
+
+FAQ: Was ist ein Vertragspartnerwechsel?
+Ein Vertragspartnerwechsel dokumentiert die strukturierte Uebergabe
+von Werkzeugen zwischen Lieferanten mit lueckenloser Nachverfolgbarkeit.
+- Strukturierter Uebergabeprozess zwischen Vertragspartnern
+- Dokumentierte Bestaetigung aller Beteiligten
+- Automatische Aktualisierung der Zustaendigkeiten
+- Lueckenlose Historie des Werkzeugs
+
+FAQ: Beteiligte am Prozess
+Am Vertragspartnerwechsel sind mehrere Parteien beteiligt:
+- Abgebender Vertragspartner (aktueller Lieferant)
+- Uebernehmender Vertragspartner (neuer Lieferant)
+- Auftraggeber (OEM)
+- Ggf. Betreiber am Standort
+
+FAQ: Ablauf des Wechsels
+Der Vertragspartnerwechsel erfolgt in definierten Schritten:
+- Antrag auf Vertragspartnerwechsel stellen
+- Pruefung und Genehmigung durch den Auftraggeber
+- Bestaetigung durch abgebenden Vertragspartner
+- Uebernahmebestaetigung durch neuen Vertragspartner
+- Automatische Aktualisierung der Stammdaten
+
+--------------------------------------------------------------------------------
+
+[VERLAGERUNG - SUPPORT]
+
+Titel: Verlagerung
+
+Intro:
+Mit der Verlagerung wird der Standort des Fertigungsmittels auf
+Antrag des Vertragspartners geaendert.
+
+FAQ: Was ist eine Verlagerung?
+Eine Verlagerung ist die Aenderung des Standorts eines Fertigungsmittels -
+ob innerhalb eines Landes oder grenzueberschreitend.
+- Anmeldung, Pruefung und Durchfuehrung weltweit
+- Regelbasierte Compliance-Pruefung
+- Automatische Dokumentenerstellung
+- Genehmigungsworkflows mit allen Beteiligten
+
+FAQ: Automatische Compliance-Pruefung
+orca prueft automatisch die Zulaessigkeit und Durchfuehrbarkeit jeder Verlagerung:
+- Laenderspezifische Regelwerke werden geprueft
+- Umsatzsteuerliche Compliance sichergestellt
+- Zollrechtliche Anforderungen beruecksichtigt
+- Automatischer Steuerberater fuer Verlagerungen
+
+FAQ: Dokumentenerstellung
+orca erzeugt automatisch alle notwendigen Dokumente:
+- Dokumente fuer Zollbehoerden
+- Dokumente fuer Steuerbehoerden
+- Verlagerungsprotokolle
+- Audit-sichere Nachweise
+
+--------------------------------------------------------------------------------
+
+[VERSCHROTTUNG - SUPPORT]
+
+Titel: Verschrottung
+
+Intro:
+Am Ende des Lebenszyklus wird das Fertigungsmittel auf Antrag freigestellt.
+
+FAQ: Was ist die Verschrottung?
+Die Verschrottung markiert das Ende des Werkzeug-Lebenszyklus mit
+vollstaendiger Dokumentation.
+- Koordinierter Prozess mit allen Beteiligten
+- Pruefung von Langzeitversorgung
+- Bewertung des Erloespotenzials
+- Compliance-konforme Ausbuchung
+
+FAQ: Pruefungskriterien
+Vor der Freigabe zur Verschrottung werden verschiedene Aspekte geprueft:
+- Langzeitversorgung sichergestellt?
+- Erloespotenzial vorhanden?
+- Weitere Verwendungsmoeglichkeiten?
+- Dokumentation vollstaendig?
+
+FAQ: Dokumentation und Nachweise
+Fuer eine ordnungsgemaesse Verschrottung werden folgende Nachweise benoetigt:
+- Verifizierte Nachweise der Verschrottung
+- Dokumentation fuer Wirtschaftspruefer
+- Ausbuchungsbelege
+- Compliance-Nachweis
+
+--------------------------------------------------------------------------------
+
+[DIREKTER SUPPORT]
+
+Titel: Direkter Support
+
+Text:
+Sie haben Fragen oder benoetigen Hilfe? Unser Support-Team ist fuer Sie da.
+
+Kontakt:
+- E-Mail: support@organizingcompanyassets.com
+- Dialogveranstaltung buchen
+
+Schnellzugriff:
+- orca Website
+- BMW MyTools
+- Alle Prozesse
+
+
+================================================================================
+SEITE 7: KONTAKT.HTML
+================================================================================
+
+[HERO-BEREICH]
+
+Titel: Kontakt.
+Untertitel: Interessiert? Kontaktieren Sie uns - wir freuen uns auf Ihre Nachricht.
+
+--------------------------------------------------------------------------------
+
+[KONTAKTDATEN]
+
+Titel: Kontaktdaten
+
+Unternehmen:
+orca. organizing company assets GmbH
+
+Adresse:
+Antonibergstrasse 17
+86643 Rennertshofen - Stepperg
+Deutschland
+
+Telefon:
++49-(0)8434-2569870
+
+E-Mail:
+contact@organizingcompanyassets.com
+
+Website:
+www.organizingcompanyassets.com
+
+--------------------------------------------------------------------------------
+
+[KONTAKTFORMULAR]
+
+Titel: Nachricht senden
+
+Formularfelder:
+- Name (Pflichtfeld)
+- Unternehmen (Pflichtfeld)
+- E-Mail
+- Telefon
+- Nachricht (Pflichtfeld)
+- Gewuenschte Kontaktaufnahme:
+  - Bitte rufen Sie mich zurueck (Checkbox)
+  - Kontakt per E-Mail (Checkbox)
+
+Button: Abschicken
+
+Hinweis:
+Pflichtfelder. Mit dem Absenden stimmen Sie der Verarbeitung Ihrer
+Daten gemaess unserer Datenschutzerklaerung zu.
+
+
+================================================================================
+FOOTER (auf allen Seiten identisch)
+================================================================================
+
+Links:
+- Impressum
+- Datenschutzhinweise
+- Datenschutzerklaerung
+- Nutzungsbedingungen
+- Kontakt
+
+
+================================================================================
+ENDE DES TEXTAUSZUGS
+================================================================================

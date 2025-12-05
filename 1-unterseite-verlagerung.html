@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verlagerung von Fertigungsmitteln — orca. organizing company assets.</title>
+    <meta name="description" content="Verlagerungen von Fertigungsmitteln beantragen, prüfen, genehmigen und dokumentieren. Automatische steuerliche Prüfung mit orca.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .hero { padding: 140px 2rem 60px; text-align: center; background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%); }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero p { color: var(--text-secondary); font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+        .content-section { padding: 60px 2rem; max-width: 1200px; margin: 0 auto; }
+
+        .intro-text { background: var(--bg-alt); padding: 2rem; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 3rem; }
+        .intro-text p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; }
+
+        .process-section { margin: 3rem 0; }
+        .process-section h2 { font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2rem; text-align: center; }
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .process-step { background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); position: relative; }
+        .step-number { position: absolute; top: -12px; left: 20px; background: var(--accent); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; }
+        .process-step h4 { font-size: 1rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; margin-top: 0.5rem; }
+        .process-step p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        .roles-section { margin: 3rem 0; }
+        .roles-section h2 { font-size: 1.75rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1.5rem; text-align: center; }
+        .roles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .role-card { background: var(--bg-alt); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); }
+        .role-card h4 { font-size: 1rem; font-weight: 600; color: var(--accent); margin-bottom: 0.5rem; }
+        .role-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        .bmw-reference { background: linear-gradient(135deg, var(--primary) 0%, #2a3a7d 100%); color: white; padding: 2.5rem; border-radius: 20px; margin-top: 3rem; }
+        .bmw-reference h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; }
+        .bmw-reference p { font-size: 1rem; opacity: 0.9; margin-bottom: 0.75rem; }
+
+        .cta-section { text-align: center; margin-top: 3rem; }
+        .cta-btn { display: inline-block; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; margin: 0 0.5rem; }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3); }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; margin-top: 4rem; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 968px) {
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .roles-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero p { font-size: 1rem; }
+            .process-grid { grid-template-columns: 1fr; }
+            .roles-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html" class="active">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Verlagerungen von Fertigungsmitteln</h1>
+        <p>Beantragen, prüfen, genehmigen und dokumentieren - mit automatischer steuerlicher Prüfung.</p>
+    </section>
+
+    <section class="content-section">
+        <div class="intro-text">
+            <p>Verlagerungen von Fertigungsmitteln sind nicht nur eine technisch-organisatorische Herausforderung, sondern auch steuerlich relevant. orca prüft Anträge automatisch auf steuerliche Zulässigkeit. Die Genehmigung oder Ablehnung entscheidet über die nachfolgende Durchführung. Verlagerungen werden vom Vertragspartner geplant, inklusive Teilverlagerungen. orca dokumentiert den Abschluss und erzeugt notwendige Dokumente automatisch.</p>
+        </div>
+
+        <div class="process-section">
+            <h2>Prozessablauf</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <span class="step-number">1</span>
+                    <h4>Antrag stellen</h4>
+                    <p>Vertragspartner stellt Antrag mit betroffenen Fertigungsmitteln</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">2</span>
+                    <h4>Interne Organisation</h4>
+                    <p>Werkzeugverantwortlicher beim OEM organisiert interne Genehmigung</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">3</span>
+                    <h4>Genehmigung</h4>
+                    <p>Genehmigung oder Ablehnung mit Begründung</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">4</span>
+                    <h4>Planung</h4>
+                    <p>Vertragspartner wird informiert und plant Durchführung</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">5</span>
+                    <h4>Dokumentation</h4>
+                    <p>Zukünftiger Betreiber dokumentiert Durchführung mit Foto-Check-in</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">6</span>
+                    <h4>Abschluss</h4>
+                    <p>Abgeschlossene Tranchen automatisch mit Pro-forma-Rechnung dokumentiert</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="roles-section">
+            <h2>Rollen und Verantwortlichkeiten</h2>
+            <div class="roles-grid">
+                <div class="role-card">
+                    <h4>Werkzeugkoordinator</h4>
+                    <p>Beantragung und Durchführungsverantwortung beim Vertragspartner</p>
+                </div>
+                <div class="role-card">
+                    <h4>Werkzeugverantwortlicher</h4>
+                    <p>Prüfung und Genehmigung beim OEM</p>
+                </div>
+                <div class="role-card">
+                    <h4>Steuerfachstellen</h4>
+                    <p>Steuerliche Prüfung beim OEM</p>
+                </div>
+                <div class="role-card">
+                    <h4>Zukünftiger Betreiber</h4>
+                    <p>Dokumentation des Eintreffens am neuen Standort</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bmw-reference">
+            <h3>BMW Group Richtlinien</h3>
+            <p>Ab 03.05.2023 müssen alle Verlagerungen über MyTools/orca beantragt werden.</p>
+            <p>Verlagerungen erfordern bestätigten Status durch ABL oder Inventur sowie Zolltarifnummern.</p>
+        </div>
+
+        <div class="cta-section">
+            <a href="toolingcoordinator-verlagerung.html" class="cta-btn">Antrag stellen</a>
+            <a href="toolingcoordinator-verlagerung-2.html" class="cta-btn">Durchführung</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>

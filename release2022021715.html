@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release 2022.02.17-18 | Abnahmebereitschaftserklärung — orca. organizing company assets.</title>
+    <meta name="description" content="Release Notes für orca Release 2022.02.17-18: Abnahmebereitschaftserklärung (ABL), Bestellhistorie, automatische Genehmigerermittlung und mehr.">
+    <link rel="icon" type="image/x-icon" href="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614001981319-WMI37RSML72LA7BK9RFO/favicon.ico?format=100w"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1C2553; --accent: #f97316; --accent-dark: #ea580c; --bg: #ffffff; --bg-alt: #f8fafc; --bg-card: #ffffff; --text-primary: #1C2553; --text-secondary: #64748b; --border: #e5e7eb; }
+        body { font-family: 'Oswald', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+        .nav-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text-primary); }
+        .orca-logo { width: 50px; height: 50px; }
+        .logo-text { font-size: 1.3rem; font-weight: 600; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-btn { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: white; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 600; text-decoration: none; }
+
+        .content-section { padding: 120px 2rem 60px; max-width: 1000px; margin: 0 auto; }
+
+        .release-header { text-align: center; margin-bottom: 3rem; }
+        .release-header h1 { font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .release-header h2 { font-size: 1.75rem; font-weight: 600; color: var(--accent); margin-bottom: 1.5rem; }
+        .release-intro { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+        .release-intro p { margin-bottom: 1rem; }
+
+        .feature-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+        .feature-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--text-secondary); font-size: 1.05rem; }
+        .feature-list li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+        .feature-list li strong { color: var(--text-primary); }
+
+        .link-abl { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .link-abl:hover { text-decoration: underline; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 4rem; }
+        .feature-card { text-align: center; }
+        .feature-card img { width: 100%; border-radius: 12px; box-shadow: 0 10px 40px rgba(28, 37, 83, 0.15); margin-bottom: 1.5rem; transition: transform 0.3s; }
+        .feature-card img:hover { transform: translateY(-5px); }
+        .feature-card h3 { font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .feature-card p { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; }
+
+        .footer { background: #0a0e1a; padding: 2rem; text-align: center; margin-top: 4rem; }
+        .footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        .footer a:hover { color: var(--accent); }
+
+        @media (max-width: 968px) {
+            .features-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .release-header h1 { font-size: 1.75rem; }
+            .release-header h2 { font-size: 1.25rem; }
+            .release-intro { font-size: 1rem; }
+            .feature-list li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="light-mode-index.html" class="logo-container">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1614000392428-0E4A0RYMFRVFUZXG8SYN/orca+Logo+2.png?format=100w" alt="orca Logo" class="orca-logo">
+                <span class="logo-text">orca<span>.</span> organizing company assets</span>
+            </a>
+            <div class="nav-links">
+                <a href="light-mode-prozesse.html">Prozesse</a>
+                <a href="light-mode-projekte.html">Referenzen</a>
+                <a href="light-mode-company.html">Unternehmen</a>
+                <a href="light-mode-dialog.html">Dialog</a>
+                <a href="https://app.organizingcompanyassets.com" class="nav-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content-section">
+        <div class="release-header">
+            <h1>Release 2022.02.17 - 18</h1>
+            <h2>Abnahmebereitschaftserklärung.</h2>
+        </div>
+
+        <div class="release-intro">
+            <p>Die Release-Nummer verrät nur im unscheinbaren Index "18" den erheblichen Sprung, den orca mit diesem Release macht:</p>
+
+            <ul class="feature-list">
+                <li>Die <strong>Abnahmebereitschaftserklärung (ABL)</strong> als neuer Prozess neben der Inventur.</li>
+                <li>Tiefgreifende <strong>Integration</strong>, u.a. Synchronisation der Bestellungen, Anlagen und Überspielen ABL und Inventurergebnisse für die automatisierte Verarbeitung in der Bestellschreibung und Anlagenbuchhaltung.</li>
+                <li>Automatische <strong>Genehmigerermittlung</strong> für Inventurergebnisse auf Auftraggeberseite.</li>
+                <li><strong>Bestellhistorie</strong> in der Fertigungsmittelakte.</li>
+                <li><strong>Bugfixes</strong>, u.a. beim Anlegen von Sublieferanten und <strong>vieles mehr</strong> "unter der Haube".</li>
+            </ul>
+
+            <p>Mehr zur Abnahmebereitschaftserklärung unter <a href="abl.html" class="link-abl">Abnahmebereitschaftserklärung</a>.</p>
+
+            <p>Wir bei orca wünschen Ihnen reibungslose ABLs und Nutzen mit unseren neuen Features und stehen Ihnen bei der Einführung der Abnahmebereitschaftserklärung im Support (und zur Not auch in der Entwicklung) zur Seite.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1651068840301-OHW3GAN5EB94GY4LWUR2/ABL.png" alt="ABL Navigation">
+                <h3>Abnahmebereitschaft erklären.</h3>
+                <p>Neuer Prozess in der Navigation. Das wichtigste Update für Lieferanten und Auftraggeber seit der Einführung des Inventurprozesses.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1651071800748-J69J5LVJH2K9JQQ4OZ61/Bestellhistorie.PNG" alt="Bestellhistorie">
+                <h3>Bestellhistorie einsehen.</h3>
+                <p>Mit welchen Bestellungen wurde das Fertigungsmittel bestellt und geändert. Auch filterbar.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="https://images.squarespace-cdn.com/content/v1/6033b0424da2f359a63062b9/1651071821866-SZU0T0ZIJL9HGTTP1VB9/Genehmigung+%282%29.png" alt="Genehmigung">
+                <h3>Genehmigen lassen.</h3>
+                <p>Als Werkzeugverantwortlicher beim Auftraggeber oder Facheinkäufer sorgt orca für die korrekte Genehmigung des Inventurergebnisses.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutzhinweise.html">Datenschutzhinweise</a>
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+        <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+        <a href="kontakt.html">Kontakt</a>
+    </footer>
+</body>
+</html>
